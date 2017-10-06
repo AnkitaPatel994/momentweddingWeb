@@ -60,7 +60,6 @@ $(function(){
 				alert("Wedding Update Successfully...");
 				window.location.reload();
 			}
-
 		});
 	});
 
