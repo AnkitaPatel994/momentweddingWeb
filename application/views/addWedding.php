@@ -3,11 +3,11 @@
       <div class="wedding-area row">
         <form id="addWeddingForm">
           <div class="input-field col s12 m4">
-            <input id="bride_name" type="text" class="validate" required="required">
+            <input id="bride_name" name="bride_name" type="text" class="validate" required="required">
             <label for="bride_name">Bride Name</label>
           </div>
           <div class="input-field col s12 m4">
-            <input id="groom_name" type="text" class="validate" required="required">
+            <input id="groom_name" name="groom_name" type="text" class="validate" required="required">
             <label for="groom_name">Groom Name</label>
           </div>
           <div class="input-field col s12 m4">
@@ -19,7 +19,7 @@
             <label for="invitation">Invitation</label>
           </div>
           <div class="input-field col s12">
-            <center><button class="btn black">Add</button></center>
+            <center><button type="button" class="btn black" id="sendWeddingData">Add</button></center>
           </div>
         </form>
       </div>

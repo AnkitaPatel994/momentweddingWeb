@@ -88,9 +88,10 @@ class Admin extends CI_Controller {
 	 		"bride_id"=>$_POST["bride_id"],
 	 		"groom_id"=>$_POST["groom_id"],
 	 		"date"=>$_POST["date"],
-	 		"invitation"=>$_POST["invitation"],
-	 		"code"=>$_POST["code"]
+	 		"invitation"=>$_POST["invitation"]
 	 	);
+	 	$this->wedding_model->updateProfile(array("name"=>$_POST["bride_name"]),$_POST["bride_id"]);
+	 	$this->wedding_model->updateProfile(array("name"=>$_POST["groom_name"]),$_POST["groom_id"]);
 	 	$this->wedding_model->updateWedding($result,$wedId);
 	 }
 	public function deleteWedding($wedId){
