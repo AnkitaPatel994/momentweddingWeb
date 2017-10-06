@@ -67,12 +67,12 @@ $(function(){
 	});
 	/*=============Profile========================*/
 
-	$(".edit-profile").on("click",function(){
-		$("#editProfileModal").modal('open');
-		$("#editProfileModal .modal-content").html("");
+	$(".btn-edit").on("click",function(){
+		$("#editProfile").modal('open');
+		$("#editProfile .modal-content").html("");
 		var profile=$(this).data("profile-id");
 		$.post(baseURL+"Admin/editProfile/"+profile,function(data){
-			$("#editProfileModal .modal-content").html(data);
+			$("#editProfile .modal-content").html(data);
 			 Materialize.updateTextFields();			 
 		});
 	});

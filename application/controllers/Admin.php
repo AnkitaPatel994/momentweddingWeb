@@ -105,6 +105,8 @@ class Admin extends CI_Controller {
 	 }
 
 	 public function profile(){
+	 	$this->load->model("profile_model");
+	 	$allProfile=$this->profile_model->allProfile();
 	 	$headerData = array(
 			"pageTitle" => "Profile Management",
 			"stylesheet" => array("admin-profile.css")
@@ -114,11 +116,48 @@ class Admin extends CI_Controller {
 		);
 		$viewData = array(
 			"viewName" => "admin-profile",
-            "viewData" => array(),
+            "viewData" => array("allProfile"=>$allProfile),
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
 		$this->load->view('admin-templete',$viewData);
 	 }
+
+	 public function updateProfile(){
+
+		$profileID=$_POST['profile-id'];
+
+		$this->load->model('profile_model');
+
+		$image = $profileID."_profileImage.".pathinfo($_FILES['profile_pic']['name'], PATHINFO_EXTENSION);		
+		$result=array(					
+					"name"=>$_POST['name'],
+			         "occupation"=>$_POST['occupation'],
+			         "profile_details"=>$_POST['profile_details'],								
+			);
+			if($_FILES['profile_pic']['name']!=""){			
+				$result["profile_pic"] = $image;
+
+				//set configuration for the upload library
+				$config['upload_path'] = 'C:\wamp\www\moment-wedding\html\images\profile';
+
+			    $config['allowed_types'] = 'gif|jpg|png';
+			    $config['overwrite'] = TRUE;
+			    $config['encrypt_name'] = FALSE;
+			    $config['remove_spaces'] = TRUE; 
+
+			    $config['file_name'] = $profileID."_profileImage";
+			    $this->load->library('upload', $config);	
+			    $this->upload->do_upload('profile_pic');		    
+			}
+			$this->profile_model->updateProfile($result,$profileID);	
+		}
+
+		public function editProfile($profileID){
+			$this->load->model("profile_model");
+			$result=$this->profile_model->singleProfile($profileID);
+			$this->load->view("updateProfile",$result);
+		}
+
 
 }
