@@ -29,14 +29,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
  <!--      <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
-   
+ 
+ <style type="text/css">
+     nav a.button-collapse{
+        display: block;
+     }
+ </style>  
 
 </head>
 
 <body class="grey lighten-2" >
     <?php $this->session->set_userdata("email","abc"); ?>
     <?php if($this->session->userdata("email")){ ?>
-    <nav class="purple lighten-1">
+    <nav>
         <ul id="slide-out" class="side-nav">
             <li><div class="user-view">
               <div class="background">
@@ -55,9 +60,5 @@
             <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-            
     </nav>
-
-
-
-    <?php }  ?>
+   <?php }  ?>
