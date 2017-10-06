@@ -2,23 +2,28 @@
     <form id="addForm" method="post" enctype="multipart/form-data">
       <div class="row">        
         <div class="input-field col s12">
-        <input id="title" name="title" type="text" class="validate" placeholder="Enter your Blog title">
-          <label for="title">Blog Title</label>
+        <input id="date" name="date" type="text" class="validate" placeholder="Enter your Date">
+          <label for="date">Bride Name</label>
         </div>
       </div>
-     <div class="row">
-          <div class="input-field col s12">
-            <input  name="image" id="image" type="file" class="validate"> 
-            <label for="name" style="margin-top: -42px !important;">Blog Image</label>
-          </div>
-      </div> 
-
-      <div class="row">
+      <div class="row">        
         <div class="input-field col s12">
-              <textarea  class="validate materialize-textarea"  id="details" name="details">
-              </textarea>
-              <label for="details">Blog Details</label>
-            </div>
-        </div> 
+        <input id="date" name="date" type="text" class="validate" placeholder="Enter your Date">
+          <label for="date">Groom Name</label>
+        </div>
+      </div>
+      <div class="row">        
+      <div class="input-field col s12">
+        <input id="date" name="date" type="text" class="validate" placeholder="Enter your Date">
+          <label for="date">Date</label>
+        </div>
+      </div>
+      <div class="row">        
+      <div class="input-field col s12">
+     <textarea name="invitation" id="invitation"></textarea>
+          <label for="invitation">Invitation</label>
+        </div>
+      </div>
+
     </form>
   </div>
