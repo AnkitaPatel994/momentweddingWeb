@@ -1,1 +1,30 @@
 /* admin profile css */
+.profile-area{
+	background: #fff;
+	padding: 25px;
+	top: 50px; 
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+
+.profile-img{
+	width: auto;
+	height: 50px;
+}
+textarea{
+	border: none;
+}
+.btn-edit {
+    background: #EEE;
+    border: 1px solid #ddd;
+    border-radius: 69px;
+    padding: 0px 7px;
+    margin: 0 auto;
+    text-align: center;
+}
+.btn-edit:hover{
+	background: rgba(0,0,0,0.2) !important;
+}

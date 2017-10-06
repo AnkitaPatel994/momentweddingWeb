@@ -110,7 +110,7 @@ class Admin extends CI_Controller {
 			"stylesheet" => array("admin-profile.css")
 		);
 		$footerData = array(
-			"jsFiles" => array("admin-profile.js")
+			"jsFiles" => array("admin-profile.js","admin.js")
 		);
 		$viewData = array(
 			"viewName" => "admin-profile",
