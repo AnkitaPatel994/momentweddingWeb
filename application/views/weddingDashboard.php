@@ -17,28 +17,32 @@
    	<table border="1" class="responsive-table centered">
     <thead>
    		<tr>
-        <th>Id</th>
-        <th>Bride Name</th>    
-        <th>Groom Name</th>
-        <th>Date</th>
-        <th>Invitation</th>
-        <th>Action</th>
+        <th>Order</th>
+        <th>Bride Id</th>    
+        <th>Groom Id</th>
+        <th>Date</th> 
+        <th>Invitation</th> 
+        <th>Code</th>          
+        <th>Actions</th>
    		</tr>
     </thead>
     <tbody>
+      <?php foreach ($allWeddingData as $key => $allWeddingRow) { ?>
+      <tr id="wed-id<?php echo $allWeddingRow['id']; ?>">  
+        <td><?php echo $allWeddingRow['id']; ?></td>         
+        <td><?php echo $allWeddingRow['bride_id']; ?></td>
+        <td><?php echo $allWeddingRow['groom_id']; ?></td>
+        <td><?php echo $allWeddingRow['date']; ?></td> 
+        <td><textarea><?php echo $allWeddingRow['invitation']; ?></textarea></td> 
+        <td><?php echo $allWeddingRow['code']; ?></td>        
       
-      <tr>  
-         <td>1</td>         
-        <td>Bride</td>
-        <td>Groom</td>        
-        <td>7 October, 2017</td>
-        <td><textarea>Lorem ipsum dolor sit amet, deserunt laboramus inciderint ius ea, in vel doctus quaestio. Wisi putant id sea, ad vel legendos inciderint. Ne quas salutatus cum. Alii elit dicta an vix, nibh eros verterem his cu. Est esse vivendo torquatos cu, vis hinc viderer eleifend ea. Ut iudicabit repudiandae duo, an mei posidonium mediocritatem.</textarea></td>
-        <!-- <td><img src="<?php echo base_url(); ?>html/images/blog/<?php echo $blogRow['image']; ?>" width="400" height="300"/></td>  -->    
-        <td class="right-align">
-        <a class="btn-floating waves-effect waves-light red delete-btn"><i class="material-icons">delete</i></a>
-        <a href="#weddingModal-update" class="btn-floating waves-effect waves-light btn modal-trigger"><i class="material-icons">mode_edit</i></a>
+        <td class="right-align blog-btn">
+        <a data-wed-id="<?php echo $allWeddingRow['id']; ?>" class="btn-floating waves-effect waves-light red delete-wedding"><i class="material-icons">delete</i></a>
+        <a data-wed-id="<?php echo $allWeddingRow['id']; ?>" class="btn-floating waves-effect waves-light blue-grey edit-wedding"><i class="material-icons">mode_edit</i></a>
+
         </td>
       </tr>
+      <?php } ?>
       </tbody>
    	</table>
    </div>

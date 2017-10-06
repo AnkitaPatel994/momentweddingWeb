@@ -6,7 +6,14 @@ class Wedding_model extends CI_Model
 {
 	
 	public function addWedding($wedData){
-		$this->db->insert("wedding",$wedData);
+		$insertData = array(
+			"bride_id" => $this->insertProfile($wedData["bride_name"]),
+			"groom_id" => $this->insertProfile($wedData["groom_name"]),
+			"date" => $wedData["date"],
+			"invitation" => $wedData["invitation"],
+			"code" => $this->generateCode()
+		);
+		$this->db->insert("wedding",$insertData);
 	}
 	public function updateWedding($wedData,$wedID){
 		$this->db->where("id",$wedID);
@@ -25,6 +32,18 @@ class Wedding_model extends CI_Model
 		$query=$this->db->query("select * from wedding");
 		$result=$query->result_array();
 		return $result;
+	}
+
+	public function insertProfile($profileName){
+		$profileData = array("name"=>$profileName);
+		$query = $this->db->insert("profile",$profileData);
+		$profileID = $this->db->insert_id();
+		return $profileID;
+	}
+
+	public function generateCode(){
+		$code = "xyz";
+		return $code;
 	}
 }
 

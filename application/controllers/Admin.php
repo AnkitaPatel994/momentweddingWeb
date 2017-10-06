@@ -23,7 +23,6 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
-
 	public function doLogin()
 	{	
 		$data=$_POST["data"];
@@ -69,17 +68,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin-templete',$viewData);
 	 }
 
+
+
 	public function addWedding(){
 	 	$this->load->model("wedding_model");
 	 	$result=array(
-	 		"bride_id"=>$_POST["bride_id"],
-	 		"groom_id"=>$_POST["groom_id"],
+	 		"bride_name"=>$_POST["bride_name"],
+	 		"groom_name"=>$_POST["groom_name"],
 	 		"date"=>$_POST["date"],
-	 		"invitation"=>$_POST["invitation"],
-	 		"code"=>$_POST["code"]
+	 		"invitation"=>$_POST["invitation"]
 	 	);
 	 	$this->wedding_model->addWedding($result);
-
 	 }
 
 	public function updateWedding(){
@@ -102,7 +101,6 @@ class Admin extends CI_Controller {
 	 	$this->load->model("wedding_model");
 	 	$result=$this->wedding_model->editWedding($wedId);
 	 	$this->load->view("updateWedding",$result);
-
 	 }
 
 }
