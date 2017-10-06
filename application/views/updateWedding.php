@@ -1,29 +1,25 @@
-<div class="row">
-    <form id="updateWeddingForm" method="post" enctype="multipart/form-data">
-      <div class="row">        
-        <div class="input-field col s12">
-      <input id="bride_name" name="bride_name" type="text" class="validate" placeholder="Enter your Bride Name" value="<?php echo ?>">
-          <label for="date">Bride Name</label>
-        </div>
+      <center><h4>Update Wedding</h4></center>
+      <!-- <p>A bunch of text</p> -->
+      <div class="wedding-area row">
+        <form>
+          <div class="input-field col s12 m4">
+            <input id="bride_name" type="text" class="validate" required="required" value="<?php echo $bride_name ?>">
+            <label for="bride_name">Bride Name</label>
+          </div>
+          <div class="input-field col s12 m4">
+            <input id="groom_name" type="text" class="validate" required="required" value="<?php echo $groom_name ?>">
+            <label for="groom_name">Groom Name</label>
+          </div>
+          <div class="input-field col s12 m4">
+            <input id="date" type="text"  class="datepicker validate" required="required" value="<?php echo $date ?>">
+            <label for="Date">Date</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="invitation" class="materialize-textarea" required="required"><?php echo $invitation?></textarea>
+            <label for="invitation">Invitation</label>
+          </div>
+          <div class="input-field col s12">
+            <center><button class="btn black">Update</button></center>
+          </div>
+        </form>
       </div>
-      <div class="row">        
-        <div class="input-field col s12">
-        <input id="groom_name" name="groom_name" type="text" class="validate" placeholder="Enter your Groom Name">
-          <label for="date">Groom Name</label>
-        </div>
-      </div>
-      <div class="row">        
-      <div class="input-field col s12">
-        <input id="date" name="date" type="text" class="validate" placeholder="Enter your Date">
-          <label for="date">Date</label>
-        </div>
-      </div>
-      <div class="row">        
-      <div class="input-field col s12">
-     <textarea name="invitation" id="invitation"></textarea>
-      <label for="invitation">Invitation</label>
-        </div>
-      </div>
-
-    </form>
-  </div>

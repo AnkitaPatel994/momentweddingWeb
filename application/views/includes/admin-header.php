@@ -34,13 +34,30 @@
 </head>
 
 <body class="grey lighten-2" >
+    <?php $this->session->set_userdata("email","abc"); ?>
     <?php if($this->session->userdata("email")){ ?>
-   <nav class="admin-header-area">
-        <div class="nav-wrapper">
-          <a href="<?php echo base_url(); ?>admin/admin_tour" class="brand-logo"><img src="<?php echo base_url(); ?>html/images/logo_black.png" height="100px" id="logo"></a>          
-        </div>
-        <div class="logoutBtn right"> 
-         <a href="<?php echo base_url(); ?>admin/logout/"><i class="fa fa-power-off" aria-hidden="true" style="font-size: 35px;color: #000;"></i></a>  
-        </div> 
+    <nav class="purple lighten-1">
+        <ul id="slide-out" class="side-nav">
+            <li><div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+              <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+              <a href="#!name"><span class="white-text name">John Doe</span></a>
+              <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div>
+            </li>
+
+            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            
     </nav>
+
+
+
     <?php }  ?>

@@ -1,15 +1,43 @@
 $(function(){
+
+	/*================ Navigation =================================*/
+
+	  $('.button-collapse').sideNav({
+	      menuWidth: 300, // Default is 300
+	      edge: 'left', // Choose the horizontal origin
+	      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+	      draggable: true, // Choose whether you can drag to open on touch screens,
+	      onOpen: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is opened
+	      onClose: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is closed
+	    }
+	  );
+
+	/*=============== DatePicker ==================*/
+	 $('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15, // Creates a dropdown of 15 years to control year,
+	    today: 'Today',
+	    clear: 'Clear',
+	    close: 'Ok',
+	    closeOnSelect: false // Close upon selecting a date,
+	  });
+
+	/* =========== Text-area ==========================================*/
+	  	$('#textarea1').val('');
+  		$('#textarea1').trigger('autoresize');
+
 	var baseURL=$("#base_url").val();
+
 	 $('.modal').modal();
-	/*====================Login========================================*/
-/*	var data={
+	/*==================*/
+	var data={
 		"email":$("#email").val(),
 		"password":$("#password").val()
 	}
 	$.post(baseURL+"Admin/doLogin/",{data:data},function(data){
 		var data=$.parseJSON(data);
 		if(data.status=="ok"){
-			alert("LOgin Successfully....");
+			alert("Login Successfully....");
 			window.location.href=baseURL;
 		}
 		if(data.status=="fail"){
@@ -21,7 +49,7 @@ $(function(){
 		}
 
 	});
-*/
+
 	/*====================Wedding========================================*/
 
 	$("#addWedding").on("click",function(){
