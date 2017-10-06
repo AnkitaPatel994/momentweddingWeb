@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
-    <title>aahvanadventures - <?php echo $pageTitle; ?></title>
+    <title>Wedding - <?php echo $pageTitle; ?></title>
     <!-- CSS-->
 
     <!-- Compiled and minified CSS -->
@@ -47,7 +47,7 @@
      
       <div class="login-page">
         <center>
-        <a href="<?php echo base_url(); ?>home" class="brand-logo"><img src="<?php echo base_url(); ?>html/images/logo_black.png" height="100px" id="logo"></a>
+        <a href="<?php echo base_url(); ?>admin" class="brand-logo">Logo<!-- <img src="<?php //echo base_url(); ?>html/images/logo_black.png" height="100px" id="logo"> --></a>
         </center>
       </div>
     

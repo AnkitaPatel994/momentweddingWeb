@@ -6,12 +6,16 @@ class Admin extends CI_Controller {
 	
 	public function index()
 	{		
+		if(!$this->session->userdata("admin")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
 		$headerData = array(
 			"pageTitle" => "Wedding Dashboard",
-			"stylesheet" => array("dashboard.css")
+			"stylesheet" => array("adminLogin.css")
 		);
 		$footerData = array(
-			"jsFiles" => array("admin.js")
+			"jsFiles" => array("adminLogin.js")
 		);
 		$viewData = array(
 			"viewName" => "weddingDashboard",
@@ -22,6 +26,20 @@ class Admin extends CI_Controller {
 		$this->load->view('admin-templete',$viewData);
 	}
 	public function login()
-	{	
+	{
+		$headerData = array(
+			"pageTitle" => "Admin Dashboard",
+			"stylesheet" => array("adminLogin.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("adminLogin.js")
+		);
+		$viewData = array(
+			"viewName" => "adminLogin",
+            "viewData" => array(),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
 	}
 }
