@@ -6,7 +6,7 @@
 
   <div class="page-header">
       <div class="page-title">Wedding Management</div>      
-      <div class="page-button"><a class="waves-effect waves-light btn blue" id="addBlogBtn">Add</a></div>
+      <div class="page-button"><a class="waves-effect waves-light btn blue" id="addWedding">Add</a></div>
   </div>
    <div class="page-content">
    	<table border="1" class="responsive-table centered">
@@ -45,17 +45,17 @@
 </div>   
 
 <!-- Modal Structure -->
-  <div id="addBlogModal" class="modal">
+  <div id="weddingModal" class="modal">
     <div class="modal-content">
-      <?php $this->load->view("addBlog"); ?>
+      <?php $this->load->view("addWedding"); ?>
     </div>
     <div class="modal-footer">
-      <a id="sendBlogData" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+      <a id="sendWeddingData" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
     </div>
   </div>
 
   <!-- Modal Structure -->
-   <div id="editBlogModal" class="modal">
+   <div id="editWeddingModal" class="modal">
     <div class="modal-content">
      </div>
 

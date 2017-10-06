@@ -2,7 +2,7 @@
 /**
 * 
 */
-class Wedding_model extends AnotherClass
+class Wedding_model extends CI_Model
 {
 	
 	public function addWedding($wedData){
@@ -28,10 +28,11 @@ class Wedding_model extends AnotherClass
 		$result=$query->row_array();
 		return $result;
 	}
+
 	public function allWeddingData(){
-		$query=$this->db->query("select * from wedding");
-		$result=$query->result_array();
-		return $result;
+	$query=$this->db->query("select * from wedding");	
+	$result=$query->result_array();
+	return $result;
 	}
 
 	public function insertProfile($profileName){

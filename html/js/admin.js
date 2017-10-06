@@ -1,9 +1,8 @@
 $(function(){
 	var baseURL=$("#base_url").val();
-	$('.modal').modal('open');
-
+	 $('.modal').modal();
 	/*====================Login========================================*/
-	var data={
+/*	var data={
 		"email":$("#email").val(),
 		"password":$("#password").val()
 	}
@@ -22,7 +21,7 @@ $(function(){
 		}
 
 	});
-
+*/
 	/*====================Wedding========================================*/
 
 	$("#addWedding").on("click",function(){
@@ -35,7 +34,7 @@ $(function(){
 		var formData = new FormData($("#addWeddingForm")[0]);
 		$.ajax({
 			data:formData,
-			url:"Admin/addWedding/",
+			url:baseURL+"Admin/addWedding/",
 			type:"POST",
 			contentType:false,
 			processData:false,
