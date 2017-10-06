@@ -52,9 +52,6 @@ $(function(){
 
 		});
 	});
-	/*===Update Wedding=======*/
-
-
 
 	/*===Edit Wedding=======*/
 
@@ -68,6 +65,32 @@ $(function(){
 			 initUpdateWedding();
 		});
 	});
+	/*=============Profile========================*/
+
+	$(".edit-profile").on("click",function(){
+		$("#editProfileModal").modal('open');
+		$("#editProfileModal .modal-content").html("");
+		var profile=$(this).data("profile-id");
+		$.post(baseURL+"Admin/editProfile/"+profile,function(data){
+			$("#editProfileModal .modal-content").html(data);
+			 Materialize.updateTextFields();			 
+		});
+	});
+
+	$("#updateProfileData").on("click",function(){
+	var formData = new FormData($("#updateProfileForm")[0]);
+	$.ajax({
+		data:formData,
+		url:baseURL+"Admin/updateProfile/",
+		type:"POST",
+		contentType:false,
+		processData:false,
+		success:function(result){
+			alert("Profile Update Successfully...");
+			//window.location.reload();
+		}
+	});
+  });
 
 	/*===Delete Wedding=======*/
 
@@ -80,7 +103,7 @@ $(function(){
 	  }
     });
 
-    /*====================Profile========================================*/
+   	/*================Update Wedding=======================================*/
 
 
 });
@@ -97,15 +120,13 @@ function initUpdateWedding(){
 			processData:false,
 			success:function(result){
 				alert("Wedding Update Successfully...");
-				//window.location.reload();
+				window.location.reload();
 			}
 		});
 	});
 }
 
 function doLogin(){
-			
-
 			
 			/*==================*/
 			var data={
