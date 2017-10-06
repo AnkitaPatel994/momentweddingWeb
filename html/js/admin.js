@@ -26,8 +26,9 @@ $(function(){
 	/*====================Wedding========================================*/
 
 	$("#addWedding").on("click",function(){
-		$("#weddingModal").model('open');
+		$("#weddingModal").modal('open');
 	});
+
 	/*===Add Wedding=======*/
 
 	$("#sendWeddingData").on("click",function(){
@@ -64,6 +65,30 @@ $(function(){
 	});
 
 	/*===Edit Wedding=======*/
+
+	$(".edit-wedding").on("click",function(){
+		$("#editWeddingModal").modal('open');
+		$("#editWeddingModal .modal-content").html("");
+		var wedID=$(this).data("wed-id");
+		$.post(baseURL+"Admin/editWedding/"+wedID,function(data){
+			$("#editWeddingModal .modal-content").html(data);
+			 Materialize.updateTextFields();
+		});
+	});
+
+	/*===Delete Wedding=======*/
+
+	$(".delete-wedding").on("click",function(){
+		var wedID=$(this).data("wed-id");
+		if(confirm("Do you want to delete this Record.. ???? ")){
+		$.post(baseURL+"Admin/deleteWedding/"+wedID,function(data){
+			$("#wedID"+wedID).remove();
+		});
+	  }
+    });
+
+    /*====================Profile========================================*/
+
 
 
 
