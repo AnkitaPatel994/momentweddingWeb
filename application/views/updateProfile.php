@@ -3,7 +3,7 @@
       	<form id="updateProfileForm">
       		<div class="input-field col s12 m12" id="profilePhoto">
 	          <input id="profile_pic" name="profile_pic" type="file" class="validate" style="display: none;">
-	          <button class="btn black" onclick="$('#profilePhoto input').click()">Upload Profile</button>
+	          <button class="btn black" type="button" onclick="$('#profilePhoto input').click()">Upload Profile</button>
 	        </div>
 	        <div class="input-field col s12 m4">
 	          <input id="name" name="name" type="text" class="validate" required="required" value="<?php echo $name; ?>">
