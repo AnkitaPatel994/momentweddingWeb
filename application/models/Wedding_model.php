@@ -26,13 +26,19 @@ class Wedding_model extends CI_Model
 	public function editWedding($wedID){
 		$query=$this->db->query("select * from wedding where id='$wedID' ");
 		$result=$query->row_array();
+		$result["bride_profile"] = $this->getProfile($result["bride_id"]);
+		$result["groom_profile"] = $this->getProfile($result["groom_id"]);
 		return $result;
 	}
 
 	public function allWeddingData(){
-	$query=$this->db->query("select * from wedding");	
-	$result=$query->result_array();
-	return $result;
+		$query=$this->db->query("select * from wedding");	
+		$result=$query->result_array();
+		foreach ($result as $key => $weddingRow) {
+			$result[$key]["bride_profile"] = $this->getProfile($weddingRow["bride_id"]);
+			$result[$key]["groom_profile"] = $this->getProfile($weddingRow["groom_id"]);
+		}
+		return $result;
 	}
 
 	public function insertProfile($profileName){
@@ -45,6 +51,12 @@ class Wedding_model extends CI_Model
 	public function generateCode(){
 		$code = "xyz";
 		return $code;
+	}
+
+	public function getProfile($profileID){
+		$query = $this->db->query("Select * from profile where id='$profileID'");
+		$profileRow = $query->row_array();
+		return $profileRow;
 	}
 }
 
