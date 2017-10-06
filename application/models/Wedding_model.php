@@ -58,6 +58,11 @@ class Wedding_model extends CI_Model
 		$profileRow = $query->row_array();
 		return $profileRow;
 	}
+
+	public function updateProfile($profileData,$profileID){
+		$this->db->where("id",$profileID);
+		$this->db->update("profile",$profileData);
+	}
 }
 
 ?>

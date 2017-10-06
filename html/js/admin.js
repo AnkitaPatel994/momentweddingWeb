@@ -1,5 +1,7 @@
+var baseURL;
 $(function(){
-
+	baseURL=$("#base_url").val();
+ 	$('.modal').modal();
 	/*================ Navigation =================================*/
 
 	  $('.button-collapse').sideNav({
@@ -26,29 +28,6 @@ $(function(){
 	  	$('#textarea1').val('');
   		$('#textarea1').trigger('autoresize');
 
-	var baseURL=$("#base_url").val();
-
-	 $('.modal').modal();
-	/*==================*/
-	var data={
-		"email":$("#email").val(),
-		"password":$("#password").val()
-	}
-	$.post(baseURL+"Admin/doLogin/",{data:data},function(data){
-		var data=$.parseJSON(data);
-		if(data.status=="ok"){
-			alert("Login Successfully....");
-			window.location.href=baseURL;
-		}
-		if(data.status=="fail"){
-			alert("Login Fail....");
-			window.location.href="#!";
-		}
-		else{
-			console.log(data);
-		}
-
-	});
 
 	/*====================Wedding========================================*/
 
@@ -75,20 +54,7 @@ $(function(){
 	});
 	/*===Update Wedding=======*/
 
-	$("#updateWeddingData").on("click",function(){
-		var formData = new FormData($("#updateWeddingForm")[0]);
-		$.ajax({
-			data:formData,
-			url:"Admin/updateWedding/",
-			type:"POST",
-			contentType:false,
-			processData:false,
-			success:function(result){
-				alert("Wedding Update Successfully...");
-				window.location.reload();
-			}
-		});
-	});
+
 
 	/*===Edit Wedding=======*/
 
@@ -99,6 +65,7 @@ $(function(){
 		$.post(baseURL+"Admin/editWedding/"+wedID,function(data){
 			$("#editWeddingModal .modal-content").html(data);
 			 Materialize.updateTextFields();
+			 initUpdateWedding();
 		});
 	});
 
@@ -116,19 +83,48 @@ $(function(){
     /*====================Profile========================================*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
+function initUpdateWedding(){
+	$("#updateWeddingData").off("click");
+	$("#updateWeddingData").on("click",function(){
+		console.log("heloo");
+		var formData = new FormData($("#updateWeddingForm")[0]);
+		$.ajax({
+			data:formData,
+			url:baseURL+"Admin/updateWedding/",
+			type:"POST",
+			contentType:false,
+			processData:false,
+			success:function(result){
+				alert("Wedding Update Successfully...");
+				//window.location.reload();
+			}
+		});
+	});
+}
+
+function doLogin(){
+			
+
+			
+			/*==================*/
+			var data={
+				"email":$("#email").val(),
+				"password":$("#password").val()
+			}
+			$.post(baseURL+"Admin/doLogin/",{data:data},function(data){
+				var data=$.parseJSON(data);
+				if(data.status=="ok"){
+					alert("Login Successfully....");
+					window.location.href=baseURL;
+				}
+				if(data.status=="fail"){
+					alert("Login Fail....");
+					window.location.href="#!";
+				}
+				else{
+					console.log(data);
+				}
+
+			});
+		}
