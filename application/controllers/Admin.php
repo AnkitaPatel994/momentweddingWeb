@@ -55,7 +55,7 @@ class Admin extends CI_Controller {
 		$allWeddingData=$this->wedding_model->allWeddingData();
 	 	$headerData = array(
 			"pageTitle" => "Wedding Dashboard",
-			"stylesheet" => array("adminLogin.css")
+			"stylesheet" => array("adminLogin.css","adminDashboard.css")
 		);
 		$footerData = array(
 			"jsFiles" => array("admin.js")
