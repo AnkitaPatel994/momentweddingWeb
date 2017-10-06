@@ -7,7 +7,7 @@ $(function(){
 		"email":$("#email").val(),
 		"password":$("#password").val()
 	}
-	$.post(baseURL+"Admin/login/",{data:data},function(data){
+	$.post(baseURL+"Admin/doLogin/",{data:data},function(data){
 		var data=$.parseJSON(data);
 		if(data.status=="ok"){
 			alert("LOgin Successfully....");

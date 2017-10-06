@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
-	public function login()
+	public function doLogin()
 	{	
 		$data=$_POST["data"];
 		$this->load->model("admin_model");
@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 		var_dump($result);
 	}
 	 public function Wedding(){
-	 	
+
 	 }
 
 }

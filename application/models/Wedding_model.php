@@ -5,9 +5,9 @@
 class Wedding_model extends AnotherClass
 {
 	
-	function __construct(argument)
-	{
-		# code...
+	public function addWedding(){
+		$this->db->insert("");
+
 	}
 }
 
