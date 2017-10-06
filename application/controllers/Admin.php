@@ -103,4 +103,21 @@ class Admin extends CI_Controller {
 	 	$this->load->view("updateWedding",$result);
 	 }
 
+	 public function profile(){
+	 	$headerData = array(
+			"pageTitle" => "Profile Management",
+			"stylesheet" => array("admin-profile.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("admin-profile.js")
+		);
+		$viewData = array(
+			"viewName" => "admin-profile",
+            "viewData" => array(),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	 }
+
 }
