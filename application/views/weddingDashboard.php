@@ -27,10 +27,10 @@
       <?php foreach ($allWeddingData as $key => $allWeddingRow) { ?>
       <tr id="wed-id<?php echo $allWeddingRow['id']; ?>">  
         <td><?php echo $allWeddingRow['id']; ?></td>         
-        <td><?php echo $allWeddingRow['bride_id']; ?></td>
-        <td><?php echo $allWeddingRow['groom_id']; ?></td>
+        <td><?php echo $allWeddingRow['bride_profile']["name"]; ?></td>
+        <td><?php echo $allWeddingRow['groom_profile']["name"]; ?></td>
         <td><?php echo $allWeddingRow['date']; ?></td> 
-        <td><textarea><?php echo $allWeddingRow['invitation']; ?></textarea></td> 
+        <td><?php echo substr($allWeddingRow['invitation'], 0,300); ?></td> 
         <td><?php echo $allWeddingRow['code']; ?></td>        
       
         <td class="right-align blog-btn">
@@ -52,9 +52,7 @@
     <div class="modal-content">
       <?php $this->load->view("addWedding"); ?>
     </div>
-    <div class="modal-footer">
-      <a id="sendWeddingData" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-    </div>
+ 
   </div>
 
   <!-- Modal Structure -->
