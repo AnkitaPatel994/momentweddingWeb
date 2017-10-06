@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
-
-	
+class Admin extends CI_Controller {	
 	public function index()
 	{		
 		$headerData = array(
@@ -23,5 +21,13 @@ class Admin extends CI_Controller {
 	}
 	public function login()
 	{	
+		$data=$_POST["data"];
+		$this->load->model("admin_model");
+		$result=$this->admin_model->doLogin($data);
+		var_dump($result);
 	}
+	 public function Wedding(){
+	 	
+	 }
+
 }
