@@ -23,7 +23,6 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
-
 	public function doLogin()
 	{	
 		$data=$_POST["data"];
@@ -79,7 +78,6 @@ class Admin extends CI_Controller {
 	 		"code"=>$_POST["code"]
 	 	);
 	 	$this->wedding_model->addWedding($result);
-
 	 }
 
 	public function updateWedding(){
@@ -102,7 +100,6 @@ class Admin extends CI_Controller {
 	 	$this->load->model("wedding_model");
 	 	$result=$this->wedding_model->editWedding($wedId);
 	 	$this->load->view("updateWedding",$result);
-
 	 }
 
 }

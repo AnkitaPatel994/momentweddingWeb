@@ -81,7 +81,7 @@ $(function(){
 		var wedID=$(this).data("wed-id");
 		if(confirm("Do you want to delete this Record.. ???? ")){
 		$.post(baseURL+"Admin/deleteWedding/"+wedID,function(data){
-			$("#wedID"+wedID).remove();
+			$("#wed-id"+wedID).remove();
 		});
 	  }
     });
