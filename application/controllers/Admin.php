@@ -104,7 +104,7 @@ class Admin extends CI_Controller {
 	 	$this->load->view("updateWedding",$result);
 	 }
 
-	 public function profile(){
+	public function profile(){
 	 	$headerData = array(
 			"pageTitle" => "Profile Management",
 			"stylesheet" => array("admin-profile.css")
@@ -119,6 +119,22 @@ class Admin extends CI_Controller {
 			"footerData" => $footerData	
 		);
 		$this->load->view('admin-templete',$viewData);
-	 }
+	}
 
+	public function EventsList(){
+	 	$headerData = array(
+			"pageTitle" => "Events List",
+			"stylesheet" => array("eventsList.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("eventsList.js","admin.js")
+		);
+		$viewData = array(
+			"viewName" => "eventsList",
+            "viewData" => array(),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	}
 }
