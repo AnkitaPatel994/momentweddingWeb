@@ -49,9 +49,59 @@ class Admin extends CI_Controller {
 			"footerData" => $footerData	
 		);
 		$this->load->view('admin-templete',$viewData);
-
 	}
-	 public function Wedding(){
+	public function Wedding(){
+		$this->load->model("wedding_model");
+		$allWeddingData=$this->wedding_model->allWeddingData();
+	 	$headerData = array(
+			"pageTitle" => "Wedding Dashboard",
+			"stylesheet" => array("adminLogin.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("admin.js")
+		);
+		$viewData = array(
+			"viewName" => "weddingDashboard",
+            "viewData" => array("allWeddingData"=>$allWeddingData),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	 }
+
+	public function addWedding(){
+	 	$this->load->model("wedding_model");
+	 	$result=array(
+	 		"bride_id"=>$_POST["bride_id"],
+	 		"groom_id"=>$_POST["groom_id"],
+	 		"date"=>$_POST["date"],
+	 		"invitation"=>$_POST["invitation"],
+	 		"code"=>$_POST["code"]
+	 	);
+	 	$this->wedding_model->addWedding($result);
+
+	 }
+
+	public function updateWedding(){
+	 	$this->load->model("wedding_model");
+	 	$wedId=$_POST["wedId"];
+	 	$result=array(
+	 		"bride_id"=>$_POST["bride_id"],
+	 		"groom_id"=>$_POST["groom_id"],
+	 		"date"=>$_POST["date"],
+	 		"invitation"=>$_POST["invitation"],
+	 		"code"=>$_POST["code"]
+	 	);
+	 	$this->wedding_model->updateWedding($result,$wedId);
+	 }
+	public function deleteWedding($wedId){
+	 	$this->load->model("wedding_model");
+	 	$this->wedding_model->deleteWedding($wedId);
+	 }
+	public function editWedding($wedId){
+	 	$this->load->model("wedding_model");
+	 	$result=$this->wedding_model->editWedding($wedId);
+	 	$this->load->view("updateWedding",$result);
 
 	 }
 
