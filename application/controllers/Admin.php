@@ -67,9 +67,7 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	 }
-
-
-
+	 
 	public function addWedding(){
 	 	$this->load->model("wedding_model");
 	 	$result=array(
