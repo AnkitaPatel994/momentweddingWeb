@@ -2,8 +2,9 @@
 <div class="row">
 	<div class="profile-area">
 		<div class="profileDetails">
+			<div class="row"><center><h4>Upadte Profile</h4></center></div>
 			<div>
-				<table cclass="responsive-table centered highlight">
+				<table class="responsive-table centered highlight">
 			        <thead>
 			          <tr>
 			              <th>Id</th>
