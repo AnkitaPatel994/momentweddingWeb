@@ -43,13 +43,4 @@
          <a href="<?php echo base_url(); ?>admin/logout/"><i class="fa fa-power-off" aria-hidden="true" style="font-size: 35px;color: #000;"></i></a>  
         </div> 
     </nav>
-    <?php } else{ ?>
-     
-      <div class="login-page">
-        <center>
-        <a href="<?php echo base_url(); ?>admin" class="brand-logo">Logo<!-- <img src="<?php //echo base_url(); ?>html/images/logo_black.png" height="100px" id="logo"> --></a>
-        </center>
-      </div>
-    
-    <?php } ?>
-        
+    <?php }  ?>

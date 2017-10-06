@@ -1,0 +1,39 @@
+.bg-img img{
+	width: 100%;
+	position: fixed;
+}
+.login-area {
+    
+}
+.login-box{
+    width: 35%;
+    float: right;
+    margin-right: 15%;
+    margin-top: 20%;
+}
+.btn-adminLogin
+{
+	width: 100%;
+	background: #fff;
+	color: #000;
+}
+
+
+
+
+
+/*============ Media Responsive area ============*/
+
+@media(max-width: 768px){
+	.bg-img img {
+	    width: auto;
+	    position: fixed;
+	    height: 100%;
+	}
+	.login-box {
+	    width: 100%;
+	    padding: 25px;
+	    background: rgba(0,0,0,0.5);
+	    position: absolute;
+	}
+}
