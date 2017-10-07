@@ -105,14 +105,16 @@ class Webservices  extends CI_Controller{
 	}
 
 	public function sendOTP(){
+		$data_back = json_decode(file_get_contents('php://input'));
 		$wedding_id = $data_back -> {"wedding_id"};
 		$mobile = $data_back -> {"mobile"};
 		$this->load->model("wedding_model");
 		$output = $this->wedding_model->sendOTP($mobile,$wedding_id);
-		json_encode($output);
+		echo json_encode($output);
 	}
 
 	public function verifyOTP(){
+		$data_back = json_decode(file_get_contents('php://input'));
 		$wedding_id = $data_back -> {"wedding_id"};
 		$mobile = $data_back -> {"mobile"};
 		$otp = $data_back -> {"otp"};
@@ -123,10 +125,12 @@ class Webservices  extends CI_Controller{
 			"otp" => $data_back -> {"otp"}
 		);
 		$output = $this->wedding_model->verifyOTP($otpData);
-		json_encode($output);
+		echo json_encode($output);
 	}
 
 	public function verifyWedding(){
+		$data_back = json_decode(file_get_contents('php://input'));
+		$this->load->model("wedding_model");
 		if( isset($data_back->{"invite_code"}))
 		{
 			if( !empty($data_back->{"invite_code"}))
