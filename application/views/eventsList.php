@@ -1,7 +1,7 @@
 <!--  admin profile view -->
 <div class="row top-header">
   <div class="col m2">
-    <div class="sidebar-area sticky">
+    <div class="sidebar-area">
       <div class="center">
       		<h5>Menu</h5>
       </div>
