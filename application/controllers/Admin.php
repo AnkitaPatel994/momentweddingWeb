@@ -244,49 +244,49 @@ class Admin extends CI_Controller {
 		}
 
 		public function guest_list(){
-			$this->load->model("event_model");
-			
-		 	$headerData = array(
-				"pageTitle" => "Guest List",
-				"stylesheet" => array("guest_list.css")
-			);
-			$footerData = array(
-				"jsFiles" => array("guest_list.js")
-			);
-			$viewData = array(
-				"viewName" => "guest_list",
-	            "viewData" => array(),
-				"headerData" => $headerData,
-				"footerData" => $footerData	
-			);
-			$this->load->view('admin-templete',$viewData);
+		$this->load->model("event_model");
+		
+	 	$headerData = array(
+			"pageTitle" => "Guest List",
+			"stylesheet" => array("guest_list.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("guest_list.js")
+		);
+		$viewData = array(
+			"viewName" => "guest_list",
+            "viewData" => array(),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
 		}
 
-		public function addGuestList(){
-	 	$this->load->model("guestlist_model");
-	 	$event_access=implode(',',$_POST["event_access"])
-	 	$result=array(
-	 		"wedding_id"=>$_POST["wedding_id"],
-	 		"profile_id"=>$_POST["profile_id"],
-	 		"name"=>$_POST["name"],
-	 		"mobile"=>$_POST["mobile"],
-	 		"event_access"=>$event_access
-	 	);
-	 	$this->guestlist_model->addGuestList($result);
+	public function addGuestList(){
+ 	$this->load->model("guestlist_model");
+ 	//$event_access=implode('',$_POST["event_access"]);
+ 	$result=array(
+ 		"wedding_id"=>$_POST["wedding_id"],
+ 		"profile_id"=>$_POST["profile_id"],
+ 		"name"=>$_POST["name"],
+ 		"mobile"=>$_POST["mobile"]
+ 		//"event_access"=>$event_access
+ 	);
+ 	$this->guestlist_model->addGuestList($result);
 	 }
 
-		public function updateGuestList(){
-	 	$this->load->model("guestlist_model");
-	 	$guestID=$_POST['guest-id'];
-	 	$event_access=implode(',',$_POST["event_access"])
-	 	$result=array(
-	 		"wedding_id"=>$_POST["wedding_id"],
-	 		"profile_id"=>$_POST["profile_id"],
-	 		"name"=>$_POST["name"],
-	 		"mobile"=>$_POST["mobile"],
-	 		"event_access"=>$event_access
-	 	);
-	 	$this->guestlist_model->updateGuestList($result,$guestID);
+	public function updateGuestList(){
+ 	$this->load->model("guestlist_model");
+ 	$guestID=$_POST['guest-id'];
+ 	$event_access=implode(',',$_POST["event_access"])
+ 	$result=array(
+ 		"wedding_id"=>$_POST["wedding_id"],
+ 		"profile_id"=>$_POST["profile_id"],
+ 		"name"=>$_POST["name"],
+ 		"mobile"=>$_POST["mobile"],
+ 		"event_access"=>$event_access
+ 	);
+ 	$this->guestlist_model->updateGuestList($result,$guestID);
 	 }
 
 		public function editGuestList($guestID){
