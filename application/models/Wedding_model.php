@@ -11,7 +11,7 @@ class Wedding_model extends CI_Model
 			"groom_id" => $this->insertProfile($wedData["groom_name"]),
 			"date" => $wedData["date"],
 			"invitation" => $wedData["invitation"],
-			"code" => $this->generateCode()
+			"code" => $this->generateCode(5)
 		);
 		$this->db->insert("wedding",$insertData);
 	}
@@ -48,10 +48,37 @@ class Wedding_model extends CI_Model
 		return $profileID;
 	}
 
-	public function generateCode(){
-		$code = "xyz";
+	public function generateCode($length){
+		$uniqueFlag = 0;
+		$code = "";
+		while($uniqueFlag == 0){
+			$code = $this->randomString($length);
+			$integrity = $this->checkInviteIntegrity($code);
+			if($integrity == "success"){
+				$uniqueFlag = 1;
+			}
+		}
 		return $code;
 	}
+
+	public function randomString($length){
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $string = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $string .= $characters[mt_rand(0, strlen($characters) - 1)];
+	    }
+	    return $string;
+	}
+
+	public function checkInviteIntegrity($code){
+		$query = $this->db->query("select * from wedding where code='$code'");
+		if($query->num_rows() == 0){
+			return "success";
+		}else{
+			return "fail";
+		}
+	}
+
 
 	public function getProfile($profileID){
 		$query = $this->db->query("Select * from profile where id='$profileID'");
