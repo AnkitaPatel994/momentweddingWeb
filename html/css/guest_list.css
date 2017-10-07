@@ -1,10 +1,14 @@
-/* css for guest list */
+/*Events List*/
 
+/* admin profile css */
 
+.sidebar-area{
+    top: 0;
+}
 .profile-area{
-	/*width: 90%;*/
-	
-	position: relative;
+    /*width: 90%;*/
+    
+    position: relative;
 }
 .profileDetails {
     background: #ffF;
@@ -13,11 +17,11 @@
 }
 
 .profile-img{
-	width: auto;
-	height: 50px;
+    width: auto;
+    height: 50px;
 }
 textarea{
-	border: none;
+    border: none;
 }
 .btn-edit {
     background: #EEE;
@@ -28,42 +32,42 @@ textarea{
     text-align: center;
 }
 .btn-edit:hover{
-	background: rgba(0,0,0,0.2) !important;
+    background: rgba(0,0,0,0.2) !important;
 }
 
 .btn-delete{
-	background: rgba(222, 21, 21, 0.20);
+    background: rgba(222, 21, 21, 0.20);
     border: 1px solid #e69b9b;
     border-radius: 69px;
     padding: 0px 7px;
     margin: 0 auto;
-    text-align: center;	
+    text-align: center; 
 }
 
 .btn-delete:hover{
-	background: rgba(222, 21, 21, 0.50) !important;
+    background: rgba(222, 21, 21, 0.50) !important;
 }
 
 .btn-gallery{
-	background: rgba(222, 21, 21, 0.20);
+    background: rgba(222, 21, 21, 0.20);
     border: 1px solid #e69b9b;
     border-radius: 69px;
     padding: 0px 7px;
     margin: 0 auto;
-    text-align: center;	
+    text-align: center; 
 }
 
 .btn-gallery{
-	background: rgba(8, 56, 25, 0.20);
+    background: rgba(8, 56, 25, 0.20);
     border: 1px solid rgba(41, 107, 73, 0.5);
     border-radius: 69px;
     padding: 0px 7px;
     margin: 0 auto;
-    text-align: center;	
+    text-align: center; 
 }
 
 .btn-gallery:hover{
-	background: rgba(8, 56, 25, 0.5);
+    background: rgba(8, 56, 25, 0.5);
     border: 1px solid rgba(41, 107, 73, 0.5);
 }
 .eventImage-box img {
