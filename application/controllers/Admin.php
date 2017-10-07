@@ -243,4 +243,22 @@ class Admin extends CI_Controller {
 			$this->load->view("updateEvents",$result);
 		}
 
+		public function guest_list(){
+			$this->load->model("event_model");
+			
+		 	$headerData = array(
+				"pageTitle" => "Guest List",
+				"stylesheet" => array("guest_list.css")
+			);
+			$footerData = array(
+				"jsFiles" => array("guest_list.js")
+			);
+			$viewData = array(
+				"viewName" => "guest_list",
+	            "viewData" => array(),
+				"headerData" => $headerData,
+				"footerData" => $footerData	
+			);
+			$this->load->view('admin-templete',$viewData);
+		}
 }
