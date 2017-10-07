@@ -246,6 +246,7 @@ class Admin extends CI_Controller {
 	public function guest_list(){
 		$this->load->model("guestlist_model");
 		$allGuestList=$this->guestlist_model->allGuestList();
+		$allWedding=$this->guestlist_model->allWedding();
 	
 		
 		
@@ -258,7 +259,7 @@ class Admin extends CI_Controller {
 		);
 		$viewData = array(
 			"viewName" => "guest_list",
-            "viewData" => array("allGuestList"=>$allGuestList),
+            "viewData" => array("allGuestList"=>$allGuestList,"allWedding"=>$allWedding),
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
@@ -313,7 +314,7 @@ class Admin extends CI_Controller {
 
 			$htmlEvent = "";
 			foreach ($weddingData["events"] as $key => $value) {
-				$htmlEvent.="<option value='".$value["id"]."'>".$value["name"]."</option>";
+				$htmlEvent.="<option value='".$value["name"]."'>".$value["name"]."</option>";
 			}
 			$output = array(
 				"profileHTML" => $htmlProfile,

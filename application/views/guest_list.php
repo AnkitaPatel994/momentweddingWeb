@@ -93,7 +93,7 @@
       	<form method="post" id="addGuestListForm">
       		<div class="input-field col s12 m4">
 			    <select id="addGuestWeddingID" name="wedding_id">
-			      <option value="" disabled selected>Choose your option</option>
+			      <option value="" disabled selected>Choose your Wedding</option>
 			      <?php foreach($allWedding as $key=>$weddingRow){ ?>
 			      <option value="<?php echo $weddingRow["id"]; ?>"><?php echo $weddingRow["id"]; ?></option>
 			      <?php } ?>

@@ -72,7 +72,7 @@ $(function(){
 			processData:false,
 			success:function(result){
 				alert("GuestList added Successfully...");
-				//window.location.reload();
+				window.location.reload();
 			}
 		});
 	});
