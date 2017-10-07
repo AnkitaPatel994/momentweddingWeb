@@ -88,27 +88,27 @@
     <div class="modal-content">
     	<div class="row">
       		<center><h5>Add New Guest</h5></center>
+      		<?php //var_dump($allWedding); ?>
       	</div>	
       <!-- <p>A bunch of text</p> -->
       <div class="guestList-area row">
       	<form>
       		<div class="input-field col s12 m4">
-			    <select>
+			    <select id="addGuestWeddingID">
 			      <option value="" disabled selected>Choose your option</option>
-			      <option value="1">Option 1</option>
-			      <option value="2">Option 2</option>
-			      <option value="3">Option 3</option>
+			      <?php foreach($allWedding as $key=>$weddingRow){ ?>
+			      <option value="<?php echo $weddingRow["id"]; ?>"><?php echo $weddingRow["id"]; ?></option>
+			      <?php } ?>
+			      
 			    </select>
 			    <label>Wedding</label>
 			</div>
 
 			<div class="input-field col s12 m4">
-			    <select>
-			      <option value="" disabled selected>Choose your option</option>
-			      <option value="1">Groom</option>
-			      <option value="2">Bride</option>
+			    <select id="addGuestProfileList">
+			      <option value="" disabled selected>Choose your Profile</option>		    
 			    </select>
-			    <label>Wedding</label>
+			    <label>Profile</label>
 			</div>
 
             <div class="input-field col s12 m4">
@@ -122,7 +122,7 @@
 	        </div>
 
 	        <div class="input-field col s12 m6">
-			    <select multiple>
+			    <select id="addGuestEventList" multiple>
 			      <option value="" disabled selected>Select Events</option>
 			      <option value="1">Sangeet</option>
 			      <option value="2">Mahendi</option>

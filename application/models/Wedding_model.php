@@ -208,6 +208,25 @@ class Wedding_model extends CI_Model
 		return $otp;
 	}
 
+	public function getWeddingProfiles($weddingID){
+		$query=$this->db->query("select * from wedding where id='$weddingID' ");
+		$weddingRow = $query->row_array();
+		$bride_id = $weddingRow["bride_id"];
+		$groom_id = $weddingRow["groom_id"];
+		$output["profile"][] = $this->getProfile($bride_id);
+		$output["profile"][] = $this->getProfile($groom_id);
+		$output["events"] = $this->getEvents($weddingID);
+		return $output;
+	}
+
+	public function getEvents($weddingID){
+		$query = $this->db->query("select * from event where wedding_id='$weddingID'");
+		$result = $query->result_array();
+		return $result;
+	}
+
+
+
 }
 
 ?>

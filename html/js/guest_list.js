@@ -1,6 +1,7 @@
 /* script for guest list */
-
+var baseURL;
 $(function(){
+	baseURL=$("#base_url").val();
  	$('.button-collapse').sideNav({
 	      menuWidth: 300, // Default is 300
 	      edge: 'left', // Choose the horizontal origin
@@ -32,6 +33,26 @@ $(function(){
  	 $('.modal').modal();
 
 
+    /*=============ON CHANGE*/
+
+    $("#addGuestWeddingID").on("change",function(){	
+	    var weddingID = $("#addGuestWeddingID option:selected").val();	
+			$.ajax({
+				data:weddingID,
+				url:baseURL+"Admin/getProfile/"+weddingID,
+				type:"POST",
+				contentType:false,
+				processData:false,
+				success:function(result){
+					result = $.parseJSON(result);
+					$("#addGuestProfileList").html(result.profileHTML);
+					$('#addGuestProfileList').material_select();
+					$("#addGuestEventList").html(result.eventHTML);
+					$('#addGuestEventList').material_select();
+				}
+			});
+		});
+	    /*==============================================================*/
 
 
 
