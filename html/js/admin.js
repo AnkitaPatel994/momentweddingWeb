@@ -103,6 +103,57 @@ $(function(){
 	  }
     });
 
+
+
+    /*==================Guest List==================================*/
+    /*====================Wedding========================================*/
+
+	$("#addGuestList").on("click",function(){
+		$("#guestListModal").modal('open');
+	});
+
+	/*===Add Wedding=======*/
+
+	$("#sendGuestListData").on("click",function(){
+		var formData = new FormData($("#addGuestListForm")[0]);
+		$.ajax({
+			data:formData,
+			url:baseURL+"Admin/addGuestList/",
+			type:"POST",
+			contentType:false,
+			processData:false,
+			success:function(result){
+				alert("GuestList added Successfully...");
+				window.location.reload();
+			}
+		});
+	});
+
+	/*===Edit Wedding=======*/
+
+	$(".edit-guest").on("click",function(){
+		$("#editGuestListModal").modal('open');
+		$("#editGuestListModal .modal-content").html("");
+		var guestID=$(this).data("guest-id");
+		$.post(baseURL+"Admin/editGuestList/"+guestID,function(data){
+			$("#editGuestListModal .modal-content").html(data);
+			 Materialize.updateTextFields();			
+		});
+	});
+
+
+	/*===Delete Guest List=======*/
+
+	$(".delete-guest").on("click",function(){
+		var guestID=$(this).data("guest-id");
+		if(confirm("Do you want to delete this Record.. ???? ")){
+		$.post(baseURL+"Admin/deleteGuestList/"+guestID,function(data){
+			$("#guest-id"+guestID).remove();
+		});
+	  }
+    });
+    /*==============================================================*/
+
   
 
 
