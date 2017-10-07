@@ -106,7 +106,9 @@
 
    <div id="EditeventGallery" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Events List</h4>
+      <div class="row">
+        <center><h4>Events List</h4></center>
+      </div><hr>
       <!-- <p>A bunch of text</p> -->
       <div class="profile-form row">
       	<form>

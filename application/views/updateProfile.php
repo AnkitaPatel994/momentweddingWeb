@@ -1,4 +1,6 @@
-<h4>Edit Profile</h4>     
+<div class="row">
+<center><h5>Edit Profile</h5></center>
+</div><hr>
       <div class="profile-form row">
       	<form id="updateProfileForm">
       		<div class="input-field col s12 m12" id="profilePhoto">
