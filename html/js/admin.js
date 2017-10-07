@@ -155,7 +155,8 @@ $(function(){
 
     /*=============ON CHANGE*/
 
-    $("#wedding").on("CHANGE",function(){		
+    $("#wedding").on("CHANGE",function(){	
+    var data=$("#wedding").val();	
 		$.ajax({
 			data:data,
 			url:baseURL+"Admin/addGuestList/",
