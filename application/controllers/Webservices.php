@@ -103,4 +103,47 @@ class Webservices  extends CI_Controller{
 		}
 		echo json_encode($details);
 	}
+
+	public function sendOTP(){
+		$wedding_id = $data_back -> {"wedding_id"};
+		$mobile = $data_back -> {"mobile"};
+		$this->load->model("wedding_model");
+		$output = $this->wedding_model->sendOTP($mobile,$wedding_id);
+		json_encode($output);
+	}
+
+	public function verifyOTP(){
+		$wedding_id = $data_back -> {"wedding_id"};
+		$mobile = $data_back -> {"mobile"};
+		$otp = $data_back -> {"otp"};
+		$this->load->model("wedding_model");
+		$otpData = array(
+			"weddingID" => $data_back -> {"wedding_id"},
+			"mobile" => $data_back -> {"mobile"},
+			"otp" => $data_back -> {"otp"}
+		);
+		$output = $this->wedding_model->verifyOTP($otpData);
+		json_encode($output);
+	}
+
+	public function verifyWedding(){
+		if( isset($data_back->{"invite_code"}))
+		{
+			if( !empty($data_back->{"invite_code"}))
+			{
+				$invite_code = $data_back -> {"invite_code"};
+
+				$details = $this->wedding_model->verifyWedding($invite_code);	
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
+	}
 }
