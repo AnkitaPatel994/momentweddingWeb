@@ -1,5 +1,17 @@
-nav a.button-collapse{
+/*nav a.button-collapse{
 	display: block;
+}*/
+.sidebar-area {
+    background: #630b14;
+    padding: 10px;
+    position: fixed;
+    margin-top: -40px;
+    height: 100%;
+    left: 0;
+    color: #fff;
+    width: 200px;
+    z-index: 0;
+    top: 0;
 }
 .weddingDetails-area{
 	background: #fff;

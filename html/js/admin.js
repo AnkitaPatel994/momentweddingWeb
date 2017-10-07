@@ -103,11 +103,12 @@ $(function(){
 	  }
     });
 
-   	/*================Update Wedding=======================================*/
+  
 
 
 });
 function initUpdateWedding(){
+	/*================Update Wedding=======================================*/
 	$("#updateWeddingData").off("click");
 	$("#updateWeddingData").on("click",function(){
 		console.log("heloo");

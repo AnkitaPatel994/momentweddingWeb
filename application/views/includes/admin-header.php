@@ -37,6 +37,9 @@
      nav{
       position: fixed;
       top: 0px;
+      z-index: 2;
+     }
+     #sidenav-overlay{
       z-index: 1;
      }
      .top-header{
@@ -44,7 +47,7 @@
     }
     .sidebar-area {
         background: #630b14;
-        padding: 10px;
+        padding: 0px;
         position: fixed;
         margin-top: 60px;
         height: 100%;
@@ -54,10 +57,10 @@
         z-index: 0;
     }
     .sidebar-area h5{
-      padding: 10px;
+      padding: 15px;
     }
     .divider{
-      margin: 10px;
+      margin: 15px;
     }
     .quick-links{
 
@@ -79,7 +82,7 @@
       font-size: 16px;
       display: block;
       float: left;
-      padding: 0px 10px;
+      padding: 3px 15px;
       font-weight: 400;
       line-height: 2;
     }
@@ -103,6 +106,7 @@
       -moz-transition:all 0.3s ease-in-out;
       -o-transition:all 0.3s ease-in-out;
       transition:all 0.3s ease-in-out;
+      padding: 5px 30px;
     }
     @media(max-width: 768px){
       .sidebar-area{
@@ -121,7 +125,7 @@
     <?php if($this->session->userdata("email")){ ?>
     <nav>
         <ul id="slide-out" class="side-nav">
-            <li><div class="user-view">
+            <!-- <li><div class="user-view">
               <div class="background">
                 <img src="images/office.jpg">
               </div>
@@ -129,13 +133,13 @@
               <a href="#!name"><span class="white-text name">John Doe</span></a>
               <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
             </div>
-            </li>
-
-            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </li> -->
+            <li><h5 class="black-text"><center>Menu</center></h5></li>
+            <li><a href="<?php echo base_url(); ?>admin/Wedding">Wedding</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/profile">Profile</a></li>
+            <!-- <li><div class="divider"></div></li> -->
+            <li><a href="<?php echo base_url(); ?>admin/admin/EventsList">Event List</a></li>
+            <!-- <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
     </nav>

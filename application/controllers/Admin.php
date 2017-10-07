@@ -54,10 +54,10 @@ class Admin extends CI_Controller {
 		$allWeddingData=$this->wedding_model->allWeddingData();
 	 	$headerData = array(
 			"pageTitle" => "Wedding Dashboard",
-			"stylesheet" => array("adminLogin.css","adminDashboard.css")
+			"stylesheet" => array("adminDashboard.css")
 		);
 		$footerData = array(
-			"jsFiles" => array("admin.js","admin.js")
+			"jsFiles" => array("admin.js")
 		);
 		$viewData = array(
 			"viewName" => "weddingDashboard",
@@ -123,7 +123,6 @@ class Admin extends CI_Controller {
 		$this->load->view('admin-templete',$viewData);
 	}
 
-
 	 public function updateProfile(){
 
 		$profileID=$_POST['profile-id'];
@@ -162,6 +161,10 @@ class Admin extends CI_Controller {
 
 
 	public function EventsList(){
+		$this->load->model("event_model");
+		$allEvents=$this->event_model->allEvents();
+		$allWeddings=$this->event_model->allWeddings();
+		
 	 	$headerData = array(
 			"pageTitle" => "Events List",
 			"stylesheet" => array("eventsList.css")
@@ -171,11 +174,73 @@ class Admin extends CI_Controller {
 		);
 		$viewData = array(
 			"viewName" => "eventsList",
-            "viewData" => array(),
+            "viewData" => array("allEvents"=>$allEvents,"allWeddings"=>$allWeddings),
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
+
+	public function addEvent(){
+		$this->load->model("event_model");
+		//$description =str_replace("'","\'",$_POST['description']);
+		$result=array(
+			"wedding_id"=>$_POST['wedding_id'],
+			"name"=>$_POST['name'],
+			"date"=>$_POST['date'],
+			"time"=>$_POST['time'],
+			"location"=>$_POST['location']			
+		);
+		$eventId=$this->event_model->addEvent($result);
+		$eventImage=$eventId."_eventImage.".pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+		$updateEvent=array('image'=>$eventImage);
+		$this->event_model->updateEvent($updateEvent,$eventId);
+
+		$config["upload_path"]='C:\wamp\www\moment-wedding\html\images\events';
+		$config["allowed_types"]='gif|png|jpg';
+		$config["file_name"]=$eventId."_eventImage";
+		$config["remove_spaces"]=TRUE;
+		$config["encrypt_name"]=FALSE;
+		$config['overwrite']=TRUE;
+
+		$this->load->library('upload',$config);
+		$this->upload->do_upload('image');
+	}
+
+	public function updateEvent(){
+		$this->load->model("event_model");
+		$eventId=$_POST['event-id'];
+		$result=array(			
+			"name"=>$_POST['name'],
+			"date"=>$_POST['date'],
+			"time"=>$_POST['time'],
+			"location"=>$_POST['location']			
+		);
+
+		$eventImage="_eventImage.".pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+
+		if($_FILES['image']['name']!=""){
+			$result['image']=$eventImage;
+
+			$config['upload_path']='C:\wamp\www\moment-wedding\html\images\events';
+			$config['file_name']=$eventId."_eventImage";
+			$config['allowed_types']="gif|jpg|png";
+			$config['remove_spaces']=TRUE;
+			$config['encrypt_name']=FALSE;
+			$config['overwrite']=TRUE;
+			$this->load->library("upload",$config);
+			$this->upload->do_upload('image');			
+		}
+		$this->event_model->updateEvent($result,$eventId);
+		}
+		public function deleteEvent($eventId){
+			$this->load->model("event_model");
+			$this->event_model->deleteEvent($eventId);
+		}
+		public function editEvent($eventId){
+			$this->load->model("event_model");			
+			$result=$this->event_model->singleEvent($eventId);
+			$this->load->view("updateEvents",$result);
+		}
 
 }
