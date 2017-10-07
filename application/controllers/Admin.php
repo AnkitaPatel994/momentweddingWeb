@@ -298,5 +298,5 @@ class Admin extends CI_Controller {
 			$this->load->model("guestlist_model");
 			$this->guestlist_model->deleteGuestList($guestID);
 		}
-		
+
 }
