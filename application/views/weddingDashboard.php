@@ -31,8 +31,8 @@
 <div class="row top-header">
   <div class="col m2">
     <div class="sidebar-area sticky">
-      <div>
-          <h5>Quick Links</h5>
+      <div class="center">
+          <h5>Menu</h5>
       </div>
       <div class="divider"></div>
       <div class="quick-links">
@@ -50,7 +50,7 @@
  <div class="weddingDetails-area">
   <div class="page-header">
     <div class="row">
-      <div class="page-title col s6 m10">Wedding Management</div>      
+      <div class="page-title col s6 m10"><h5>Wedding Management</h5></div>
       <div class="page-button col s6 m2">
         <a class="waves-effect waves-light btn black modal-trigger" href="#weddingModal">Add Wedding</a>
       </div>
@@ -60,9 +60,9 @@
    	<table border="1" class="responsive-table centered">
     <thead>
    		<tr>
-        <th>Order</th>
-        <th>Bride Id</th>    
-        <th>Groom Id</th>
+        <th>Id</th>
+        <th>Bride Name</th>    
+        <th>Groom Name</th>
         <th>Date</th> 
         <th>Invitation</th> 
         <th>Code</th>          

@@ -2,8 +2,8 @@
 <div class="row top-header">
   <div class="col m2">
     <div class="sidebar-area">
-      <div>
-      		<h5>Quick Links</h5>
+      <div class="center">
+      		<h5>Menu</h5>
       </div>
       <div class="divider"></div>
       <div class="quick-links">
@@ -19,7 +19,7 @@
 
 	<div class="col m10">
 		<div class="profileDetails">
-			<div class="row"><center><h4>Upadte Profile</h4></center></div>
+			<div class="row"><h4>Update Profile</h4></div>
 			<div>
 				<table class="responsive-table centered highlight">
 			        <thead>

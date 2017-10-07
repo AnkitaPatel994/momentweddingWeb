@@ -87,7 +87,7 @@
     	<div class="row">
       		<center><h5>Add New Guest</h5></center>
       		<?php //var_dump($allWedding); ?>
-      	</div>	
+      	</div><hr>	
       <!-- <p>A bunch of text</p> -->
       <div class="guestList-area row">
       	<form method="post" id="addGuestListForm">
@@ -140,7 +140,7 @@
     <div class="modal-content">
     	<div class="row">
       		<center><h5>Edit New Guest</h5></center>
-      	</div>	
+      	</div>	<hr>
       <!-- <p>A bunch of text</p> -->
       <div class="guestList-area row">
       	<form>

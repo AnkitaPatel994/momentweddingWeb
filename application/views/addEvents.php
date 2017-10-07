@@ -1,3 +1,9 @@
+<div class="row">
+	<h5>
+		<center><h5>Add New Event</h5></center>
+	</h5>
+</div><hr>
+
  <div class="profile-form row">
       	<form id="addEventForm" method="post" enctype="multipart/form-data">
       		<div class="input-field col s12 m6" id="eventImage">

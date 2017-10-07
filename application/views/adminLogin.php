@@ -1,9 +1,13 @@
 <div>
 	<div class="login-area">
-		<div class="login-box">
 			<div class="row">
-			<center><h5>Admin Login</h5></center>
-		</div>
+				<div class="center">
+					<img src="<?php echo base_url(); ?>/html/images/Moments-wedding.png" class="admin-logo" height="70px">
+					<center><label>Admin Login</label></center>
+				</div>
+			</div>
+			
+		<div class="login-box">
 			<form name="adminLogin" method="post">
 				<div class="input-field col s6">
 		          <input id="email" type="email" class="validate" required="required">

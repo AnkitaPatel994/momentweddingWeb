@@ -1,4 +1,6 @@
-      <center><h4>Update Wedding</h4></center>
+  <div class="row">
+      <center><h5>Update Wedding</h5></center>
+    </div><hr>
       <!-- <p>A bunch of text</p> -->
       <div class="wedding-area row">
         <form id="updateWeddingForm" method="post">

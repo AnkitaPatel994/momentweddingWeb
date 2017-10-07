@@ -38,7 +38,15 @@
       position: fixed;
       top: 0px;
       z-index: 2;
+      height: 100px;
+      overflow: hidden;
      }
+     a.brand-logo.center {
+        padding: 10px;
+    }
+    hr {
+        border-color: #000;
+    }
      #sidenav-overlay{
       z-index: 1;
      }
@@ -49,7 +57,7 @@
         background: #630b14;
         padding: 0px;
         position: fixed;
-        margin-top: 60px;
+        margin-top: 100px;
         height: 100%;
         left: 0;
         color: #fff;
@@ -66,7 +74,7 @@
 
     }
     .quick-links a {
-      color: #666;
+      color: #999;
       font-size: 16px;
       font-weight: 400;
       line-height: 2;
@@ -76,7 +84,7 @@
       transition:all 0.3s ease-in-out;*/
     }
     .quick-links a:before {
-      color: #666;
+      color: #999;
       content: "\f0da";
       font-family: FontAwesome;
       font-size: 16px;
@@ -108,6 +116,15 @@
       transition:all 0.3s ease-in-out;
       padding: 5px 30px;
     }
+    .right.log-out {
+      position: absolute;
+      right: 0px;
+      color: #fff;
+      top: 0px;
+      padding-right: 50px;
+      font-size: 14px;
+      line-height: 7rem;
+  }
     @media(max-width: 768px){
       .sidebar-area{
         display: none;
@@ -120,10 +137,20 @@
 
 </head>
 
-<body class="grey lighten-2" >
-    <?php $this->session->set_userdata("email","abc"); ?>
+<body>
+    <?php 
+      $this->session->unset_userdata("email");
+      $this->session->sess_destroy();
+      $this->session->set_userdata("email","abc"); 
+    ?>
     <?php if($this->session->userdata("email")) { ?>
     <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center"><img src="<?php echo base_url();?>/html/images/Moments-wedding.png" class="logo" height="85px"></a>
+      </div>
+      <div class="right log-out">
+        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"> Log Out</i></a>
+      </div>
         <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
               <div class="background">
@@ -143,8 +170,4 @@
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>
-   <?php } else{ ?>
-    <div>
-      <h5>Admin Login</h5>
-    </div>
    <?php }  ?>
