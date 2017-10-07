@@ -1,13 +1,30 @@
 /* admin profile css */
 .profile-area{
-	background: #fff;
+	/*background: #fff;
 	padding: 25px;
 	top: 50px; 
 	width: 90%;
 	margin: 0 auto;
-	position: relative;
+	position: relative;*/
 }
-
+.sidebar-area {
+    background: #630b14;
+    padding: 10px;
+    position: fixed;
+    margin-top: -40px;
+    height: 100%;
+    left: 0;
+    color: #fff;
+    width: 200px;
+    z-index: 0;
+    top: 0;
+}
+.profileDetails{
+	background: #fff;
+	padding: 25px;
+	margin: 0 auto;
+	position: relative;	
+}
 
 
 .profile-img{

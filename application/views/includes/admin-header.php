@@ -31,9 +31,91 @@
  <!--      <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
  
  <style type="text/css">
-     nav a.button-collapse{
+     /*nav a.button-collapse{
         display: block;
+     }*/
+     nav{
+      position: fixed;
+      top: 0px;
+      z-index: 2;
      }
+     #sidenav-overlay{
+      z-index: 1;
+     }
+     .top-header{
+      margin-top: 100px;
+    }
+    .sidebar-area {
+        background: #630b14;
+        padding: 0px;
+        position: fixed;
+        margin-top: 60px;
+        height: 100%;
+        left: 0;
+        color: #fff;
+        width: 200px;
+        z-index: 0;
+    }
+    .sidebar-area h5{
+      padding: 15px;
+    }
+    .divider{
+      margin: 15px;
+    }
+    .quick-links{
+
+    }
+    .quick-links a {
+      color: #666;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 2;
+ /*     -webkit-transition:all 0.3s ease-in-out;
+      -moz-transition:all 0.3s ease-in-out;
+      -o-transition:all 0.3s ease-in-out;
+      transition:all 0.3s ease-in-out;*/
+    }
+    .quick-links a:before {
+      color: #666;
+      content: "\f0da";
+      font-family: FontAwesome;
+      font-size: 16px;
+      display: block;
+      float: left;
+      padding: 3px 15px;
+      font-weight: 400;
+      line-height: 2;
+    }
+    .quick-links a:hover {
+      color: #000;
+/*      -webkit-transition:all 0.3s ease-in-out;
+      -moz-transition:all 0.3s ease-in-out;
+      -o-transition:all 0.3s ease-in-out;
+      transition:all 0.3s ease-in-out;*/
+    }
+    .quick-links a:hover li {
+        background: rgba(0,0,0,0.2);
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        color: rgb(195, 195, 195);
+    }
+    .quick-links a li {
+      -webkit-transition:all 0.3s ease-in-out;
+      -moz-transition:all 0.3s ease-in-out;
+      -o-transition:all 0.3s ease-in-out;
+      transition:all 0.3s ease-in-out;
+      padding: 5px 30px;
+    }
+    @media(max-width: 768px){
+      .sidebar-area{
+        display: none;
+      }
+      .col.m10{
+        width: 100%;
+      }
+    }
  </style>  
 
 </head>
@@ -43,7 +125,7 @@
     <?php if($this->session->userdata("email")){ ?>
     <nav>
         <ul id="slide-out" class="side-nav">
-            <li><div class="user-view">
+            <!-- <li><div class="user-view">
               <div class="background">
                 <img src="images/office.jpg">
               </div>
@@ -51,13 +133,13 @@
               <a href="#!name"><span class="white-text name">John Doe</span></a>
               <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
             </div>
-            </li>
-
-            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </li> -->
+            <li><h5 class="black-text"><center>Menu</center></h5></li>
+            <li><a href="<?php echo base_url(); ?>admin/Wedding">Wedding</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/profile">Profile</a></li>
+            <!-- <li><div class="divider"></div></li> -->
+            <li><a href="<?php echo base_url(); ?>admin/admin/EventsList">Event List</a></li>
+            <!-- <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
     </nav>

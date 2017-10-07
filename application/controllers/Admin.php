@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
 			"stylesheet" => array("adminLogin.css")
 		);
 		$footerData = array(
-			"jsFiles" => array("adminLogin.js")
+			"jsFiles" => array("adminLogin.js","admin.js")
 		);
 		$viewData = array(
 			"viewName" => "admin-dashboard",
@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
 			"stylesheet" => array("adminLogin.css")
 		);
 		$footerData = array(
-			"jsFiles" => array("adminLogin.js")
+			"jsFiles" => array("adminLogin.js","admin.js")
 		);
 		$viewData = array(
 			"viewName" => "adminLogin",
@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
 		$allWeddingData=$this->wedding_model->allWeddingData();
 	 	$headerData = array(
 			"pageTitle" => "Wedding Dashboard",
-			"stylesheet" => array("adminLogin.css","adminDashboard.css")
+			"stylesheet" => array("adminDashboard.css")
 		);
 		$footerData = array(
 			"jsFiles" => array("admin.js")

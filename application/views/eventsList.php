@@ -1,6 +1,25 @@
 <!--  admin profile view -->
-<div class="row">
-	<div class="profile-area">
+<div class="row top-header">
+  <div class="col m2">
+    <div class="sidebar-area sticky">
+      <div class="center">
+      		<h5>Menu</h5>
+      </div>
+      <div class="divider"></div>
+      <div class="quick-links">
+      	<ul>
+      		<a href="<?php echo base_url(); ?>admin/Wedding"><li>Wedding</li></a>
+      		<a href="<?php echo base_url(); ?>admin/profile"><li>profile</li></a>
+      		<a href="<?php echo base_url(); ?>admin/EventsList"><li>EventsList</li></a>
+      	</ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+	<div class="profile-area col m10">
 		<div class="profileDetails">
 			<div class="row">
 				<div class="col s8 m10"><h4>Events List</h4></div>
@@ -35,8 +54,9 @@
 			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
 			            <a href="#editProfile" data-event-id=<?php echo $allEventsRow['id']; ?> class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>
+
 			          <?php } ?>
-			          
+
 			        </tbody>
 			    </table>
 			</div>
