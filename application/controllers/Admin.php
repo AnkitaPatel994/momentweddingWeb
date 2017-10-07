@@ -261,4 +261,42 @@ class Admin extends CI_Controller {
 			);
 			$this->load->view('admin-templete',$viewData);
 		}
+
+		public function addGuestList(){
+	 	$this->load->model("guestlist_model");
+	 	$event_access=implode(',',$_POST["event_access"])
+	 	$result=array(
+	 		"wedding_id"=>$_POST["wedding_id"],
+	 		"profile_id"=>$_POST["profile_id"],
+	 		"name"=>$_POST["name"],
+	 		"mobile"=>$_POST["mobile"],
+	 		"event_access"=>$event_access
+	 	);
+	 	$this->guestlist_model->addGuestList($result);
+	 }
+
+		public function updateGuestList(){
+	 	$this->load->model("guestlist_model");
+	 	$guestID=$_POST['guest-id'];
+	 	$event_access=implode(',',$_POST["event_access"])
+	 	$result=array(
+	 		"wedding_id"=>$_POST["wedding_id"],
+	 		"profile_id"=>$_POST["profile_id"],
+	 		"name"=>$_POST["name"],
+	 		"mobile"=>$_POST["mobile"],
+	 		"event_access"=>$event_access
+	 	);
+	 	$this->guestlist_model->updateGuestList($result,$guestID);
+	 }
+
+		public function editGuestList($guestID){
+			$this->load->model("guestlist_model");
+			$result=$this->guestlist_model->editGuestList($guestID);
+			$this->load->view("updateGuestList",$result);
+		}
+		public function deleteGuestList($guestID){
+			$this->load->model("guestlist_model");
+			$this->guestlist_model->deleteGuestList($guestID);
+		}
+
 }
