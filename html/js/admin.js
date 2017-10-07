@@ -153,23 +153,6 @@ $(function(){
 	  }
     });
 
-    /*=============ON CHANGE*/
-
-    $("#wedding").on("CHANGE",function(){	
-    var data=$("#wedding").val();	
-		$.ajax({
-			data:data,
-			url:baseURL+"Admin/addGuestList/",
-			type:"POST",
-			contentType:false,
-			processData:false,
-			success:function(result){
-				//alert("GuestList added Successfully...");
-				//window.location.reload();
-			}
-		});
-	});
-    /*==============================================================*/
 
   
 
