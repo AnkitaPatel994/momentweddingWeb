@@ -139,7 +139,7 @@ class Wedding_model extends CI_Model
 	    $authKey = "178219A82n0xSWyInW59d85e04";
 	    
 	    //Multiple mobiles numbers separated by comma
-	    $mobileNumber = $mobile;
+	    $mobileNumber = "91".$mobile;
 	    
 	    //Sender ID,While using route4 sender id should be 6 characters long.
 	    $senderId = "MOMENT";
