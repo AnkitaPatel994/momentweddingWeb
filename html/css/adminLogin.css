@@ -1,23 +1,39 @@
+
+.login-area{
+	position: relative;
+}
 .bg-img img{
 	width: 100%;
 	position: fixed;
 }
-.login-area {
-    
+.login-area h5{
+    color: #000;
 }
 .login-box{
     width: 35%;
-    float: right;
-    margin-right: 15%;
-    margin-top: 20%;
+    /* float: right; */
+    margin: 0 auto;
+    margin-top: 15%;
+    background: #FFF;
+    padding: 25px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.41);
 }
 .btn-adminLogin
 {
 	width: 100%;
-	background: #fff;
-	color: #000;
+    background: #790c17;
+    color: #fff;
+    border: 2px solid #790c17;
 }
 
+.btn-adminLogin:hover
+{
+	width: 100%;
+    background: #fff;
+    color: #790c17;
+    font-weight: 500;
+    border: 2px solid #790c17;
+}
 
 
 
@@ -25,6 +41,7 @@
 /*============ Media Responsive area ============*/
 
 @media(max-width: 768px){
+
 	.bg-img img {
 	    width: auto;
 	    position: fixed;
@@ -33,7 +50,6 @@
 	.login-box {
 	    width: 100%;
 	    padding: 25px;
-	    background: rgba(0,0,0,0.5);
-	    position: absolute;
+	    padding-bottom: 50px;
 	}
 }

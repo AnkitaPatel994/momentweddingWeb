@@ -1,9 +1,9 @@
 <div>
-	<div class="bg-img">
-		<img src="<?php echo base_url(); ?>html/images/adminBg.jpg">
-	</div>
 	<div class="login-area">
 		<div class="login-box">
+			<div class="row">
+			<center><h5>Admin Login</h5></center>
+		</div>
 			<form name="adminLogin" method="post">
 				<div class="input-field col s6">
 		          <input id="email" type="email" class="validate" required="required">

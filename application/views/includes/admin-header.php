@@ -122,7 +122,7 @@
 
 <body class="grey lighten-2" >
     <?php $this->session->set_userdata("email","abc"); ?>
-    <?php if($this->session->userdata("email")){ ?>
+    <?php if($this->session->userdata("email")) { ?>
     <nav>
         <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
@@ -139,8 +139,12 @@
             <li><a href="<?php echo base_url(); ?>admin/profile">Profile</a></li>
             <!-- <li><div class="divider"></div></li> -->
             <li><a href="<?php echo base_url(); ?>admin/admin/EventsList">Event List</a></li>
-            <!-- <li><a class="waves-effect" href="#!">Third Link With Waves</a></li> -->
+            <li><a href="<?php echo base_url(); ?>admin/guest_list">Guest List</a></li>
         </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>
+   <?php } else{ ?>
+    <div>
+      <h5>Admin Login</h5>
+    </div>
    <?php }  ?>
