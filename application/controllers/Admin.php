@@ -244,7 +244,12 @@ class Admin extends CI_Controller {
 		}
 
 	public function guest_list(){
-		$this->load->model("event_model");
+		$this->load->model("guestlist_model");
+		$allGuestList=$this->guestlist_model->allGuestList();
+		$allWedding=$this->guestlist_model->allWedding();
+		$allProfile=$this->guestlist_model->allProfile();
+		$allEvent=$this->guestlist_model->allEvent();
+		
 		
 	 	$headerData = array(
 			"pageTitle" => "Guest List",
@@ -255,7 +260,7 @@ class Admin extends CI_Controller {
 		);
 		$viewData = array(
 			"viewName" => "guest_list",
-            "viewData" => array(),
+            "viewData" => array("allGuestList"=>$allGuestList,"allWedding"=>$allWedding,"allProfile"=>$allProfile,"allEvent"=>$allEvent),
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);

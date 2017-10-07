@@ -152,6 +152,22 @@ $(function(){
 		});
 	  }
     });
+
+    /*=============ON CHANGE*/
+
+    $("#wedding").on("CHANGE",function(){		
+		$.ajax({
+			data:data,
+			url:baseURL+"Admin/addGuestList/",
+			type:"POST",
+			contentType:false,
+			processData:false,
+			success:function(result){
+				//alert("GuestList added Successfully...");
+				//window.location.reload();
+			}
+		});
+	});
     /*==============================================================*/
 
   
