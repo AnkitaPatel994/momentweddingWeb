@@ -120,10 +120,17 @@
 
 </head>
 
-<body class="grey lighten-2" >
-    <?php $this->session->set_userdata("email","abc"); ?>
+<body>
+    <?php 
+      $this->session->unset_userdata("email");
+      $this->session->sess_destroy();
+      /*$this->session->set_userdata("email","abc"); */
+    ?>
     <?php if($this->session->userdata("email")) { ?>
     <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center"><img src="<?php echo base_url();?>/html/images/Moments-wedding.png" class="logo" height="60px"></a>
+      </div>
         <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
               <div class="background">
@@ -143,8 +150,4 @@
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>
-   <?php } else{ ?>
-    <div>
-      <h5>Admin Login</h5>
-    </div>
    <?php }  ?>
