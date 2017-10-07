@@ -17,10 +17,6 @@
       </div>
     </div>
   </div>
-
-
-
-
 	<div class="profile-area col m10">
 		<div class="profileDetails">
 			<div class="row">
@@ -42,16 +38,18 @@
 			        </thead>
 
 			        <tbody>
-			          <tr>
-			            <td>1</td>
-			            <td>Wedding</td>
-			            <td>Groom</td>
-			            <td>Mr. Guest</td>
-			            <td>7600278055</td>
-			            <td>Sangeet,Mahendi</td>
-			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
-			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			        <?php foreach($allGuestList as $key => $allGuestListRow){?>
+			          <tr id="guest-id<?php echo $allGuestListRow['id']; ?>">
+			            <td><?php echo $allGuestListRow['id']; ?></td>
+			            <td><?php echo $allGuestListRow['wedding_id']; ?></td>
+			            <td><?php echo $allGuestListRow['profile_id']; ?></td>
+			            <td><?php echo $allGuestListRow['name']; ?></td>
+			            <td><?php echo $allGuestListRow['mobile']; ?></td>
+			            <td><?php echo $allGuestListRow['event_access']; ?></td>
+			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light data-guest-id=<?php echo $allGuestListRow['id']; ?>  btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#editProfile" data-guest-id=<?php echo $allGuestListRow['id']; ?>  class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>
+			          <?php } ?>
 
 			        </tbody>
 			    </table>
@@ -71,7 +69,7 @@
   <!-- Modal Structure -->
   <div id="eventList" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <?php $this->load->view("addEvents",array("allWeddings"=>$allWeddings));?>
+      <?php //$this->load->view("addEvents",array("allWeddings"=>$allWeddings));?>
       <!-- <p>A bunch of text</p> -->     
     </div>
     <div class="modal-footer">
@@ -92,9 +90,9 @@
       	</div>	
       <!-- <p>A bunch of text</p> -->
       <div class="guestList-area row">
-      	<form>
+      	<form method="post" id="addGuestListForm">
       		<div class="input-field col s12 m4">
-			    <select id="addGuestWeddingID">
+			    <select id="addGuestWeddingID" name="wedding_id">
 			      <option value="" disabled selected>Choose your option</option>
 			      <?php foreach($allWedding as $key=>$weddingRow){ ?>
 			      <option value="<?php echo $weddingRow["id"]; ?>"><?php echo $weddingRow["id"]; ?></option>
@@ -105,27 +103,25 @@
 			</div>
 
 			<div class="input-field col s12 m4">
-			    <select id="addGuestProfileList">
+			    <select id="addGuestProfileList" name="profile_id">
 			      <option value="" disabled selected>Choose your Profile</option>		    
 			    </select>
 			    <label>Profile</label>
 			</div>
 
             <div class="input-field col s12 m4">
-	          <input id="guest_name" type="text" class="validate" required="required">
+	          <input id="name" name="name" type="text" class="validate" required="required">
 	          <label for="guest_name">Guest Name</label>
 	        </div>
 
 	        <div class="input-field col s12 m6">
-	          <input id="guest_mobile" type="text" class="validate" required="required">
+	          <input id="mobile" name="mobile" type="text" class="validate" required="required">
 	          <label for="guest_mobile">Guest Mobile</label>
 	        </div>
 
 	        <div class="input-field col s12 m6">
-			    <select id="addGuestEventList" multiple>
-			      <option value="" disabled selected>Select Events</option>
-			      <option value="1">Sangeet</option>
-			      <option value="2">Mahendi</option>
+			    <select id="addGuestEventList" name="event_access[]" multiple>
+			      <option value="" disabled selected>Select Events</option>			    
 			    </select>
 			    <label>Side</label>
             </div>
@@ -134,11 +130,9 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add New Guest</a>
+      <a href="#!" id="sendGuestListData" class="modal-action modal-close waves-effect waves-green btn-flat ">Add New Guest</a>
     </div>
   </div>
-
-
 
   <!-- Edit guest list -->
 

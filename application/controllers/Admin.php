@@ -246,8 +246,7 @@ class Admin extends CI_Controller {
 	public function guest_list(){
 		$this->load->model("guestlist_model");
 		$allGuestList=$this->guestlist_model->allGuestList();
-		$allWedding=$this->guestlist_model->allWedding();		
-		$allEvent=$this->guestlist_model->allEvent();
+	
 		
 		
 	 	$headerData = array(
@@ -259,7 +258,7 @@ class Admin extends CI_Controller {
 		);
 		$viewData = array(
 			"viewName" => "guest_list",
-            "viewData" => array("allGuestList"=>$allGuestList,"allWedding"=>$allWedding,"allEvent"=>$allEvent),
+            "viewData" => array("allGuestList"=>$allGuestList),
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
@@ -268,13 +267,13 @@ class Admin extends CI_Controller {
 
 	public function addGuestList(){
 	 	$this->load->model("guestlist_model");
-	 	//$event_access=implode('',$_POST["event_access"]);
+	 	$event_access=implode(",",$_POST["event_access"]);
 	 	$result=array(
 	 		"wedding_id"=>$_POST["wedding_id"],
 	 		"profile_id"=>$_POST["profile_id"],
 	 		"name"=>$_POST["name"],
-	 		"mobile"=>$_POST["mobile"]
-	 		//"event_access"=>$event_access
+	 		"mobile"=>$_POST["mobile"],
+	 		"event_access"=>$event_access
 	 	);
 	 	$this->guestlist_model->addGuestList($result);
 	 }
@@ -313,7 +312,6 @@ class Admin extends CI_Controller {
 			}
 
 			$htmlEvent = "";
-
 			foreach ($weddingData["events"] as $key => $value) {
 				$htmlEvent.="<option value='".$value["id"]."'>".$value["name"]."</option>";
 			}
