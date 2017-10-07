@@ -25,6 +25,24 @@ class Guestlist_model extends CI_Model
 		$this->db->where('id',$guestID);
 		$this->db->delete('guest_list');
 	}
+	public function allProfile(){
+		$query=$this->db->query("select id,name from profile");
+		$result=$query->result_array();
+		return $result;
+	}
+	public function allWedding(){
+		$query=$this->db->query("select id from wedding");
+		$result=$query->result_array();
+		return $result;
+	}
+
+	public function allEvent(){
+	$query=$this->db->query("select id,name from event");
+	$result=$query->result_array();
+	return $result;
+	}
+
+	
 }
 
 
