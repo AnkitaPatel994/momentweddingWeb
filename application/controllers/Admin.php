@@ -264,7 +264,7 @@ class Admin extends CI_Controller {
 
 		public function addGuestList(){
 	 	$this->load->model("guestlist_model");
-	 	$event_access=implode(',',$_POST["event_access"])
+	 	$event_access=implode(',',$_POST["event_access"]);
 	 	$result=array(
 	 		"wedding_id"=>$_POST["wedding_id"],
 	 		"profile_id"=>$_POST["profile_id"],
@@ -278,7 +278,7 @@ class Admin extends CI_Controller {
 		public function updateGuestList(){
 	 	$this->load->model("guestlist_model");
 	 	$guestID=$_POST['guest-id'];
-	 	$event_access=implode(',',$_POST["event_access"])
+	 	$event_access=implode(',',$_POST["event_access"]);
 	 	$result=array(
 	 		"wedding_id"=>$_POST["wedding_id"],
 	 		"profile_id"=>$_POST["profile_id"],
