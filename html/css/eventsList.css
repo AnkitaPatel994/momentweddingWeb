@@ -1,7 +1,9 @@
 /*Events List*/
 
 /* admin profile css */
-
+.sidebar-area{
+    top: 0;
+}
 
 .profile-area{
 	/*width: 90%;*/
