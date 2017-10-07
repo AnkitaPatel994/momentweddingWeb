@@ -104,78 +104,46 @@ class Webservices  extends CI_Controller{
 		echo json_encode($details);
 	}
 
-	public function sendOTP($mobile){
-
-		//Your authentication key
-	    $authKey = "178219A82n0xSWyInW59d85e04";
-	    
-	    //Multiple mobiles numbers separated by comma
-	    $mobileNumber = $mobile;
-	    
-	    //Sender ID,While using route4 sender id should be 6 characters long.
-	    $senderId = "MOMENT";
-
-	    //Get OTP
-	    $otp = $this->getOTP($mobileNumber);
-	    
-	    //Your message to send, Add URL encoding here.
-	    $message = urlencode("Your OTP is ".$otp);
-	    
-	    //Define route 
-	    $route = "default";
-	    //Prepare you post parameters
-	    $postData = array(
-	        'authkey' => $authKey,
-	        'mobile' => $mobileNumber,
-	        'message' => $message,
-	        'sender' => $senderId,
-	        'otp' => $otp
-	    );
-	    
-	    //API URL
-	    $url="https://control.msg91.com/api/sendotp.php";
-	    
-	    // init the resource
-	    $ch = curl_init();
-	    curl_setopt_array($ch, array(
-	        CURLOPT_URL => $url,
-	        CURLOPT_RETURNTRANSFER => true,
-	        CURLOPT_POST => true,
-	        CURLOPT_POSTFIELDS => $postData
-	        //,CURLOPT_FOLLOWLOCATION => true
-	    ));
-	    
-
-	    //Ignore SSL certificate verification
-	    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-	    
-	    //get response
-	    $output = curl_exec($ch);
-	    
-	    //Print error if any
-	    $status = 1;
-	    $statusMsg = "Success";
-	    if(curl_errno($ch))
-	    {
-	        echo 'error:' . curl_error($ch);
-	        $status = 0;
-	    	$statusMsg = "Fail";
-	    }
-	    
-	    curl_close($ch);
-	    
-	    $result = array(
-	    	"status" => $status,
-	    	"message" => $statusMsg,
-	    	"otp" => $otp
-	    );
-	    echo json_encode($result);
+	public function sendOTP(){
+		$wedding_id = $data_back -> {"wedding_id"};
+		$mobile = $data_back -> {"mobile"};
+		$this->load->model("wedding_model");
+		$output = $this->wedding_model->sendOTP($mobile,$wedding_id);
+		json_encode($output);
 	}
 
-	public function getOTP($mobile){
-		$otp = mt_rand(1000, 9999);
-		return $otp;
+	public function verifyOTP(){
+		$wedding_id = $data_back -> {"wedding_id"};
+		$mobile = $data_back -> {"mobile"};
+		$otp = $data_back -> {"otp"};
+		$this->load->model("wedding_model");
+		$otpData = array(
+			"weddingID" => $data_back -> {"wedding_id"},
+			"mobile" => $data_back -> {"mobile"},
+			"otp" => $data_back -> {"otp"}
+		);
+		$output = $this->wedding_model->verifyOTP($otpData);
+		json_encode($output);
+	}
+
+	public function verifyWedding(){
+		if( isset($data_back->{"invite_code"}))
+		{
+			if( !empty($data_back->{"invite_code"}))
+			{
+				$invite_code = $data_back -> {"invite_code"};
+
+				$details = $this->wedding_model->verifyWedding($invite_code);	
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
 	}
 }
