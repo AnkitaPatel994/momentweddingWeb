@@ -31,9 +31,87 @@
  <!--      <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->
  
  <style type="text/css">
-     nav a.button-collapse{
+     /*nav a.button-collapse{
         display: block;
+     }*/
+     nav{
+      position: fixed;
+      top: 0px;
+      z-index: 1;
      }
+     .top-header{
+      margin-top: 100px;
+    }
+    .sidebar-area {
+        background: #630b14;
+        padding: 10px;
+        position: fixed;
+        margin-top: 60px;
+        height: 100%;
+        left: 0;
+        color: #fff;
+        width: 200px;
+        z-index: 0;
+    }
+    .sidebar-area h5{
+      padding: 10px;
+    }
+    .divider{
+      margin: 10px;
+    }
+    .quick-links{
+
+    }
+    .quick-links a {
+      color: #666;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 2;
+ /*     -webkit-transition:all 0.3s ease-in-out;
+      -moz-transition:all 0.3s ease-in-out;
+      -o-transition:all 0.3s ease-in-out;
+      transition:all 0.3s ease-in-out;*/
+    }
+    .quick-links a:before {
+      color: #666;
+      content: "\f0da";
+      font-family: FontAwesome;
+      font-size: 16px;
+      display: block;
+      float: left;
+      padding: 0px 10px;
+      font-weight: 400;
+      line-height: 2;
+    }
+    .quick-links a:hover {
+      color: #000;
+/*      -webkit-transition:all 0.3s ease-in-out;
+      -moz-transition:all 0.3s ease-in-out;
+      -o-transition:all 0.3s ease-in-out;
+      transition:all 0.3s ease-in-out;*/
+    }
+    .quick-links a:hover li {
+        background: rgba(0,0,0,0.2);
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        color: rgb(195, 195, 195);
+    }
+    .quick-links a li {
+      -webkit-transition:all 0.3s ease-in-out;
+      -moz-transition:all 0.3s ease-in-out;
+      -o-transition:all 0.3s ease-in-out;
+      transition:all 0.3s ease-in-out;
+    }
+    @media(max-width: 768px){
+      .sidebar-area{
+        display: none;
+      }
+      .col.m10{
+        width: 100%;
+      }
+    }
  </style>  
 
 </head>

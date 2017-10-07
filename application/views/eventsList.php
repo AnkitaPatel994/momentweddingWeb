@@ -1,6 +1,25 @@
 <!--  admin profile view -->
-<div class="row">
-	<div class="profile-area">
+<div class="row top-header">
+  <div class="col m2">
+    <div class="sidebar-area sticky">
+      <div class="center">
+      		<h5>Menu</h5>
+      </div>
+      <div class="divider"></div>
+      <div class="quick-links">
+      	<ul>
+      		<a href="<?php echo base_url(); ?>admin/Wedding"><li>Wedding</li></a>
+      		<a href="<?php echo base_url(); ?>admin/profile"><li>profile</li></a>
+      		<a href="<?php echo base_url(); ?>admin/EventsList"><li>EventsList</li></a>
+      	</ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+	<div class="profile-area col m10">
 		<div class="profileDetails">
 			<div class="row">
 				<div class="col s8 m10"><h4>Events List</h4></div>
@@ -22,6 +41,230 @@
 			        </thead>
 
 			        <tbody>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
+			          <tr>
+			            <td>1</td>
+			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">
+			            </td>
+			            <td>Sangeet</td>
+			            <td>Wedding</td>
+			            <td>6 Oct, 2017</td>
+			            <td>06:00 pm</td>
+			            <td><textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur, neque in laoreet convallis, sem quam semper justo, vitae varius purus turpis vel purus. Quisque venenatis metus vel ex egestas pretium.
+			            </textarea></td>
+			            <td><a href="#EditeventList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
+			            <a href="#editProfile" class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			          </tr>
 			          <tr>
 			            <td>1</td>
 			            <td><img src="<?php echo base_url(); ?>html/images/profile.png" class="profile-img">

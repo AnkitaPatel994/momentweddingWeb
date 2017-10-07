@@ -1,16 +1,18 @@
 /*Events List*/
 
 /* admin profile css */
+
+
 .profile-area{
-	background: #fff;
-	padding: 25px;
-	top: 50px; 
-	width: 90%;
-	margin: 0 auto;
+	/*width: 90%;*/
+	
 	position: relative;
 }
-
-
+.profileDetails {
+    background: #ffF;
+    padding: 25px;
+    overflow: hidden;
+}
 
 .profile-img{
 	width: auto;
@@ -71,4 +73,8 @@ textarea{
     padding: 25px;
     width: 100%;
     margin-bottom: 15px;
+}
+.sticky {
+  position: relative;
+  top: 0;
 }
