@@ -22,4 +22,72 @@ $(function(){
 	    ampmclickable: true, // make AM PM clickable
 	    aftershow: function(){} //Function for after opening timepicker
 	  });
+
+
+ 	/*================STARTS EVENTS=======================================*/
+ $("#addEvent").on("click",function(){
+		$("#addEventModal").modal('open');
+	});
+
+	/*===Add EVENT=======*/
+
+	$("#sendEventData").on("click",function(){
+		var formData = new FormData($("#addEventForm")[0]);
+		$.ajax({
+			data:formData,
+			url:baseURL+"Admin/addEvent/",
+			type:"POST",
+			contentType:false,
+			processData:false,
+			success:function(result){
+				alert("Event added Successfully...");
+				//window.location.reload();
+			}
+
+		});
+	});
+
+	/*===UPdate EVENT=======*/
+
+	$("#updateEventData").on("click",function(){
+		var formData = new FormData($("#updateEventForm")[0]);
+		$.ajax({
+			data:formData,
+			url:baseURL+"Admin/updateEvent/",
+			type:"POST",
+			contentType:false,
+			processData:false,
+			success:function(result){
+				alert("Event Update Successfully...");
+				//window.location.reload();
+			}
+
+		});
+	});
+
+
+	/*===Edit EVENT=======*/
+
+	$(".edit-event-btn").on("click",function(){
+		$("#editEventModal").modal('open');
+		$("#editEventModal .modal-content").html("");
+		var eventID=$(this).data("event-id");
+		$.post(baseURL+"Admin/editWedding/"+eventID,function(data){
+			$("#editEventModal .modal-content").html(data);
+			 Materialize.updateTextFields();			 
+		});
+	});	
+
+	/*=======================Delete EVENT===================*/
+
+	$(".delete-event-btn").on("click",function(){		
+		var eventID=$(this).data("event-id");
+		$.post(baseURL+"Admin/deleteEvent/"+eventID,function(data){
+			$("#event-id"+eventID).remove();					 
+		});
+	});
+
+
+ /*========================END EVENTS=======================================*/
+
 });
