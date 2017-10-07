@@ -304,4 +304,14 @@ class Admin extends CI_Controller {
 		}
 	
 
+		public function getProfile($weddingID){
+			$this->load->model("guestlist_model");
+			$weddingProfiles = $this->wedding_model->getWeddingProfiles($weddingID);
+			$htmlOutput = "";
+			foreach ($weddingProfiles as $key => $value) {
+				$htmlOutput.="<option value='".$value["id"]."'>".$value["name"]."</option>";
+			}
+			echo $htmlOutput;
+		}
+
 }
