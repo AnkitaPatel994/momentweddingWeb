@@ -24,17 +24,16 @@
 			        <tbody>
 			        <?php foreach($allEvents as $key =>$allEventsRow){?>
 			          <tr id="event-id<?php echo $allEventsRow['id']; ?>">
-			            <td>1</td>
-			            <td><img src="<?php echo base_url(); ?>html/images/events/<?php echo $allEventsRow['image']; ?>" class="profile-img">
-			            </td>
+			            <td><?php echo $allEventsRow['id']; ?></td>
+			            
 			            <td><?php echo $allEventsRow['name']; ?></td>
 			            <td><?php echo $allEventsRow['wedding_id']; ?></td>
 			            <td><?php echo $allEventsRow['date']; ?></td>
 			            <td><?php echo $allEventsRow['time']; ?></td>
 			            <td><?php echo $allEventsRow['location']; ?></td>
-			            <td><a href="#EditeventList" data-event-id class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <td><a href="#EditeventList" data-event-id=<?php echo $allEventsRow['id']; ?> class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
 			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
-			            <a href="#editProfile" data-event-id class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			            <a href="#editProfile" data-event-id=<?php echo $allEventsRow['id']; ?> class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>
 			          <?php } ?>
 			          
@@ -56,11 +55,11 @@
   <!-- Modal Structure -->
   <div id="eventList" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Events List</h4>
+      <?php $this->load->view("addEvents",array("allWeddings"=>$allWeddings));?>
       <!-- <p>A bunch of text</p> -->     
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add Event</a>
+      <a href="#!" id="sendEventData" class="modal-action modal-close waves-effect waves-green btn-flat ">Add Event</a>
     </div>
   </div>
 
@@ -76,7 +75,7 @@
       
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add Event</a>
+      <a href="#!" id="updateEventData" class="modal-action modal-close waves-effect waves-green btn-flat ">Update Event</a>
     </div>
   </div>
 
@@ -125,6 +124,3 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add Event</a>
-    </div>
-  </div>

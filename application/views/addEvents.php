@@ -1,16 +1,17 @@
  <div class="profile-form row">
-      	<form>
+      	<form id="addEventForm" method="post" enctype="multipart/form-data">
       		<div class="input-field col s12 m6" id="eventImage">
-	           <input type="file" name="eventImage" style="display:none;">
-          	   <button onclick="$('#eventImage input').click()" class="btn black"> Event Image</button>
+	           <input type="file" name="image" id="image" style="display:none;">
+          	   <button type="button" name="image" id="image" onclick="$('#eventImage input').click()" class="btn black"> Event Image</button>
 	        </div>
       		<div class="input-field col s12 m6">
-	          <select name="wedding_id" id="wedding_id">
-			      <option value="" disabled selected>Choose your option</option>
-			      <option value="1">Option 1</option>
-			      <option value="2">Option 2</option>
-			      <option value="3">Option 3</option>
-		      </select>
+	         <select name="wedding_id" id="wedding_id">
+			      <option value="" disabled selected>Choose your Wedding</option>
+			      <?php foreach($allWeddings as $key => $allWeddingsRow){ ?>
+			      <option value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['id']; ?></option>
+			      <?php } ?>
+			      
+		     </select>
 	          <label for="name"> Name</label>
 	        </div>
 	        <div class="input-field col s12 m4">
@@ -26,7 +27,7 @@
 	          <label for="time">Time</label>
 	        </div>
 	        <div class="input-field col s12 m12">
-	           <textarea id="textarea1" class="materialize-textarea" name="location" id="location"></textarea>
+	         <textarea  class="materialize-textarea" name="location" id="location"></textarea>
           	   <label for="textarea1">Location</label>
 	        </div>
 	        <!-- <div class="input-field col s12 m12">

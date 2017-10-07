@@ -9,7 +9,7 @@ $(function(){
 	    });
 
  	/*SELECT*/
- 	$('select').material_select();
+ 	 $('select').material_select();
 
  	$('.timepicker').pickatime({
 	    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
@@ -25,9 +25,7 @@ $(function(){
 
 
  	/*================STARTS EVENTS=======================================*/
- $("#addEvent").on("click",function(){
-		$("#addEventModal").modal('open');
-	});
+
 
 	/*===Add EVENT=======*/
 
@@ -41,7 +39,7 @@ $(function(){
 			processData:false,
 			success:function(result){
 				alert("Event added Successfully...");
-				//window.location.reload();
+				window.location.reload();
 			}
 
 		});
@@ -68,23 +66,26 @@ $(function(){
 
 	/*===Edit EVENT=======*/
 
-	$(".edit-event-btn").on("click",function(){
-		$("#editEventModal").modal('open');
-		$("#editEventModal .modal-content").html("");
+	$(".btn-edit").on("click",function(){
+		$("#EditeventList").modal('open');
+		$("#EditeventList .modal-content").html("");
 		var eventID=$(this).data("event-id");
-		$.post(baseURL+"Admin/editWedding/"+eventID,function(data){
-			$("#editEventModal .modal-content").html(data);
-			 Materialize.updateTextFields();			 
+		$.post(baseURL+"Admin/editEvent/"+eventID,function(data){
+			$("#EditeventList .modal-content").html(data);
+			 Materialize.updateTextFields();		
+			 $('#EditeventList #wedding_id').material_select();	 
 		});
 	});	
 
 	/*=======================Delete EVENT===================*/
 
-	$(".delete-event-btn").on("click",function(){		
+	$(".btn-delete").on("click",function(){		
 		var eventID=$(this).data("event-id");
+		if(confirm("Do you want delete this record..???")){
 		$.post(baseURL+"Admin/deleteEvent/"+eventID,function(data){
 			$("#event-id"+eventID).remove();					 
 		});
+	 }
 	});
 
 

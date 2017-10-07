@@ -163,6 +163,8 @@ class Admin extends CI_Controller {
 	public function EventsList(){
 		$this->load->model("event_model");
 		$allEvents=$this->event_model->allEvents();
+		$allWeddings=$this->event_model->allWeddings();
+		
 	 	$headerData = array(
 			"pageTitle" => "Events List",
 			"stylesheet" => array("eventsList.css")
@@ -172,7 +174,7 @@ class Admin extends CI_Controller {
 		);
 		$viewData = array(
 			"viewName" => "eventsList",
-            "viewData" => array("allEvents"=>$allEvents),
+            "viewData" => array("allEvents"=>$allEvents,"allWeddings"=>$allWeddings),
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
@@ -208,8 +210,7 @@ class Admin extends CI_Controller {
 	public function updateEvent(){
 		$this->load->model("event_model");
 		$eventId=$_POST['event-id'];
-		$result=array(
-			"wedding_id"=>$_POST['wedding_id'],
+		$result=array(			
 			"name"=>$_POST['name'],
 			"date"=>$_POST['date'],
 			"time"=>$_POST['time'],
@@ -237,10 +238,9 @@ class Admin extends CI_Controller {
 			$this->event_model->deleteEvent($eventId);
 		}
 		public function editEvent($eventId){
-			$this->load->model("event_model");
-			$result=$this->event_model->editMonthDetail($eventId);
-			//var_dump($result);
-			$this->load->view("updateEvent",$result);
+			$this->load->model("event_model");			
+			$result=$this->event_model->singleEvent($eventId);
+			$this->load->view("updateEvents",$result);
 		}
 
 }

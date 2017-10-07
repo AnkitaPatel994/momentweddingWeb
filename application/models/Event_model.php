@@ -14,15 +14,29 @@ class Event_model extends CI_Model
 		$result=$query->result_array();
 		return $result;
 	}
-	public function singleEvent($profileID){
-		$query=$this->db->query("select * from event where id='$profileID' ");
+	public function singleEvent($eventID){
+		$query=$this->db->query("select * from event where id='$eventID' ");
 		$result=$query->row_array();
 		return $result;
 	}
-	public function updateEvent($profileData,$profileID){
-		$this->db->where('id',$profileID);
-		$this->db->update('event',$profileData);
+	public function updateEvent($eventData,$eventID){
+		$this->db->where('id',$eventID);
+		$this->db->update('event',$eventData);
 	}
+	public function allWeddings(){
+		$query=$this->db->query("select id from wedding");
+		$result=$query->result_array();
+		return $result;
+	}
+	public function deleteEvent($eventID){
+		$this->db->where('id',$eventID);
+		$this->db->delete('event');
+	}
+
+
+
+	
+
 }
 
 ?>
