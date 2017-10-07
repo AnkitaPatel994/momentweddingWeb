@@ -243,7 +243,7 @@ class Admin extends CI_Controller {
 			$this->load->view("updateEvents",$result);
 		}
 
-		public function guest_list(){
+	public function guest_list(){
 		$this->load->model("event_model");
 		
 	 	$headerData = array(
@@ -263,30 +263,30 @@ class Admin extends CI_Controller {
 		}
 
 	public function addGuestList(){
- 	$this->load->model("guestlist_model");
- 	//$event_access=implode('',$_POST["event_access"]);
- 	$result=array(
- 		"wedding_id"=>$_POST["wedding_id"],
- 		"profile_id"=>$_POST["profile_id"],
- 		"name"=>$_POST["name"],
- 		"mobile"=>$_POST["mobile"]
- 		//"event_access"=>$event_access
- 	);
- 	$this->guestlist_model->addGuestList($result);
+	 	$this->load->model("guestlist_model");
+	 	//$event_access=implode('',$_POST["event_access"]);
+	 	$result=array(
+	 		"wedding_id"=>$_POST["wedding_id"],
+	 		"profile_id"=>$_POST["profile_id"],
+	 		"name"=>$_POST["name"],
+	 		"mobile"=>$_POST["mobile"]
+	 		//"event_access"=>$event_access
+	 	);
+	 	$this->guestlist_model->addGuestList($result);
 	 }
 
 	public function updateGuestList(){
- 	$this->load->model("guestlist_model");
- 	$guestID=$_POST['guest-id'];
- 	$event_access=implode(',',$_POST["event_access"])
- 	$result=array(
- 		"wedding_id"=>$_POST["wedding_id"],
- 		"profile_id"=>$_POST["profile_id"],
- 		"name"=>$_POST["name"],
- 		"mobile"=>$_POST["mobile"],
- 		"event_access"=>$event_access
- 	);
- 	$this->guestlist_model->updateGuestList($result,$guestID);
+	 	$this->load->model("guestlist_model");
+	 	$guestID=$_POST['guest-id'];
+	 	$event_access=implode(',',$_POST["event_access"]);
+	 	$result=array(
+	 		"wedding_id"=>$_POST["wedding_id"],
+	 		"profile_id"=>$_POST["profile_id"],
+	 		"name"=>$_POST["name"],
+	 		"mobile"=>$_POST["mobile"],
+	 		"event_access"=>$event_access
+	 	);
+	 	$this->guestlist_model->updateGuestList($result,$guestID);
 	 }
 
 		public function editGuestList($guestID){
