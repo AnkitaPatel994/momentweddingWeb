@@ -19,6 +19,12 @@ class Profile_model extends CI_Model
 		$this->db->where('id',$profileID);
 		$this->db->update('profile',$profileData);
 	}
+
+	public function profileFamily($profileID){
+		$query = $this->db->query("select * from member where profile_id='$profileID'");
+		$result = $query->result_array();
+		return $result;
+	}
 }
 
 ?>
