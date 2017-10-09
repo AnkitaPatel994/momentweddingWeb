@@ -13,7 +13,7 @@
 			              <th>Photo</th>
 			              <th>Name</th>			              
 			              <th>Designation</th>
-			              <th>Introduction</th>
+			             <!--  <th>Introduction</th> -->
 			              <th>Action</th>
 			          </tr>
 			        </thead>
@@ -26,7 +26,7 @@
 			            </td>
 			            <td><?php echo $allProfileRow['name']; ?></td>			            
 			            <td><?php echo $allProfileRow['occupation']; ?></td>
-			            <td><textarea><?php echo $allProfileRow['profile_details']; ?></textarea></td>
+			           <!--  <td><textarea><?php echo $allProfileRow['profile_details']; ?></textarea></td> -->
 			            <td><a data-profile-id="<?php echo $allProfileRow['id']; ?>" href="#editProfile" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i><a data-profile-id="<?php echo $allProfileRow['id']; ?>" class="btn-flat general-delete-btn btn-remove-profile waves-effect waves-light btn"><i class="material-icons">delete</i></td>
 			          </tr>
 			          <?php } ?>
