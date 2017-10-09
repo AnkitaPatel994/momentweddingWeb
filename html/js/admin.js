@@ -131,10 +131,11 @@ function initUpdateWedding(){
 	});
 }
 
-function doLogin(){
+
 			
 			/*==================*/
-			var data={
+			$(".btn-adminLogin").on("click",function(){
+						var data={
 				"email":$("#email").val(),
 				"password":$("#password").val()
 			}
@@ -153,7 +154,10 @@ function doLogin(){
 				}
 
 			});
-		}
+	
+
+			});
+	
 
 
  	

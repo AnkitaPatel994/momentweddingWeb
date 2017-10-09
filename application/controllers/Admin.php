@@ -23,16 +23,8 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
-	public function doLogin()
-	{	
-		$data=$_POST["data"];
-		$this->load->model("admin_model");
-		$result=$this->admin_model->doLogin($data);
-		var_dump($result);
-	}
 
 	public function login()
-
 	{
 		$headerData = array(
 			"pageTitle" => "Admin Dashboard",
@@ -48,6 +40,14 @@ class Admin extends CI_Controller {
 			"footerData" => $footerData	
 		);
 		$this->load->view('admin-templete',$viewData);
+	}
+
+	public function doLogin()
+	{	
+		$data=$_POST["data"];
+		$this->load->model("admin_model");
+		$result=$this->admin_model->doLogin($data);
+		var_dump($result);
 	}
 	public function Wedding(){
 		$this->load->model("wedding_model");
@@ -67,7 +67,11 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	 }
-	 
+	 public function logout(){
+	 	$this->session->unset_userdata("email");
+	 	$this->session->sess_destroy();
+	 	header("Location:".base_url."Admin/login");
+	 }	
 	public function addWedding(){
 	 	$this->load->model("wedding_model");
 	 	$result=array(

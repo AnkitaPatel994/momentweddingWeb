@@ -133,15 +133,15 @@
         width: 100%;
       }
     }
- </style>  
-
+ </style>
 </head>
-
 <body>
     <?php 
-      //$this->session->unset_userdata("email");
-      //$this->session->sess_destroy();
-      $this->session->set_userdata("email","abc"); 
+
+      /*$this->session->unset_userdata("email");
+      $this->session->sess_destroy();
+      $this->session->set_userdata("email","abc"); */
+
     ?>
     <?php if($this->session->userdata("email")) { ?>
     <nav>
@@ -149,7 +149,7 @@
         <a href="#" class="brand-logo center"><img src="<?php echo base_url();?>/html/images/Moments-wedding.png" class="logo" height="85px"></a>
       </div>
       <div class="right log-out">
-        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"> Log Out</i></a>
+        <a href="<?php echo base_url(); ?>Admin/logout/"><i class="fa fa-sign-out" aria-hidden="true">Log Out</i></a>
       </div>
         <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
