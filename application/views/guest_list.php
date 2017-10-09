@@ -21,7 +21,7 @@
 			              <th>Invited By</th>
 			              <th>Guest Name</th>
 			              <th>Mobile</th>
-			              <th colspan="3">Action</th>
+			              <th>Action</th>
 			          </tr>
 			        </thead>
 
