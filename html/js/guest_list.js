@@ -118,7 +118,11 @@ $(function(){
     });
 
 	    /*==============================================================*/
-		$("#excelsheet").on("change",function(){
+	    $("#uploadGuest").on("click",function(){
+		$("#guestList").modal('open');
+	});
+	    
+		$("#uploadGuest").on("click",function(){
 			if(confirm("Do you want to upload the sheet? ")){
 				var formData = new FormData($("#excelForm")[0]);
 				$.ajax({
@@ -135,6 +139,4 @@ $(function(){
 				});
 			}
 		});
-
-
 });
