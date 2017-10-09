@@ -18,7 +18,7 @@
 			              <th>Date</th>
 			              <th>Time</th>
 			              <th>Location</th>
-			              <th colspan="3">Action</th>
+			              <th>Action</th>
 			          </tr>
 			        </thead>
 
@@ -127,4 +127,6 @@
       	</div>
       </div>
     </div>
+
     <div class="modal-footer">
+
