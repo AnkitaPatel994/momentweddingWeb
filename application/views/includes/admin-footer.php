@@ -6,6 +6,7 @@
 	    margin-bottom: 0px;
 	    padding: 5px;
 	    width: 100%;
+	    z-index: 1;
 	}
 </style>
 	<footer>
