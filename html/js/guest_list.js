@@ -118,7 +118,23 @@ $(function(){
     });
 
 	    /*==============================================================*/
+		$("#excelsheet").on("change",function(){
+			if(confirm("Do you want to upload the sheet? ")){
+				var formData = new FormData($("#excelForm")[0]);
+				$.ajax({
+					data:formData,
+					url:baseURL+"admin/excelCheck/",
+					type:"POST",
+					contentType:false,
+					processData:false,
+					success:function(result){
+						//alert("File Uploaded Successfully...");
+						//window.location.reload();
+					}
 
+				});
+			}
+		});
 
 
 });

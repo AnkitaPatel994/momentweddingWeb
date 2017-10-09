@@ -5,6 +5,7 @@
 class Guestlist_model extends CI_Model
 {
 	public function addGuestList($guestData){
+		var_dump($guestData);
 		$this->db->insert('guest_list',$guestData);
 	}
 	public function allGuestList(){

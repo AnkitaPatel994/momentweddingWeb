@@ -8,10 +8,12 @@
 		<div class="profileDetails">
 			<div class="row">
 				<div class="col s2 m3"><h4>Guest List</h4></div>
+				<form id="excelForm" method="post" enctype="multipart/form-data">
 				<div class="input-field col s5 m5" id="excelsheet">
 		          <input id="excelsheet" name="excelsheet" type="file" class="validate" style="display: none;">
 		          <button class="btn black" type="button" onclick="$('#excelsheet input').click()">Upload Profile</button>
 		        </div>
+		    </form>
 				<div class="col s8 m4"><a href="#addGuest" class="btn black modal-trigger">Add Guest</a></div>
 			</div>
 			<div>
