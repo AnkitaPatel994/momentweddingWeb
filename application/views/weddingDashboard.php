@@ -61,10 +61,10 @@
     <thead>
    		<tr>
         <th>Id</th>
-        <th>Bride Name</th>    
-        <th>Groom Name</th>
+        <th>Bride</th>    
+        <th>Groom</th>
         <th>Date</th> 
-        <th>Invitation</th> 
+        <!--<th style="max-width:100px;">Invitation</th> -->
         <th>Code</th>          
         <th>Actions</th>
    		</tr>
@@ -76,7 +76,7 @@
         <td><?php echo $allWeddingRow['bride_profile']["name"]; ?></td>
         <td><?php echo $allWeddingRow['groom_profile']["name"]; ?></td>
         <td><?php echo $allWeddingRow['date']; ?></td> 
-        <td><?php echo substr($allWeddingRow['invitation'], 0,300); ?></td> 
+        <!--<td><?php echo substr($allWeddingRow['invitation'], 0,200); ?>...</td> -->
         <td><?php echo $allWeddingRow['code']; ?></td>        
       
         <td class="right-align blog-btn">
