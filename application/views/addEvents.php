@@ -11,7 +11,7 @@
 	         <select name="wedding_id" id="wedding_id">
 			      <option value="" disabled selected>Choose your Wedding</option>
 			      <?php foreach($allWeddings as $key => $allWeddingsRow){ ?>
-			      <option value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['id']; ?></option>
+			      <option value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['weddingName']; ?></option>
 			      <?php } ?>
 			      
 		     </select>

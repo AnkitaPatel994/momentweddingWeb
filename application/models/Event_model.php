@@ -11,7 +11,7 @@ class Event_model extends CI_Model
 	}	
 	public function allEvents(){
 		$this->load->model("wedding_model");
-			$this->load->model("profile_model");
+		$this->load->model("profile_model");
 		$query=$this->db->query("select * from event");
 		$result=$query->result_array();
 		$weddingArray = array();
@@ -34,8 +34,18 @@ class Event_model extends CI_Model
 		$this->db->update('event',$eventData);
 	}
 	public function allWeddings(){
-		$query=$this->db->query("select id from wedding");
+		$this->load->model("wedding_model");
+		$this->load->model("profile_model");
+		$query=$this->db->query("select * from wedding");
 		$result=$query->result_array();
+		$weddingArray = array();
+		foreach ($result as $key => $guestRow) {
+			$weddingRow = $this->wedding_model->getWeddingRow($guestRow["id"]);
+			$groomRow = $this->profile_model->singleProfile($weddingRow["groom_id"]);
+			$brideRow = $this->profile_model->singleProfile($weddingRow["bride_id"]);
+			$wedding = $groomRow["name"]." | ".$brideRow["name"];
+			$result[$key]["weddingName"] = $wedding;
+		}
 		return $result;
 	}
 	public function deleteEvent($eventID){
