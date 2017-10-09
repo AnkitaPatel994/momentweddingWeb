@@ -31,7 +31,7 @@ class Guestlist_model extends CI_Model
 		return $result;
 	}
 	public function allWedding(){
-		$query=$this->db->query("select id from wedding");
+		$query=$this->db->query("select * from wedding");
 		$result=$query->result_array();
 		return $result;
 	}
