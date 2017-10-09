@@ -29,35 +29,20 @@
 </style>
 
 <div class="row top-header">
-  <div class="col m2">
-    <div class="sidebar-area sticky">
-      <div class="center">
-          <h5>Menu</h5>
-      </div>
-      <div class="divider"></div>
-      <div class="quick-links">
-        <ul>
-          <a href="<?php echo base_url(); ?>admin/Wedding"><li>Wedding</li></a>
-          <a href="<?php echo base_url(); ?>admin/profile"><li>profile</li></a>
-          <a href="<?php echo base_url(); ?>admin/EventsList"><li>EventsList</li></a>
-          <a href="<?php echo base_url(); ?>admin/guest_list"><li>Guest List</li></a>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <?php $this->load->view("includes/admin-desktop-nav"); ?>
 
 <div class="col m10">
  <div class="weddingDetails-area">
   <div class="page-header">
     <div class="row">
-      <div class="page-title col s6 m10"><h5>Wedding Management</h5></div>
+      <div class="page-title col s6 m10"><h4>Wedding Management</h4></div>
       <div class="page-button col s6 m2">
         <a class="waves-effect waves-light btn black modal-trigger" href="#weddingModal">Add Wedding</a>
       </div>
     </div>  
   </div>
    <div class="page-content">
-   	<table border="1" class="responsive-table centered">
+   	<table id="example"  border="1" class="responsive-table centered">
     <thead>
    		<tr>
         <th>Id</th>
@@ -90,6 +75,8 @@
   </div>
 </div>   
 </div>
+
+
 <!-- Modal Structure -->
   <div id="weddingModal" class="modal">
     <div class="modal-content">

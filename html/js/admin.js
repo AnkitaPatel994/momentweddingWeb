@@ -148,10 +148,7 @@ function initUpdateWedding(){
 			}
 		});
 	});
-}	
-			
-
-
+}
  	
 /*Position Fixed On Scroll top */
 /*

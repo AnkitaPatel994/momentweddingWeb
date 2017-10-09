@@ -6,5 +6,11 @@
 	  	<?php foreach($jsFiles as $fileName){ ?>
 	  	<script src="<?php echo base_url(); ?>html/js/<?php echo $fileName; ?>"></script>
 	  	<?php } ?>
+
+	  	<script type="text/javascript">
+        $(document).ready(function() {
+          $('#example').DataTable();
+      } );
+      </script>
 	</body>
 </html>

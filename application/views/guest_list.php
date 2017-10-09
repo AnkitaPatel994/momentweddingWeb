@@ -1,22 +1,9 @@
 <!-- guest list view -->
 <!--  admin profile view -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
 <div class="row top-header">
-  <div class="col m2">
-    <div class="sidebar-area">
-      <div class="center">
-      		<h5>Menu</h5>
-      </div>
-      <div class="divider"></div>
-      <div class="quick-links">
-      	<ul>
-      		<a href="<?php echo base_url(); ?>admin/Wedding"><li>Wedding</li></a>
-      		<a href="<?php echo base_url(); ?>admin/profile"><li>profile</li></a>
-      		<a href="<?php echo base_url(); ?>admin/EventsList"><li>EventsList</li></a>
-      		<a href="<?php echo base_url(); ?>admin/guest_list"><li>Guest List</li></a>
-      	</ul>
-      </div>
-    </div>
-  </div>
+  <?php $this->load->view("includes/admin-desktop-nav"); ?>
 	<div class="profile-area col m10">
 		<div class="profileDetails">
 			<div class="row">
@@ -24,7 +11,8 @@
 				<div class="col s4 m2"><a href="#addGuest" class="btn black modal-trigger">Add Guest</a></div>
 			</div>
 			<div>
-				<table class="responsive-table centered highlight">
+				<!-- <table id="table_id" class="table table-condensed responsive-table centered highlight"> -->
+				<table id="example" class="display" cellspacing="0" width="100%">
 			        <thead>
 			          <tr>
 			              <th>Id</th>
@@ -58,6 +46,8 @@
 	</div>
 </div>
 
+
+ 
 
 
 
@@ -148,3 +138,9 @@
       <a href="#!" id="updateGuestListData" class="modal-action modal-close waves-effect waves-green btn-flat ">Add New Guest</a>
     </div>
   </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	} );
+</script>

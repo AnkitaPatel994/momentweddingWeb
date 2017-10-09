@@ -18,9 +18,26 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+
+
      
+     <!-- Data Table -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+     <!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> -->
+
+     <!-- <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script> -->
+     <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+
+
+
+
     <script src="<?php echo base_url(); ?>html/js/script.js"></script>
     <?php foreach($stylesheet as $fileName){ ?>
     <link href="<?php echo base_url(); ?>html/css/<?php echo $fileName; ?>" rel="stylesheet">
@@ -125,6 +142,15 @@
       font-size: 14px;
       line-height: 7rem;
   }
+
+  /*Data Table*/
+  .dataTables_wrapper .dataTables_filter{
+    text-align: left;
+  }
+    div#example_length select {
+      display: block;
+  }
+
     @media(max-width: 768px){
       .sidebar-area{
         display: none;
@@ -133,7 +159,9 @@
         width: 100%;
       }
     }
- </style>
+
+ </style>  
+
 </head>
 <body>
     <?php 
@@ -149,7 +177,7 @@
         <a href="#" class="brand-logo center"><img src="<?php echo base_url();?>/html/images/Moments-wedding.png" class="logo" height="85px"></a>
       </div>
       <div class="right log-out">
-        <a href="<?php echo base_url(); ?>Admin/logout/"><i class="fa fa-sign-out" aria-hidden="true">Log Out</i></a>
+        <a class="tooltipped" data-position="left" data-delay="50" data-tooltip="Log Out" href="<?php echo base_url(); ?>Admin/logout/"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
       </div>
         <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
@@ -162,12 +190,13 @@
             </div>
             </li> -->
             <li><h5 class="black-text"><center>Menu</center></h5></li>
-            <li><a href="<?php echo base_url(); ?>admin/Wedding">Wedding</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/wedding">Wedding</a></li>
             <li><a href="<?php echo base_url(); ?>admin/profile">Profile</a></li>
             <!-- <li><div class="divider"></div></li> -->
-            <li><a href="<?php echo base_url(); ?>admin/admin/EventsList">Event List</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/admin/eventsList">Event List</a></li>
             <li><a href="<?php echo base_url(); ?>admin/guest_list">Guest List</a></li>
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>
+      
    <?php }  ?>
