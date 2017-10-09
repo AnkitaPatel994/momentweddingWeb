@@ -327,4 +327,9 @@ class Admin extends CI_Controller {
 			echo json_encode($output);
 		}
 
+		public function deleteProfile($profileID){
+			$this->load->model("profile_model");
+			$this->profile_model->deleteProfile($profileID);
+		}
+
 }

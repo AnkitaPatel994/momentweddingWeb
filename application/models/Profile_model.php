@@ -25,6 +25,10 @@ class Profile_model extends CI_Model
 		$result = $query->result_array();
 		return $result;
 	}
+
+	public function deleteProfile($profileID){
+		$this->db->query("delete from profile where id='$profileID'");
+	}
 }
 
 ?>
