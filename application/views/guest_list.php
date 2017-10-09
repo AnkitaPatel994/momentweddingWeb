@@ -7,8 +7,12 @@
 	<div class="profile-area col m10">
 		<div class="profileDetails">
 			<div class="row">
-				<div class="col s8 m10"><h4>Guest List</h4></div>
-				<div class="col s4 m2"><a href="#addGuest" class="btn black modal-trigger">Add Guest</a></div>
+				<div class="col s2 m3"><h4>Guest List</h4></div>
+				<div class="input-field col s5 m5" id="excelsheet">
+		          <input id="excelsheet" name="excelsheet" type="file" class="validate" style="display: none;">
+		          <button class="btn black" type="button" onclick="$('#excelsheet input').click()">Upload Profile</button>
+		        </div>
+				<div class="col s8 m4"><a href="#addGuest" class="btn black modal-trigger">Add Guest</a></div>
 			</div>
 			<div>
 				<!-- <table id="table_id" class="table table-condensed responsive-table centered highlight"> -->
