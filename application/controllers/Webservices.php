@@ -242,6 +242,7 @@ class Webservices  extends CI_Controller{
 		}
 		echo json_encode($details);
 	}
+
 	////////////////////////////////////////////////////////////////
 	/*
 	* Desc - Details of the invitation card

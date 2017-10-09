@@ -222,6 +222,12 @@ class Wedding_model extends CI_Model
 	public function getEvents($weddingID){
 		$query = $this->db->query("select * from event where wedding_id='$weddingID'");
 		$result = $query->result_array();
+		foreach ($result as $key => $eventRow) {
+			$eventDate = $eventRow["date"];
+			$timestamp = strtotime($eventDate);
+			$result[$key]["eventDay"] = date("d", $timestamp);
+			$result[$key]["eventMonth"] = date("F", $timestamp);
+		}
 		return $result;
 	}
 
