@@ -8,7 +8,7 @@
 			</div>
 			
 		<div class="login-box">
-			<form name="adminLogin" method="post">
+			<form name="adminLogin" method="post" id="adminLogin">
 				<div class="input-field col s6">
 		          <input id="email" type="email" name="email" class="validate" required="required">
 		          <label for="email">E-mail</label>
