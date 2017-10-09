@@ -225,6 +225,7 @@ class Wedding_model extends CI_Model
 		foreach ($result as $key => $eventRow) {
 			$eventDate = $eventRow["date"];
 			$timestamp = strtotime($eventDate);
+			$result[$key]["image"] = base_url()."html/images/events/".$eventRow["image"];
 			$result[$key]["eventDay"] = date("d", $timestamp);
 			$result[$key]["eventMonth"] = date("F", $timestamp);
 		}
