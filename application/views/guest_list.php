@@ -142,50 +142,9 @@
       		<center><h5>Edit New Guest</h5></center>
       	</div>	<hr>
       <!-- <p>A bunch of text</p> -->
-      <div class="guestList-area row">
-      	<form>
-      		<div class="input-field col s12 m4">
-			    <select>
-			      <option value="" disabled selected>Choose your option</option>
-			      <option value="1">Option 1</option>
-			      <option value="2">Option 2</option>
-			      <option value="3">Option 3</option>
-			    </select>
-			    <label>Wedding</label>
-			</div>
-
-			<div class="input-field col s12 m4">
-			    <select>
-			      <option value="" disabled selected>Choose your option</option>
-			      <option value="1">Groom</option>
-			      <option value="2">Bride</option>
-			    </select>
-			    <label>Wedding</label>
-			</div>
-
-            <div class="input-field col s12 m4">
-	          <input id="guest_name" type="text" class="validate" required="required">
-	          <label for="guest_name">Guest Name</label>
-	        </div>
-
-	        <div class="input-field col s12 m6">
-	          <input id="guest_mobile" type="text" class="validate" required="required">
-	          <label for="guest_mobile">Guest Mobile</label>
-	        </div>
-
-	        <div class="input-field col s12 m6">
-			    <select multiple>
-			      <option value="" disabled selected>Select Events</option>
-			      <option value="1">Sangeet</option>
-			      <option value="2">Mahendi</option>
-			    </select>
-			    <label>Side</label>
-            </div>
-
-      	</form>
-      </div>
+      
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add New Guest</a>
+      <a href="#!" id="updateGuestListData" class="modal-action modal-close waves-effect waves-green btn-flat ">Add New Guest</a>
     </div>
   </div>
