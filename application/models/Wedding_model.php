@@ -246,7 +246,7 @@ class Wedding_model extends CI_Model
 	}
 
 	public function getGallery($weddingID){
-		$events = $this->getEvents();
+		$events = $this->getEvents($weddingID);
 		$output = array();
 		foreach ($events as $key => $eventRow) {
 			$eventPhotos = $this->getEventPhotos($eventRow["id"]);

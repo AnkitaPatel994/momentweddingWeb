@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 09, 2017 at 02:51 AM
--- Server version: 5.7.14
--- PHP Version: 7.0.10
+-- Host: localhost:3306
+-- Generation Time: Oct 09, 2017 at 10:58 AM
+-- Server version: 5.6.37
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `moment_wedding`
+-- Database: `momentsu_wedding`
 --
 
 -- --------------------------------------------------------
@@ -53,8 +55,11 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `wedding_id`, `name`, `date`, `time`, `location`, `image`) VALUES
-(4, 2, 'dsd', '12 October, 2017', '08:50', 'dsdsdssd', '4_eventImage.'),
-(5, 4, 'Rupal', '12 October, 2017', '08:50', 'dsdsdssd', '5_eventImage.');
+(1, 1, '1', '', '', '', ''),
+(2, 0, '1', '', '', '', ''),
+(3, 0, '1', '', '', '', ''),
+(4, 5, 'Sangeet', '12 October, 2017', '08:50', 'dsdsdssd', '4_eventImage.'),
+(5, 5, 'Wedding', '12 October, 2017', '08:50', 'dsdsdssd', '5_eventImage.');
 
 -- --------------------------------------------------------
 
@@ -64,7 +69,8 @@ INSERT INTO `event` (`id`, `wedding_id`, `name`, `date`, `time`, `location`, `im
 
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
-  `event_id` varchar(100) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `gallery_event` varchar(100) NOT NULL,
   `gallery_pic` text NOT NULL,
   `user_code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -73,13 +79,13 @@ CREATE TABLE `gallery` (
 -- Dumping data for table `gallery`
 --
 
-INSERT INTO `gallery` (`id`, `event_id`, `gallery_pic`, `user_code`) VALUES
-(1, 'Sangeet', 'https://d397bfy4gvgcdm.cloudfront.net/83834-0230.jpeg', 1),
-(2, 'Sangeet', 'https://i.pinimg.com/736x/aa/83/fa/aa83facbd74ed752486a8a1b7d9a1f28--indian-wedding-decorations-wedding-ceremony-decorations.jpg', 1),
-(3, 'Sangeet', 'https://i.pinimg.com/736x/aa/83/fa/aa83facbd74ed752486a8a1b7d9a1f28--indian-wedding-decorations-wedding-ceremony-decorations.jpg', 1),
-(4, 'Mehndi', 'https://www.hitched.co.uk/images/articleContent/Traditional-Wedding-Mehndi.jpg', 1),
-(5, 'Mehndi', 'https://bluenotchjeans.com/wp-content/uploads/2017/01/Latest-Wedding-mehndi-designs-2017.jpg', 1),
-(6, 'Mehndi', 'http://www.fashionlady.in/wp-content/uploads/2015/08/mehndi-designs-for-wedding.jpg', 1);
+INSERT INTO `gallery` (`id`, `event_id`, `gallery_event`, `gallery_pic`, `user_code`) VALUES
+(1, 4, 'Sangeet', 'https://d397bfy4gvgcdm.cloudfront.net/83834-0230.jpeg', 1),
+(2, 4, 'Sangeet', 'https://i.pinimg.com/736x/aa/83/fa/aa83facbd74ed752486a8a1b7d9a1f28--indian-wedding-decorations-wedding-ceremony-decorations.jpg', 1),
+(3, 4, 'Sangeet', 'https://i.pinimg.com/736x/aa/83/fa/aa83facbd74ed752486a8a1b7d9a1f28--indian-wedding-decorations-wedding-ceremony-decorations.jpg', 1),
+(4, 5, 'Mehndi', 'https://www.hitched.co.uk/images/articleContent/Traditional-Wedding-Mehndi.jpg', 1),
+(5, 5, 'Mehndi', 'https://bluenotchjeans.com/wp-content/uploads/2017/01/Latest-Wedding-mehndi-designs-2017.jpg', 1),
+(6, 5, 'Mehndi', 'http://www.fashionlady.in/wp-content/uploads/2015/08/mehndi-designs-for-wedding.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +108,7 @@ CREATE TABLE `guest_list` (
 --
 
 INSERT INTO `guest_list` (`id`, `wedding_id`, `profile_id`, `name`, `mobile`, `code`, `event_access`) VALUES
-(1, 5, 15, 'Rajan Kaneria', '9662872090', '', '');
+(1, 5, 15, 'Rajan Kaneria', '9879798863', '9794', '');
 
 -- --------------------------------------------------------
 
@@ -151,7 +157,10 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`id`, `profile_id`, `member_name`, `member_relation`, `member_pic`, `member_details`, `user_code`) VALUES
 (1, 15, 'Pravinbhai Patel', 'Father', 'http://4.bp.blogspot.com/-cBEdk4Cz-UM/UO_Dt2G06MI/AAAAAAAAC2o/X9lJ0FPOLGA/s1600/dashing20boys20wallpapers.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1),
 (2, 15, 'Parvatiben Patel', 'Mother', 'http://sguru.org/wp-content/uploads/2017/04/cute-girl-dp-for-whatsapp-27.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1),
-(3, 15, 'Parth Patel', 'Brother', 'http://4.bp.blogspot.com/-cBEdk4Cz-UM/UO_Dt2G06MI/AAAAAAAAC2o/X9lJ0FPOLGA/s1600/dashing20boys20wallpapers.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1);
+(3, 15, 'Parth Patel', 'Brother', 'http://4.bp.blogspot.com/-cBEdk4Cz-UM/UO_Dt2G06MI/AAAAAAAAC2o/X9lJ0FPOLGA/s1600/dashing20boys20wallpapers.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1),
+(4, 14, 'Pravinbhai Patel', 'Father', 'http://4.bp.blogspot.com/-cBEdk4Cz-UM/UO_Dt2G06MI/AAAAAAAAC2o/X9lJ0FPOLGA/s1600/dashing20boys20wallpapers.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1),
+(5, 14, 'Parvatiben Patel', 'Mother', 'http://sguru.org/wp-content/uploads/2017/04/cute-girl-dp-for-whatsapp-27.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1),
+(6, 14, 'Parth Patel', 'Brother', 'http://4.bp.blogspot.com/-cBEdk4Cz-UM/UO_Dt2G06MI/AAAAAAAAC2o/X9lJ0FPOLGA/s1600/dashing20boys20wallpapers.jpg', 'There is no who loves pain itself, who seeks after it and wants to have it, simply because it is pain...', 1);
 
 -- --------------------------------------------------------
 
@@ -324,7 +333,7 @@ ALTER TABLE `invitation`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `profile`
 --
@@ -339,7 +348,8 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `wedding`
 --
 ALTER TABLE `wedding`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
