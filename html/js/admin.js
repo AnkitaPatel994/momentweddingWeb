@@ -114,7 +114,9 @@ $(function(){
 			if(check.status=="ok")
 			{
 				$("#Login").val("Redirecting..");
-				window.location.href=baseURL+"Admin/Wedding/";
+
+				window.location.href=baseURL+"admin/Wedding/";
+
 			}
 			else if(check.status=="fail")
 			{
@@ -148,7 +150,10 @@ function initUpdateWedding(){
 			}
 		});
 	});
-}
+}	
+			
+
+
  	
 /*Position Fixed On Scroll top */
 /*
