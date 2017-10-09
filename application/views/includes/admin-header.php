@@ -147,6 +147,9 @@
   .dataTables_wrapper .dataTables_filter{
     text-align: left;
   }
+    div#example_length select {
+      display: block;
+  }
 
     @media(max-width: 768px){
       .sidebar-area{
@@ -174,7 +177,7 @@
         <a href="#" class="brand-logo center"><img src="<?php echo base_url();?>/html/images/Moments-wedding.png" class="logo" height="85px"></a>
       </div>
       <div class="right log-out">
-        <a href="<?php echo base_url(); ?>Admin/logout/"><i class="fa fa-sign-out" aria-hidden="true">Log Out</i></a>
+        <a class="tooltipped" data-position="left" data-delay="50" data-tooltip="Log Out" href="<?php echo base_url(); ?>Admin/logout/"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
       </div>
         <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
