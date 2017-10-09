@@ -336,4 +336,23 @@ class Admin extends CI_Controller {
 		echo json_encode($output);
 	}
 
+	public function guestUpload(){
+
+	}
+
+	public function excelCheck(){
+		$this->load->model("excel_model");
+		$this->load->model("guestlist_model");
+		$fileLocation = 'c:\wamp\www\moment-wedding\html\test.xlsx';
+		$data = $this->excel_model->readExcel($fileLocation);
+		var_dump($data);
+		$insertData = array();
+		foreach($data["values"] as $key=>$guestRow){
+			$name = $guestRow["C"];
+			$number = $guestRow["D"];
+			$insertData[] = array("name"=>$name,"mobile"=>$number);
+		}
+		$this->guestlist_model->addGuestList($insertData);
+	}
+
 }
