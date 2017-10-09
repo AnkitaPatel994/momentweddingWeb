@@ -1,24 +1,6 @@
 <!--  admin profile view -->
 <div class="row top-header">
-  <div class="col m2">
-    <div class="sidebar-area">
-      <div class="center">
-      		<h5>Menu</h5>
-      </div>
-      <div class="divider"></div>
-      <div class="quick-links">
-      	<ul>
-      		<a href="<?php echo base_url(); ?>admin/Wedding"><li>Wedding</li></a>
-      		<a href="<?php echo base_url(); ?>admin/profile"><li>profile</li></a>
-      		<a href="<?php echo base_url(); ?>admin/EventsList"><li>EventsList</li></a>
-          <a href="<?php echo base_url(); ?>admin/guest_list"><li>Guest List</li></a>
-      	</ul>
-      </div>
-    </div>
-  </div>
-
-
-
+  <?php $this->load->view("includes/admin-desktop-nav"); ?>
 
 	<div class="profile-area col m10">
 		<div class="profileDetails">
@@ -30,8 +12,7 @@
 				<table id="example" class="responsive-table centered highlight">
 			        <thead>
 			          <tr>
-			              <th>Id</th>
-			              <th>Event Photo</th>
+			              <th>Id</th>			              
 			              <th>Event Name</th>
 			              <th>Wedding</th>
 			              <th>Date</th>
@@ -47,7 +28,7 @@
 			            <td><?php echo $allEventsRow['id']; ?></td>
 			            
 			            <td><?php echo $allEventsRow['name']; ?></td>
-			            <td><?php echo $allEventsRow['wedding_id']; ?></td>
+			            <td><?php echo $allEventsRow['weddingName']; ?></td>
 			            <td><?php echo $allEventsRow['date']; ?></td>
 			            <td><?php echo $allEventsRow['time']; ?></td>
 			            <td><?php echo $allEventsRow['location']; ?></td>

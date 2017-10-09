@@ -1,6 +1,7 @@
 /* script for guest list */
 var baseURL;
 $(function(){
+	$('.modal').modal();
 	baseURL=$("#base_url").val();
  	$('.button-collapse').sideNav({
 	      menuWidth: 300, // Default is 300
@@ -30,8 +31,7 @@ $(function(){
 
 
  	/*========== Modal ==============*/
- 	 $('.modal').modal();
-
+ 
 
     /*=============ON CHANGE================================*/
 
@@ -52,8 +52,6 @@ $(function(){
 				}
 			});
 		});
-
-
     /*==================Guest List==================================*/
     
 	$("#addGuestList").on("click",function(){
@@ -120,7 +118,25 @@ $(function(){
     });
 
 	    /*==============================================================*/
+	    $("#uploadGuest").on("click",function(){
+		$("#guestList").modal('open');
+	});
+	    
+		$("#uploadGuest").on("click",function(){
+			if(confirm("Do you want to upload the sheet? ")){
+				var formData = new FormData($("#excelForm")[0]);
+				$.ajax({
+					data:formData,
+					url:baseURL+"admin/excelCheck/",
+					type:"POST",
+					contentType:false,
+					processData:false,
+					success:function(result){
+						//alert("File Uploaded Successfully...");
+						//window.location.reload();
+					}
 
-
-
+				});
+			}
+		});
 });

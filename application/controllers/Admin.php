@@ -108,8 +108,11 @@ class Admin extends CI_Controller {
 	 	$this->load->view("updateWedding",$result);
 	 }
 
-
 	 public function profile(){
+	 	if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
 	 	$this->load->model("profile_model");
 	 	$allProfile=$this->profile_model->allProfile();
 
@@ -306,10 +309,8 @@ class Admin extends CI_Controller {
 	 }
 
 	public function editGuestList($guestID){
-		$allWedding=$this->guestlist_model->allWedding();		
 		$this->load->model("guestlist_model");
 		$result=$this->guestlist_model->editGuestList($guestID);
-		//$result["allWedding"]=$allWedding;
 		$this->load->view("updateGuestList",$result);
 	}
 	public function deleteGuestList($guestID){
@@ -335,9 +336,32 @@ class Admin extends CI_Controller {
 		echo json_encode($output);
 	}
 
-		public function deleteProfile($profileID){
-			$this->load->model("profile_model");
-			$this->profile_model->deleteProfile($profileID);
+	public function guestUpload(){
+
+	}
+
+	public function excelCheck(){
+		$this->load->model("excel_model");
+		$this->load->model("guestlist_model");
+		$fileLocation=$_FILES["excelsheet"]["tmp_name"];
+		$wedding_id = $_POST["wedding_id"];
+		$profile_id = $_POST["profile_id"];
+
+
+//var_dump($_FILES["excelsheet"]);
+
+		
+		/*$config['upload_path']='C:\wamp\www\moment-wedding\html\images\guest_list';
+		$fileLocation = 'c:\wamp\www\moment-wedding\html\test.xlsx';*/
+		$data = $this->excel_model->readExcel($fileLocation);
+		$insertData = array();
+		foreach($data["values"] as $key=>$guestRow){
+			//var_dump($guestRow);
+			$name = $guestRow["A"];
+			$number = $guestRow["B"];
+			$this->guestlist_model->addGuestList(array("name"=>$name,"mobile"=>$number,"wedding_id"=>$wedding_id,"profile_id"=>$profile_id));
 		}
+		
+	}
 
 }

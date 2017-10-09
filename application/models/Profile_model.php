@@ -13,6 +13,7 @@ class Profile_model extends CI_Model
 	public function singleProfile($profileID){
 		$query=$this->db->query("select * from profile where id='$profileID' ");
 		$result=$query->row_array();
+		$result["profile_pic"] = base_url()."html/images/profile/".$result["profile_pic"];
 		return $result;
 	}
 	public function updateProfile($profileData,$profileID){

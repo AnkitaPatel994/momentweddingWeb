@@ -23,7 +23,7 @@
 
 	  	<script type="text/javascript">
         $(document).ready(function() {
-          $('#example').DataTable();
+          //$('#example').DataTable();
       } );
       </script>
 	</body>

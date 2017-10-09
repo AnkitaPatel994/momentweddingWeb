@@ -28,7 +28,6 @@ $(function(){
 	  	$('#textarea1').val('');
   		$('#textarea1').trigger('autoresize');
 
-
 	/*====================Wedding========================================*/
 
 	$("#addWedding").on("click",function(){
@@ -115,7 +114,9 @@ $(function(){
 			if(check.status=="ok")
 			{
 				$("#Login").val("Redirecting..");
-				window.location.href=baseURL+"Admin/Profile";
+
+				window.location.href=baseURL+"admin/Wedding/";
+
 			}
 			else if(check.status=="fail")
 			{
@@ -125,9 +126,14 @@ $(function(){
 			{
 				console.log(data);
 			}
-
+			$("#adminLogin input").val("");
+			$("#Login").val("Login");
 		});
 	});
+
+	/*========================Excel File==============================*/
+	
+
 });
 
 function initUpdateWedding(){
@@ -148,6 +154,15 @@ function initUpdateWedding(){
 			}
 		});
 	});
+
+	$('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15, // Creates a dropdown of 15 years to control year,
+	    today: 'Today',
+	    clear: 'Clear',
+	    close: 'Ok',
+	    closeOnSelect: false // Close upon selecting a date,
+	  });
 }	
 			
 
