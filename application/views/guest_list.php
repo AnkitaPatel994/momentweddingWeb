@@ -24,7 +24,6 @@
 			              <th>Invited By</th>
 			              <th>Guest Name</th>
 			              <th>Mobile</th>
-			              <th>Events</th>
 			              <th colspan="3">Action</th>
 			          </tr>
 			        </thead>
@@ -33,11 +32,10 @@
 			        <?php foreach($allGuestList as $key => $allGuestListRow){?>
 			          <tr id="guest-id<?php echo $allGuestListRow['id']; ?>">
 			            <td><?php echo $allGuestListRow['id']; ?></td>
-			            <td><?php echo $allGuestListRow['wedding_id']; ?></td>
-			            <td><?php echo $allGuestListRow['profile_id']; ?></td>
+			            <td><?php echo $allGuestListRow['weddingName']; ?></td>
+			            <td><?php echo $allGuestListRow['invitedBy']; ?></td>
 			            <td><?php echo $allGuestListRow['name']; ?></td>
 			            <td><?php echo $allGuestListRow['mobile']; ?></td>
-			            <td><?php echo $allGuestListRow['event_access']; ?></td>
 			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light data-guest-id=<?php echo $allGuestListRow['id']; ?>  btn modal-trigger"><i class="material-icons">edit</i></a>
 			            <a href="#editProfile" data-guest-id=<?php echo $allGuestListRow['id']; ?>  class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>

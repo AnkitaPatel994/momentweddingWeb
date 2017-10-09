@@ -8,8 +8,40 @@ class Guestlist_model extends CI_Model
 		$this->db->insert('guest_list',$guestData);
 	}
 	public function allGuestList(){
+		$this->load->model("wedding_model");
+		$this->load->model("profile_model");
 		$query=$this->db->query("select * from guest_list");
 		$result=$query->result_array();
+		$weddingArray = array();
+		$profileArray = array();
+		foreach ($result as $key => $guestRow) {
+			if(isset($weddingArray[$guestRow["wedding_id"]])){
+				$weddingRow = $weddingArray[$guestRow["wedding_id"]];
+			}else
+			{
+				$weddingRow = $this->wedding_model->getWeddingRow($guestRow["wedding_id"]);
+				$weddingArray[$guestRow["wedding_id"]] = $weddingRow;
+			}
+
+			if(isset($profileArray[$weddingRow["bride_id"]])){
+				$brideRow = $profileArray[$guestRow["bride_id"]];
+			}else
+			{
+				$brideRow = $this->profile_model->singleProfile($weddingRow["bride_id"]);
+				$profileArray[$weddingRow["bride_id"]] = $brideRow;
+			}
+
+			if(isset($profileArray[$weddingRow["groom_id"]])){
+				$groomRow = $profileArray[$weddingRow["groom_id"]];
+			}else
+			{
+				$groomRow = $this->profile_model->singleProfile($weddingRow["groom_id"]);
+				$profileArray[$weddingRow["groom_id"]] = $brideRow;
+			}
+			$wedding = $groomRow["name"]." | ".$brideRow["name"];
+			$result[$key]["weddingName"] = $wedding;
+			$result[$key]["invitedBy"] = $profileArray[$guestRow["profile_id"]]["name"];
+		}
 		return $result;
 	}
 	public function editGuestList($guestID){
@@ -31,7 +63,7 @@ class Guestlist_model extends CI_Model
 		return $result;
 	}
 	public function allWedding(){
-		$query=$this->db->query("select * from wedding");
+		$query=$this->db->query("select id from wedding");
 		$result=$query->result_array();
 		return $result;
 	}
