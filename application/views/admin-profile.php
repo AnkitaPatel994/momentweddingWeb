@@ -9,8 +9,7 @@
 				<table id="example" class="responsive-table centered highlight">
 			        <thead>
 			          <tr>
-			              <th>Id</th>
-			              <th>Photo</th>
+			              <th>Id</th>			         
 			              <th>Name</th>			              
 			              <th>Designation</th>
 			             <!--  <th>Introduction</th> -->
@@ -22,8 +21,6 @@
 			        	<?php foreach($allProfile as $key => $allProfileRow){?>
 			          <tr id="profile-<?php echo $allProfileRow['id']; ?>">
 			            <td><?php echo $allProfileRow['id']; ?></td>
-			            <td><img  src="<?php echo base_url(); ?>html/images/profile/<?php echo $allProfileRow['profile_pic']  ?>" class="profile-img">
-			            </td>
 			            <td><?php echo $allProfileRow['name']; ?></td>			            
 			            <td><?php echo $allProfileRow['occupation']; ?></td>
 			           <!--  <td><textarea><?php echo $allProfileRow['profile_details']; ?></textarea></td> -->

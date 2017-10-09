@@ -12,8 +12,7 @@
 				<table id="example" class="responsive-table centered highlight">
 			        <thead>
 			          <tr>
-			              <th>Id</th>
-			              <th>Event Photo</th>
+			              <th>Id</th>			              
 			              <th>Event Name</th>
 			              <th>Wedding</th>
 			              <th>Date</th>
@@ -29,7 +28,7 @@
 			            <td><?php echo $allEventsRow['id']; ?></td>
 			            
 			            <td><?php echo $allEventsRow['name']; ?></td>
-			            <td><?php echo $allEventsRow['wedding_id']; ?></td>
+			            <td><?php echo $allEventsRow['weddingName']; ?></td>
 			            <td><?php echo $allEventsRow['date']; ?></td>
 			            <td><?php echo $allEventsRow['time']; ?></td>
 			            <td><?php echo $allEventsRow['location']; ?></td>
