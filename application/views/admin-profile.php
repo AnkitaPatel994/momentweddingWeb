@@ -21,7 +21,7 @@
 		<div class="profileDetails">
 			<div class="row"><h4>Update Profile</h4></div>
 			<div>
-				<table class="responsive-table centered highlight">
+				<table id="example" class="responsive-table centered highlight">
 			        <thead>
 			          <tr>
 			              <th>Id</th>

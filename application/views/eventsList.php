@@ -27,7 +27,7 @@
 				<div class="col s4 m2"><a href="#eventList" class="btn black modal-trigger">Add Event</a></div>
 			</div>
 			<div>
-				<table class="responsive-table centered highlight">
+				<table id="example" class="responsive-table centered highlight">
 			        <thead>
 			          <tr>
 			              <th>Id</th>

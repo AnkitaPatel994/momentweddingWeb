@@ -57,7 +57,7 @@
     </div>  
   </div>
    <div class="page-content">
-   	<table border="1" class="responsive-table centered">
+   	<table id="example"  border="1" class="responsive-table centered">
     <thead>
    		<tr>
         <th>Id</th>
@@ -90,6 +90,8 @@
   </div>
 </div>   
 </div>
+
+
 <!-- Modal Structure -->
   <div id="weddingModal" class="modal">
     <div class="modal-content">
