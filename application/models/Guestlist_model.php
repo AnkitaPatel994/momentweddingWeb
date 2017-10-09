@@ -16,7 +16,7 @@ class Guestlist_model extends CI_Model
 		$weddingArray = array();
 		$profileArray = array();
 		foreach ($result as $key => $guestRow) {
-			if(isset($weddingArray[$guestRow["wedding_id"]])){
+			/*if(isset($weddingArray[$guestRow["wedding_id"]])){
 				$weddingRow = $weddingArray[$guestRow["wedding_id"]];
 			}else
 			{
@@ -25,7 +25,7 @@ class Guestlist_model extends CI_Model
 			}
 
 			if(isset($profileArray[$weddingRow["bride_id"]])){
-				$brideRow = $profileArray[$guestRow["bride_id"]];
+				$brideRow = $profileArray[$weddingRow["bride_id"]];
 			}else
 			{
 				$brideRow = $this->profile_model->singleProfile($weddingRow["bride_id"]);
@@ -38,10 +38,14 @@ class Guestlist_model extends CI_Model
 			{
 				$groomRow = $this->profile_model->singleProfile($weddingRow["groom_id"]);
 				$profileArray[$weddingRow["groom_id"]] = $brideRow;
-			}
+			}*/
+			$weddingRow = $this->wedding_model->getWeddingRow($guestRow["wedding_id"]);
+			$groomRow = $this->profile_model->singleProfile($weddingRow["groom_id"]);
+			$brideRow = $this->profile_model->singleProfile($weddingRow["bride_id"]);
+			$invitedByRow = $this->profile_model->singleProfile($guestRow["profile_id"]);
 			$wedding = $groomRow["name"]." | ".$brideRow["name"];
 			$result[$key]["weddingName"] = $wedding;
-			$result[$key]["invitedBy"] = $profileArray[$guestRow["profile_id"]]["name"];
+			$result[$key]["invitedBy"] = $invitedByRow["name"];
 		}
 		return $result;
 	}
