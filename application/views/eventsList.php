@@ -9,7 +9,7 @@
 				<div class="col s4 m2"><a href="#eventList" class="btn black modal-trigger">Add Event</a></div>
 			</div>
 			<div>
-				<table id="example" class="responsive-table centered highlight">
+				<table id="example"  border="1" class="responsive-table centered highlight dataTable no-footer">
 			        <thead>
 			          <tr>
 			              <th>Id</th>			              
@@ -128,3 +128,10 @@
       </div>
     </div>
     <div class="modal-footer">
+
+
+  <script type="text/javascript">
+        $(document).ready(function() {
+          $('#example').DataTable();
+      } );
+      </script>
