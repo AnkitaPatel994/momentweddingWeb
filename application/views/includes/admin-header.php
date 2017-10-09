@@ -190,12 +190,13 @@
             </div>
             </li> -->
             <li><h5 class="black-text"><center>Menu</center></h5></li>
-            <li><a href="<?php echo base_url(); ?>admin/Wedding">Wedding</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/wedding">Wedding</a></li>
             <li><a href="<?php echo base_url(); ?>admin/profile">Profile</a></li>
             <!-- <li><div class="divider"></div></li> -->
-            <li><a href="<?php echo base_url(); ?>admin/admin/EventsList">Event List</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/admin/eventsList">Event List</a></li>
             <li><a href="<?php echo base_url(); ?>admin/guest_list">Guest List</a></li>
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>
+      
    <?php }  ?>

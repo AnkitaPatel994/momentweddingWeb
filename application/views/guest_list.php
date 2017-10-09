@@ -3,22 +3,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 
 <div class="row top-header">
-  <div class="col m2">
-    <div class="sidebar-area">
-      <div class="center">
-      		<h5>Menu</h5>
-      </div>
-      <div class="divider"></div>
-      <div class="quick-links">
-      	<ul>
-      		<a href="<?php echo base_url(); ?>admin/Wedding"><li>Wedding</li></a>
-      		<a href="<?php echo base_url(); ?>admin/profile"><li>profile</li></a>
-      		<a href="<?php echo base_url(); ?>admin/EventsList"><li>EventsList</li></a>
-      		<a href="<?php echo base_url(); ?>admin/guest_list"><li>Guest List</li></a>
-      	</ul>
-      </div>
-    </div>
-  </div>
+  <?php $this->load->view("includes/admin-desktop-nav"); ?>
 	<div class="profile-area col m10">
 		<div class="profileDetails">
 			<div class="row">

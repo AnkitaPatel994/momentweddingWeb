@@ -115,7 +115,7 @@ $(function(){
 			if(check.status=="ok")
 			{
 				$("#Login").val("Redirecting..");
-				window.location.href=baseURL+"Admin/Profile";
+				window.location.href=baseURL+"admin/Wedding";
 			}
 			else if(check.status=="fail")
 			{
