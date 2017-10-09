@@ -139,8 +139,8 @@
 
 <body>
     <?php 
-      $this->session->unset_userdata("email");
-      $this->session->sess_destroy();
+      //$this->session->unset_userdata("email");
+      //$this->session->sess_destroy();
       $this->session->set_userdata("email","abc"); 
     ?>
     <?php if($this->session->userdata("email")) { ?>
