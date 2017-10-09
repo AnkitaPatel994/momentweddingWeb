@@ -17,7 +17,7 @@
 			          <tr>
 			              <th>Id</th>
 			              <th>Wedding</th>
-			              <th>Side</th>
+			              <th>Invited By</th>
 			              <th>Guest Name</th>
 			              <th>Mobile</th>
 			              <th>Events</th>
