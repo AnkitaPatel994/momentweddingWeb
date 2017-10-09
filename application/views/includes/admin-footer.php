@@ -1,4 +1,18 @@
-
+<style type="text/css">
+	.ftr {
+	    background: #790c17;
+	    position: fixed;
+	    bottom: 0;
+	    margin-bottom: 0px;
+	    padding: 5px;
+	    width: 100%;
+	}
+</style>
+	<footer>
+		<div class="ftr">
+			
+		</div>
+	</footer>
 
 	 	<input type="hidden" id="site_url" value="<?php echo site_url(); ?>" />
 	  	<input type="hidden" id="base_url" value="<?php echo base_url(); ?>" />

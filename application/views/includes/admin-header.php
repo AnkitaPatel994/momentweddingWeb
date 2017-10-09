@@ -149,8 +149,33 @@
   }
     div#example_length select {
       display: block;
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 50px;
+      padding: 5px;
+      border: 1px solid #dddddd;
+      /* border-radius: 2px; */
+      height: 2rem;
   }
 
+  table.dataTable thead th, table.dataTable thead td{
+    padding: 10px 18px;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.3);
+  }
+  table.dataTable thead .sorting{
+    background: #ddd;
+    border-radius: 0px; 
+  }
+  .dataTables_wrapper .dataTables_filter{
+    line-height: 0px;
+  }
+  .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate{
+    color: #777;
+  }
+  table.dataTable.no-footer{
+    border-bottom: 1px solid rgba(17, 17, 17, 0.20);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
     @media(max-width: 768px){
       .sidebar-area{
         display: none;
