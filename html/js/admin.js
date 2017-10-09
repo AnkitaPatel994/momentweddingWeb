@@ -103,14 +103,33 @@ $(function(){
 	  }
     });
 
+    /*==================Login==============================*/
+	$("#Login").on("click",function(){
+			var data={
+			"email":$("#email").val(),
+			"password":$("#password").val()
+		}
+		$.post(baseURL+"Admin/doLogin/",{data:data},function(data){
+			var check = $.parseJSON(data);
+		console.log(check);
+			if(check.status=="ok")
+			{
+				$("#Login").val("Redirecting..");
+				window.location.href=baseURL+"Admin/Profile";
+			}
+			else if(check.status=="fail")
+			{
+				alert("Fail Your Login");
+			}
+			else
+			{
+				console.log(data);
+			}
 
-
-    
-
-  
-
-
+		});
+	});
 });
+
 function initUpdateWedding(){
 	/*================Update Wedding=======================================*/
 	$("#updateWeddingData").off("click");
@@ -129,31 +148,8 @@ function initUpdateWedding(){
 			}
 		});
 	});
-}
-
-function doLogin(){
+}	
 			
-			/*==================*/
-			var data={
-				"email":$("#email").val(),
-				"password":$("#password").val()
-			}
-			$.post(baseURL+"Admin/doLogin/",{data:data},function(data){
-				var data=$.parseJSON(data);
-				if(data.status=="ok"){
-					alert("Login Successfully....");
-					window.location.href=baseURL;
-				}
-				if(data.status=="fail"){
-					alert("Login Fail....");
-					window.location.href="#!";
-				}
-				else{
-					console.log(data);
-				}
-
-			});
-		}
 
 
  	

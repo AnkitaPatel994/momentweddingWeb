@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {	
 	public function index()
 	{		
-		if(!$this->session->userdata("admin")){
+		if(!$this->session->userdata("email")){
 			header("Location:".base_url()."admin/login");
 			exit();
 		}
@@ -23,16 +23,7 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
-	public function doLogin()
-	{	
-		$data=$_POST["data"];
-		$this->load->model("admin_model");
-		$result=$this->admin_model->doLogin($data);
-		var_dump($result);
-	}
-
 	public function login()
-
 	{
 		$headerData = array(
 			"pageTitle" => "Admin Dashboard",
@@ -49,7 +40,23 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
+	public function doLogin()
+	{	
+		$data=$_POST["data"];
+		$this->load->model("admin_model");
+		$result=$this->admin_model->doLogin($data);
+		echo json_encode($result);
+	}
+	public function logout(){
+	 	$this->session->unset_userdata("email");
+	 	$this->session->sess_destroy();
+	 	header("Location:".base_url()."Admin/login/");
+	 }
 	public function Wedding(){
+		if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
 		$this->load->model("wedding_model");
 		$allWeddingData=$this->wedding_model->allWeddingData();
 	 	$headerData = array(
@@ -67,7 +74,7 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	 }
-	 
+		
 	public function addWedding(){
 	 	$this->load->model("wedding_model");
 	 	$result=array(
@@ -78,7 +85,6 @@ class Admin extends CI_Controller {
 	 	);
 	 	$this->wedding_model->addWedding($result);
 	 }
-
 	public function updateWedding(){
 	 	$this->load->model("wedding_model");
 	 	$wedId=$_POST["wedId"];
@@ -161,6 +167,10 @@ class Admin extends CI_Controller {
 
 
 	public function EventsList(){
+		if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
 		$this->load->model("event_model");
 		$allEvents=$this->event_model->allEvents();
 		$allWeddings=$this->event_model->allWeddings();
@@ -244,11 +254,13 @@ class Admin extends CI_Controller {
 		}
 
 	public function guest_list(){
+		if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
 		$this->load->model("guestlist_model");
 		$allGuestList=$this->guestlist_model->allGuestList();
-		$allWedding=$this->guestlist_model->allWedding();
-	
-		
+		$allWedding=$this->guestlist_model->allWedding();		
 		
 	 	$headerData = array(
 			"pageTitle" => "Guest List",
@@ -293,34 +305,39 @@ class Admin extends CI_Controller {
 	 	$this->guestlist_model->updateGuestList($result,$guestID);
 	 }
 
-		public function editGuestList($guestID){
-			$this->load->model("guestlist_model");
-			$result=$this->guestlist_model->editGuestList($guestID);
-			$this->load->view("updateGuestList",$result);
+	public function editGuestList($guestID){
+		$allWedding=$this->guestlist_model->allWedding();		
+		$this->load->model("guestlist_model");
+		$result=$this->guestlist_model->editGuestList($guestID);
+		//$result["allWedding"]=$allWedding;
+		$this->load->view("updateGuestList",$result);
+	}
+	public function deleteGuestList($guestID){
+		$this->load->model("guestlist_model");
+		$this->guestlist_model->deleteGuestList($guestID);
+	}
+	public function getProfile($weddingID){
+		$this->load->model("wedding_model");
+		$weddingData = $this->wedding_model->getWeddingProfiles($weddingID);
+		$htmlProfile = "";
+		foreach ($weddingData["profile"] as $key => $value) {
+			$htmlProfile.="<option value='".$value["id"]."'>".$value["name"]."</option>";
 		}
-		public function deleteGuestList($guestID){
-			$this->load->model("guestlist_model");
-			$this->guestlist_model->deleteGuestList($guestID);
+
+		$htmlEvent = "";
+		foreach ($weddingData["events"] as $key => $value) {
+			$htmlEvent.="<option value='".$value["name"]."'>".$value["name"]."</option>";
 		}
-	
+		$output = array(
+			"profileHTML" => $htmlProfile,
+			"eventHTML" => $htmlEvent
+		);
+		echo json_encode($output);
+	}
 
-		public function getProfile($weddingID){
-			$this->load->model("wedding_model");
-			$weddingData = $this->wedding_model->getWeddingProfiles($weddingID);
-			$htmlProfile = "";
-			foreach ($weddingData["profile"] as $key => $value) {
-				$htmlProfile.="<option value='".$value["id"]."'>".$value["name"]."</option>";
-			}
-
-			$htmlEvent = "";
-			foreach ($weddingData["events"] as $key => $value) {
-				$htmlEvent.="<option value='".$value["name"]."'>".$value["name"]."</option>";
-			}
-			$output = array(
-				"profileHTML" => $htmlProfile,
-				"eventHTML" => $htmlEvent
-			);
-			echo json_encode($output);
+		public function deleteProfile($profileID){
+			$this->load->model("profile_model");
+			$this->profile_model->deleteProfile($profileID);
 		}
 
 }

@@ -77,14 +77,32 @@ $(function(){
 		});
 	});
 
+
+/*=====Update Guest List===========*/
+
+	$("#updateGuestListData").on("click",function(){
+	var formData = new FormData($("#updateGuestListForm")[0]);
+	$.ajax({
+		data:formData,
+		url:baseURL+"Admin/updateGuestList/",
+		type:"POST",
+		contentType:false,
+		processData:false,
+		success:function(result){
+			alert("GuestList update Successfully...");
+			window.location.reload();
+		}
+	});
+});
+
 	/*===Edit Wedding=======*/
 
 	$(".btn-edit").on("click",function(){
-		$("#editGuestListModal").modal('open');
-		$("#editGuestListModal .modal-content").html("");
+		$("#EditGuestList").modal('open');
+		$("#EditGuestList .modal-content").html("");
 		var guestID=$(this).data("guest-id");
 		$.post(baseURL+"Admin/editGuestList/"+guestID,function(data){
-			$("#editGuestListModal .modal-content").html(data);
+			$("#EditGuestList .modal-content").html(data);
 			 Materialize.updateTextFields();			
 		});
 	});
