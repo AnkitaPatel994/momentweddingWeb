@@ -1,6 +1,7 @@
 /* script for guest list */
 var baseURL;
 $(function(){
+	$('.modal').modal();
 	baseURL=$("#base_url").val();
  	$('.button-collapse').sideNav({
 	      menuWidth: 300, // Default is 300
@@ -30,8 +31,7 @@ $(function(){
 
 
  	/*========== Modal ==============*/
- 	 $('.modal').modal();
-
+ 
 
     /*=============ON CHANGE================================*/
 
@@ -52,8 +52,6 @@ $(function(){
 				}
 			});
 		});
-
-
     /*==================Guest List==================================*/
     
 	$("#addGuestList").on("click",function(){
