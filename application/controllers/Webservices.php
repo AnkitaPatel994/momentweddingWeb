@@ -269,10 +269,10 @@ class Webservices  extends CI_Controller{
 					"wedding_invitation" => $weddingRow["invitation"],
 					"bride_name" => $brideProfile["name"],
 					"bride_occupation" => $brideProfile["occupation"],
-					"bride_pic" => $brideProfile["profile_pic"],
+					"bride_pic" => base_url()."html/images/profile".$brideProfile["profile_pic"],
 					"groom_name" => $groomProfile["name"],
 					"groom_occupation" => $groomProfile["occupation"],
-					"groom_pic" => $groomProfile["profile_pic"],
+					"groom_pic" => base_url()."html/images/profile".$groomProfile["profile_pic"],
 					"guest_name" => $guestProfile["name"]
 				);
 
