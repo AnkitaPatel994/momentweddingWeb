@@ -225,6 +225,41 @@ class Wedding_model extends CI_Model
 		return $result;
 	}
 
+	public function getGuestDetails($guest_id){
+		$query = $this->db->query("select * from guest_list where id='$guest_id'");
+		$result = $query->row_array();
+		return $result;
+		
+	}
+
+
+	public function getWeddingRow($weddingID){
+		$query = $this->db->query("select * from wedding where id='$weddingID'");
+		$result = $query->row_array();
+		return $result;
+	}
+
+	public function getEventPhotos($eventID){
+		$query = $this->db->query("select * from gallery where event_id='$eventID'");
+		$result = $query->result_array();
+		return $result;
+	}
+
+	public function getGallery($weddingID){
+		$events = $this->getEvents($weddingID);
+		$output = array();
+		foreach ($events as $key => $eventRow) {
+			$eventPhotos = $this->getEventPhotos($eventRow["id"]);
+			$output[] = array(
+				"eventID" => $eventRow["id"],
+				"name" => $eventRow["name"], 
+				"background" => $eventRow["image"],
+				"photoCount" => sizeof($eventPhotos)
+			);
+		}
+		return $output;
+	}
+
 
 
 }
