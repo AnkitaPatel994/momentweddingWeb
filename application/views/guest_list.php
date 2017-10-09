@@ -8,12 +8,7 @@
 		<div class="profileDetails">
 			<div class="row">
 				<div class="col s2 m3"><h4>Guest List</h4></div>
-				<form id="excelForm" method="post" enctype="multipart/form-data">
-				<div class="input-field col s5 m5" id="excelsheet">
-		          <input id="excelsheet" name="excelsheet" type="file" class="validate" style="display: none;">
-		          <button class="btn black" type="button" onclick="$('#excelsheet input').click()">Upload Profile</button>
-		        </div>
-		    </form>
+				<div class="col s8 m4"><a href="#guestList" class="btn black modal-trigger">Upload Guest</a></div>
 				<div class="col s8 m4"><a href="#addGuest" class="btn black modal-trigger">Add Guest</a></div>
 			</div>
 			<div>
@@ -61,13 +56,13 @@
   
 
   <!-- Modal Structure -->
-  <div id="eventList" class="modal modal-fixed-footer">
+  <div id="guestList" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <?php //$this->load->view("addEvents",array("allWeddings"=>$allWeddings));?>
+      <?php $this->load->view("uploadExcel");?>
       <!-- <p>A bunch of text</p> -->     
     </div>
     <div class="modal-footer">
-      <a href="#!" id="sendEventData" class="modal-action modal-close waves-effect waves-green btn-flat ">Add Event</a>
+      <a href="#!" id="uploadGuest" class="modal-action modal-close waves-effect waves-green btn-flat ">Upload</a>
     </div>
   </div>
 

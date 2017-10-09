@@ -344,6 +344,10 @@ class Admin extends CI_Controller {
 		$this->load->model("excel_model");
 		$this->load->model("guestlist_model");
 		$fileLocation=$_FILES["excelsheet"]["tmp_name"];
+		$wedding_id = $_POST["wedding_id"];
+		$profile_id = $_POST["profile_id"];
+
+
 //var_dump($_FILES["excelsheet"]);
 
 		
@@ -355,7 +359,7 @@ class Admin extends CI_Controller {
 			//var_dump($guestRow);
 			$name = $guestRow["A"];
 			$number = $guestRow["B"];
-			$this->guestlist_model->addGuestList(array("name"=>$name,"mobile"=>$number));
+			$this->guestlist_model->addGuestList(array("name"=>$name,"mobile"=>$number,"wedding_id"=>$wedding_id,"profile_id"=>$profile_id));
 		}
 		
 	}
