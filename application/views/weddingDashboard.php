@@ -42,7 +42,7 @@
     </div>  
   </div>
    <div class="page-content">
-   	<table id="example"  border="1" class="responsive-table centered">
+   	<table id="example"  border="1" class="responsive-table centered highlight dataTable no-footer">
     <thead>
    		<tr>
         <th>Id</th>

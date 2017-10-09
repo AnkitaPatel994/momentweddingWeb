@@ -1,6 +1,11 @@
 /*Events List*/
 
 /* admin profile css */
+
+.upload-btn {
+    width: 100%;
+}
+
 .sidebar-area{
     top: 0;
 }

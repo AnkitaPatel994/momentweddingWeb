@@ -260,7 +260,7 @@ class Wedding_model extends CI_Model
 			$output[] = array(
 				"eventID" => $eventRow["id"],
 				"name" => $eventRow["name"], 
-				"background" => base_url()."html/images/events/".$eventRow["image"],
+				"background" => $eventRow["image"],
 				"photoCount" => sizeof($eventPhotos)
 			);
 		}
