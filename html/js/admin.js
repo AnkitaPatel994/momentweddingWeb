@@ -28,7 +28,6 @@ $(function(){
 	  	$('#textarea1').val('');
   		$('#textarea1').trigger('autoresize');
 
-
 	/*====================Wedding========================================*/
 
 	$("#addWedding").on("click",function(){
@@ -115,7 +114,7 @@ $(function(){
 			if(check.status=="ok")
 			{
 				$("#Login").val("Redirecting..");
-				window.location.href=baseURL+"admin/Wedding";
+				window.location.href=baseURL+"Admin/Wedding/";
 			}
 			else if(check.status=="fail")
 			{
@@ -125,7 +124,8 @@ $(function(){
 			{
 				console.log(data);
 			}
-
+			$("#adminLogin input").val("");
+			$("#Login").val("Login");
 		});
 	});
 });
@@ -148,10 +148,7 @@ function initUpdateWedding(){
 			}
 		});
 	});
-}	
-			
-
-
+}
  	
 /*Position Fixed On Scroll top */
 /*

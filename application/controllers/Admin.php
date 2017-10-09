@@ -108,8 +108,11 @@ class Admin extends CI_Controller {
 	 	$this->load->view("updateWedding",$result);
 	 }
 
-
 	 public function profile(){
+	 	if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
 	 	$this->load->model("profile_model");
 	 	$allProfile=$this->profile_model->allProfile();
 
@@ -306,10 +309,8 @@ class Admin extends CI_Controller {
 	 }
 
 	public function editGuestList($guestID){
-		$allWedding=$this->guestlist_model->allWedding();		
 		$this->load->model("guestlist_model");
 		$result=$this->guestlist_model->editGuestList($guestID);
-		//$result["allWedding"]=$allWedding;
 		$this->load->view("updateGuestList",$result);
 	}
 	public function deleteGuestList($guestID){
@@ -334,10 +335,5 @@ class Admin extends CI_Controller {
 		);
 		echo json_encode($output);
 	}
-
-		public function deleteProfile($profileID){
-			$this->load->model("profile_model");
-			$this->profile_model->deleteProfile($profileID);
-		}
 
 }
