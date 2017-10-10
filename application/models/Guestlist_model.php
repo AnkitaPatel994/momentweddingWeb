@@ -115,7 +115,7 @@ class Guestlist_model extends CI_Model
 	}
 
 	public function guestListByTransportation($eventID,$trasportation){
-		$query = $this->db->query("SELECT * FROM guest_list WHERE event_access LIKE '%[$eventID]%' and arriving_by='$transportation'");
+		$query = $this->db->query("SELECT * FROM guest_list WHERE event_access LIKE '%[$eventID]%' and arriving_by='$trasportation'");
 		$result = $query->result_array();
 		return $result;
 	}

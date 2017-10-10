@@ -370,8 +370,7 @@ class Admin extends CI_Controller {
 		if(!$this->session->userdata("email")){
 			header("Location:".base_url()."admin/login");
 			exit();
-		}
-		
+		}		
 		$this->load->model("wedding_model");
 		$this->load->model("guestlist_model");
 		$weddingList = $this->wedding_model->allWeddingData();

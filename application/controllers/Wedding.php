@@ -52,9 +52,11 @@ class Wedding extends CI_Controller {
 		$this->load->model("guestlist_model");
 		$output = array();
 		foreach ($transportation as $key => $mode) {
-			$output[ucfirst($mode)] = $this->guestlist_model->eventGuestsByTransportation($eventID,$mode);
+			$output[ucfirst($mode)]["count"] = $this->guestlist_model->eventGuestsByTransportation($eventID,$mode);
+				$output[ucfirst($mode)]["eventID"]=$eventID;
 		}
-		echo json_encode($output);
+		$this->load->view("eventTransportation",array("outputData"=>$output));
+		
 	}
 
 	public function guestByMode(){
@@ -62,6 +64,7 @@ class Wedding extends CI_Controller {
 		$eventID = $_POST["eventID"];
 		$mode = $_POST["mode"];
 		$guestList = $this->guestlist_model->guestListByTransportation($eventID,$mode);
-		echo json_encode($guestList);
+		//echo json_encode($guestList);
+		$this->load->view("allEventGuestList",array("guestList"=>$guestList));
 	}
 }

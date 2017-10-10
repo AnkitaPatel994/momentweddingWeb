@@ -56,7 +56,7 @@
     </thead>
     <tbody>
       <?php foreach ($allWeddingData as $key => $allWeddingRow) { ?>
-      <tr class="wedding" data-wed-id="<?php echo $allWeddingRow['id']; ?>">  
+      <tr class="wedding pointer" data-wed-id="<?php echo $allWeddingRow['id']; ?>">  
         <td><?php echo $allWeddingRow['id']; ?></td>         
         <td><?php echo $allWeddingRow['bride_profile']["name"]." | ".$allWeddingRow['groom_profile']["name"]; ?></td>
        <!--  <td><?php //echo $allWeddingRow['groom_profile']["name"]; ?></td> -->
