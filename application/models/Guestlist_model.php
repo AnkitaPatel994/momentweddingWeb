@@ -79,6 +79,10 @@ class Guestlist_model extends CI_Model
 	$result=$query->result_array();
 	return $result;
 	}
+	public function updateRsvp($updateData,$guestID){
+		$this->db->where('id',$guestID);
+		$this->db->update('guest_list',$guestData);
+	}
 
 	
 }
