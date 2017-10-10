@@ -35,4 +35,14 @@ class Wedding extends CI_Controller {
 		}
 		echo json_encode($weddingList);
 	}
+
+	public function eventsWithGuestCount($weddingID){
+		$this->load->model("wedding_model");
+		$this->load->model("guestlist_model");
+		$eventList = $this->wedding_model->getEvents($weddingID);
+		foreach ($eventList as $key => $eventRow) {
+			$eventList[$key]["totalGuest"] = $this->guestlist_model->eventGuestCount($eventRow["id"]);
+		}
+		echo json_encode($eventList);
+	}
 }
