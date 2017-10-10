@@ -364,4 +364,28 @@ class Admin extends CI_Controller {
 		
 	}
 
+	/*===============RSVP===========================*/
+	public function RSVP(){
+		if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
+		$this->load->model("wedding_model");
+		$allWeddingData=$this->wedding_model->allWeddingData();
+	 	$headerData = array(
+			"pageTitle" => "RSVP",
+			"stylesheet" => array("adminDashboard.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("admin.js")
+		);
+		$viewData = array(
+			"viewName" => "RSVPDashboard",
+            "viewData" => array("allWeddingData"=>$allWeddingData),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	 }
+
 }
