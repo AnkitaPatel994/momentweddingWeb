@@ -103,6 +103,23 @@ class Guestlist_model extends CI_Model
 		return $total;
 	}
 
+	//car,train and flight accepted in transportation
+	public function eventGuestsByTransportation($eventID,$trasportation){
+		$query = $this->db->query("SELECT * FROM guest_list WHERE event_access LIKE '%[$eventID]%' and arriving_by='$transportation'");
+		$result = $query->result_array();
+		$total = 0;
+		foreach ($result as $key => $guestRow) {
+			$total = $total+$guestRow["guest_count"];
+		}
+		return $total;
+	}
+
+	public function guestListByTransportation($eventID,$trasportation){
+		$query = $this->db->query("SELECT * FROM guest_list WHERE event_access LIKE '%[$eventID]%' and arriving_by='$transportation'");
+		$result = $query->result_array();
+		return $result;
+	}
+
 	
 }
 

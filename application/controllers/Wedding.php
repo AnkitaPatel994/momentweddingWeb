@@ -45,4 +45,22 @@ class Wedding extends CI_Controller {
 		}
 		echo json_encode($eventList);
 	}
+
+	public function guestCountByTransportation($eventID){
+		$transportation = array("car","train","flight");
+		$this->load->model("guestlist_model");
+		$output = array();
+		foreach ($transportation as $key => $mode) {
+			$output[ucfirst($mode)] = $this->guestlist_model->eventGuestsByTransportation($eventID,$mode);
+		}
+		echo json_encode($eventList);
+	}
+
+	public function guestByMode(){
+		$this->load->model("guestlist_model");
+		$eventID = $_POST["eventID"];
+		$mode = $_POST["mode"];
+		$guestList = $this->guestlist_model->guestListByTransportation($eventID,$mode);
+		echo json_encode($guestList);
+	}
 }
