@@ -62,7 +62,7 @@
         padding: 10px;
     }
     hr {
-        border-color: #000;
+        border-color: rgba(0, 0, 0, 0.07);
     }
      #sidenav-overlay{
       z-index: 1;

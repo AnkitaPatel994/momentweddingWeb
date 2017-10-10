@@ -28,6 +28,15 @@
 textarea{
 	border: none;
 }
+.dataTables_length select{
+    display: block;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 50px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    border-radius: 2px;
+    height: 2rem;
+}
 .btn-edit {
     background: #EEE;
     border: 1px solid #ddd;
