@@ -1,0 +1,45 @@
+/*rsvpAdmin StyleSheet*/
+body{
+	background: #7c171d;
+}
+h5{
+	color: #777;
+}
+.Rsvp-Login-container {
+    width: 90%;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 25px;
+    min-height: 300px;
+    }
+
+.btn-next-code {
+    width: 100% !important;
+    background: #7c171d;
+}
+.btn-next-mobile {
+    width: 100% !important;
+    background: #7c171d;
+}
+.btn-next-otp {
+    width: 100% !important;
+    background: #7c171d;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+	border-bottom: 1px solid #7c171d;
+    -webkit-box-shadow: 0 1px 0 0 #7c171d;
+    box-shadow: 0 1px 0 0 #7c171d;
+}
+input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label{
+	color: #7c171d;
+}
+
+.hide-box{
+	display: none;
+}
+.show-box{
+	display: none;
+}

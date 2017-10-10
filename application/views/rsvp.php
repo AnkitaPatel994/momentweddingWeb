@@ -43,10 +43,10 @@
 						<input type="text" class="timepicker" placeholder="03:15PM">
 					</div>
 					<div class="vehicles-container">
-						<ul>
-							<a href="#"><i class="fa fa-car" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-bus" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-train" aria-hidden="true"></i></a>
+						<ul id="Arrival-v">
+							<a href="#!"><i class="fa fa-car" aria-hidden="true"></i></a>
+							<a href="#!"><i class="fa fa-bus" aria-hidden="true"></i></a>
+							<a href="#!"><i class="fa fa-train" aria-hidden="true"></i></a>
 						</ul>
 					</div>
 				</div>
@@ -59,10 +59,10 @@
 						<input type="text" class="timepicker" placeholder="03:15PM">
 					</div>
 					<div class="vehicles-container">
-						<ul>
-							<a href="#"><i class="fa fa-car" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-bus" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-train" aria-hidden="true"></i></a>
+						<ul id="departure-v">
+							<a id="v" class="v" href="#!"><i class="fa fa-car" aria-hidden="true"></i></a>
+							<a id="v" class="v" href="#!"><i class="fa fa-bus" aria-hidden="true"></i></a>
+							<a id="v" class="v" href="#!"><i class="fa fa-train" aria-hidden="true"></i></a>
 						</ul>
 					</div>
 				</div>
