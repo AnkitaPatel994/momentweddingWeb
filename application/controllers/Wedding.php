@@ -25,4 +25,14 @@ class Wedding extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
+
+	public function getWeddingWithGuestCount(){
+		$this->load->model("wedding_model");
+		$this->load->model("guestlist_model");
+		$weddingList = $this->wedding_model->allWeddingData();
+		foreach ($weddingList as $key => $weddingRow) {
+			$weddingList[$key]["totalGuest"] = $this->guestlist_model->weddingGuestCount($weddingRow["id"]);
+		}
+		echo json_encode($weddingList);
+	}
 }
