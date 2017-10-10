@@ -148,9 +148,10 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
     margin: 5px;
     font-size: 22px;
 }
-label{
-	color: #00000080 !important
+.input-field label{
+	color: #595959 !important;
 }
+
 
 textarea.materialize-textarea:focus:not([readonly]){
 	border-bottom: 1px solid #7c171d;

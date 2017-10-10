@@ -269,6 +269,7 @@ class Wedding_model extends CI_Model
 
 
 
+
 }
 
 ?>

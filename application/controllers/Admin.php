@@ -336,9 +336,9 @@ class Admin extends CI_Controller {
 		echo json_encode($output);
 	}
 
-	public function guestUpload(){
+	/*public function guestUpload(){
 
-	}
+	}*/
 
 	public function excelCheck(){
 		$this->load->model("excel_model");
@@ -363,5 +363,36 @@ class Admin extends CI_Controller {
 		}
 		
 	}
+
+	/*===============RSVP===========================*/
+	public function RSVP(){
+		if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
+		
+		$this->load->model("wedding_model");
+		$this->load->model("guestlist_model");
+		$weddingList = $this->wedding_model->allWeddingData();
+		foreach ($weddingList as $key => $weddingRow) {
+			$weddingList[$key]["totalGuest"] = $this->guestlist_model->weddingGuestCount($weddingRow["id"]);
+		}
+		$allWeddingData=$weddingList;
+
+	 	$headerData = array(
+			"pageTitle" => "RSVP",
+			"stylesheet" => array("adminDashboard.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("admin.js")
+		);
+		$viewData = array(
+			"viewName" => "RSVPDashboard",
+            "viewData" => array("allWeddingData"=>$allWeddingData),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	 }
 
 }

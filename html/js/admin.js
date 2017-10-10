@@ -131,7 +131,18 @@ $(function(){
 		});
 	});
 
-	/*========================Excel File==============================*/
+	/*========================RSVP==============================*/
+	$(".wedding").on("click",function(){
+		$("#RSVPModal").modal('open');
+		var wedID=$(this).data('wed-id');
+		$.post(baseURL+"Wedding/eventsWithGuestCount/"+wedID,function(data){
+			$("#RSVPModal .modal-content").html(data);
+		});
+	});
+
+
+	
+	
 	
 
 });
