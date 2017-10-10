@@ -36,9 +36,9 @@
   <div class="page-header">
     <div class="row">
       <div class="page-title col s6 m10"><h4>Wedding Management</h4></div>
-      <div class="page-button col s6 m2">
+     <!--  <div class="page-button col s6 m2">
         <a class="waves-effect waves-light btn black modal-trigger" href="#weddingModal">Add Wedding</a>
-      </div>
+      </div> -->
     </div>  
   </div>
    <div class="page-content">
@@ -46,24 +46,24 @@
     <thead>
    		<tr>
         <th>Id</th>
-        <th>Wedding Name</th>    
-       <!--  <th>Groom</th> -->
+        <th>Wedding Name</th>      
         <th>Date</th> 
         <th>Code</th> 
-        <!--<th style="max-width:100px;">Invitation</th> -->
-                 
+        <th>Guest Count</th>
+        <!--<th style="max-width:100px;">Invitation</th> -->                 
      <!--    <th>Actions</th> -->
    		</tr>
     </thead>
     <tbody>
       <?php foreach ($allWeddingData as $key => $allWeddingRow) { ?>
-      <tr id="wed-id<?php echo $allWeddingRow['id']; ?>">  
+      <tr class="wedding" id="wed-id<?php echo $allWeddingRow['id']; ?>">  
         <td><?php echo $allWeddingRow['id']; ?></td>         
         <td><?php echo $allWeddingRow['bride_profile']["name"].$allWeddingRow['groom_profile']["name"]; ?></td>
        <!--  <td><?php //echo $allWeddingRow['groom_profile']["name"]; ?></td> -->
          <td><?php echo $allWeddingRow['date']; ?></td>  
         <!--<td><?php //echo substr($allWeddingRow['invitation'], 0,200); ?>...</td> -->
-       <td><?php echo $allWeddingRow['code']; ?></td>        
+       <td><?php echo $allWeddingRow['code']; ?></td>   
+       <td><?php echo $allWeddingRow['totalGuest']; ?></td>            
       
     <!--     <td class="right-align blog-btn">
         <a data-wed-id="<?php echo $allWeddingRow['id']; ?>" class="btn btn-edit-wed edit-wedding"><i class="material-icons">mode_edit</i></a>
@@ -79,9 +79,9 @@
 
 
 <!-- Modal Structure -->
-  <div id="weddingModal" class="modal">
+  <div id="RSVPModal" class="modal">
     <div class="modal-content">
-      <?php $this->load->view("addWedding"); ?>
+      <?php $this->load->view("allEventByWedding"); ?>
     </div>
  
   </div>

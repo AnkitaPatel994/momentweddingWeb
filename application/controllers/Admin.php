@@ -370,8 +370,15 @@ class Admin extends CI_Controller {
 			header("Location:".base_url()."admin/login");
 			exit();
 		}
+		
 		$this->load->model("wedding_model");
-		$allWeddingData=$this->wedding_model->allWeddingData();
+		$this->load->model("guestlist_model");
+		$weddingList = $this->wedding_model->allWeddingData();
+		foreach ($weddingList as $key => $weddingRow) {
+			$weddingList[$key]["totalGuest"] = $this->guestlist_model->weddingGuestCount($weddingRow["id"]);
+		}
+		$allWeddingData=$weddingList;
+
 	 	$headerData = array(
 			"pageTitle" => "RSVP",
 			"stylesheet" => array("adminDashboard.css")
