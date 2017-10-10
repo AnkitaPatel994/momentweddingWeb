@@ -267,13 +267,6 @@ class Wedding_model extends CI_Model
 		return $output;
 	}
 
-	public function guestListByWedding($weddingID){
-		$query=$this->db->query("select id from guest_list  where wedding_id ='$weddingID'");
-		$result=$query->num_rows();
-		var_dump($result);
-		//$result=$query->row_array();
-		return $result;
-	}
 
 
 
