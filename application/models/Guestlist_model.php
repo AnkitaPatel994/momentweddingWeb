@@ -89,6 +89,15 @@ class Guestlist_model extends CI_Model
 		$result = $query->row_array();
 		return $result["total_guests"];
 	}
+	public function eventGuestCount($eventID){
+		$query = $this->db->query("SELECT * FROM guest_list WHERE event_access LIKE '%[$eventID]%'");
+		$result = $query->result_array();
+		$total = 0;
+		foreach ($result as $key => $guestRow) {
+			$total = $total+$guestRow["guest_count"];
+		}
+		return $total;
+	}
 
 	
 }
