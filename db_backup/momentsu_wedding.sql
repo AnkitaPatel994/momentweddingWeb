@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2017 at 10:58 AM
+-- Generation Time: Oct 10, 2017 at 06:27 AM
 -- Server version: 5.6.37
 -- PHP Version: 5.6.30
 
@@ -44,6 +44,7 @@ CREATE TABLE `event` (
   `id` int(11) NOT NULL,
   `wedding_id` int(100) NOT NULL,
   `name` varchar(200) NOT NULL,
+  `event_note` varchar(200) NOT NULL,
   `date` text NOT NULL,
   `time` varchar(300) NOT NULL,
   `location` text NOT NULL,
@@ -54,12 +55,12 @@ CREATE TABLE `event` (
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`id`, `wedding_id`, `name`, `date`, `time`, `location`, `image`) VALUES
-(1, 1, '1', '', '', '', ''),
-(2, 0, '1', '', '', '', ''),
-(3, 0, '1', '', '', '', ''),
-(4, 5, 'Sangeet', '12 October, 2017', '08:50', 'dsdsdssd', '4_eventImage.'),
-(5, 5, 'Wedding', '12 October, 2017', '08:50', 'dsdsdssd', '5_eventImage.');
+INSERT INTO `event` (`id`, `wedding_id`, `name`, `event_note`, `date`, `time`, `location`, `image`) VALUES
+(1, 1, '1', '', '', '', '', ''),
+(2, 0, '1', '', '', '', '', ''),
+(3, 0, '1', '', '', '', '', ''),
+(4, 5, 'Sangeet', 'Lorem ipsum dolor sit amet, consectetur adipiscing. ', '12 October, 2017', '08:50', 'dsdsdssd', '4_eventImage.jpg'),
+(5, 5, 'Wedding', ' Ipsum Lorem consectetur adipiscing dolor sit amet,  elit. ', '12 October, 2017', '08:50', 'dsdsdssd', '5_eventImage.jpg');
 
 -- --------------------------------------------------------
 
@@ -100,15 +101,25 @@ CREATE TABLE `guest_list` (
   `name` varchar(100) NOT NULL,
   `mobile` varchar(20) NOT NULL,
   `code` varchar(20) NOT NULL,
-  `event_access` text NOT NULL
+  `event_access` text NOT NULL,
+  `guest_count` int(11) NOT NULL DEFAULT '1',
+  `attending` varchar(50) NOT NULL DEFAULT 'yes',
+  `arriving_on` varchar(100) NOT NULL,
+  `arriving_by` varchar(100) NOT NULL,
+  `departing_on` varchar(100) NOT NULL,
+  `departing_by` varchar(100) NOT NULL,
+  `remarks` text NOT NULL,
+  `wishes` text NOT NULL,
+  `reason` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guest_list`
 --
 
-INSERT INTO `guest_list` (`id`, `wedding_id`, `profile_id`, `name`, `mobile`, `code`, `event_access`) VALUES
-(1, 5, 15, 'Rajan Kaneria', '9879798863', '9794', '');
+INSERT INTO `guest_list` (`id`, `wedding_id`, `profile_id`, `name`, `mobile`, `code`, `event_access`, `guest_count`, `attending`, `arriving_on`, `arriving_by`, `departing_on`, `departing_by`, `remarks`, `wishes`, `reason`) VALUES
+(1, 5, 15, 'Rajan Kaneria', '9879798863', '1003', '', 1, 'yes', '', '', '', '', '', '', ''),
+(2, 5, 14, 'Ankita Patel', '8320208561', '2250', '', 1, 'yes', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -195,8 +206,8 @@ INSERT INTO `profile` (`id`, `profile_pic`, `name`, `occupation`, `profile_detai
 (11, '', 'Sanket', '', '', 0),
 (12, '', 'Grina', '', '', 0),
 (13, '', 'Sanket', '', '', 0),
-(14, '', 'Grina', '', '', 0),
-(15, '', 'Sanket', '', '', 0);
+(14, '1_profileImage.jpg', 'Grina', 'Android Developer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus nulla. Ut ac sem id lectus dictum fermentum. Aliquam scelerisque quis tortor vel finibus. Fusce quis est condimentum, accumsan tellus vel, aliquet lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed ex enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum varius quam vitae hendrerit. Fusce in sollicitudin odio, sit amet lobortis mi. Sed bibendum libero tortor, vitae volutpat urna auctor id. Pellentesque a bibendum neque. Etiam in rhoncus velit.', 0),
+(15, '1_profileImage.jpg', 'Sanket', 'Android Developer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus nulla. Ut ac sem id lectus dictum fermentum. Aliquam scelerisque quis tortor vel finibus. Fusce quis est condimentum, accumsan tellus vel, aliquet lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed ex enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed interdum varius quam vitae hendrerit. Fusce in sollicitudin odio, sit amet lobortis mi. Sed bibendum libero tortor, vitae volutpat urna auctor id. Pellentesque a bibendum neque. Etiam in rhoncus velit.', 0);
 
 -- --------------------------------------------------------
 
@@ -245,7 +256,7 @@ INSERT INTO `wedding` (`id`, `bride_id`, `groom_id`, `date`, `invitation`, `code
 (1, 2, 3, 'sas', 'sas', 'xyz'),
 (2, 4, 5, '23/4/12', 'ieyhw87ue uiwe8w iuewe uewee', 'xyz'),
 (4, 8, 9, '21/3/4', 'rekru98e', 'xyz'),
-(5, 14, 15, '10 November, 2017', 'invitiation test', 'mMJ21');
+(5, 14, 15, '10 November, 2017', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'mMJ21');
 
 --
 -- Indexes for dumped tables
@@ -323,7 +334,7 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `guest_list`
 --
 ALTER TABLE `guest_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `invitation`
 --
