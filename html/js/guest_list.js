@@ -27,11 +27,7 @@ $(function(){
 	    autoclose: false, // automatic close timepicker
 	    ampmclickable: true, // make AM PM clickable
 	    aftershow: function(){} //Function for after opening timepicker
-	  });
-
-
- 	/*========== Modal ==============*/
- 
+	  }); 
 
     /*=============ON CHANGE================================*/
 
@@ -52,8 +48,6 @@ $(function(){
 				}
 			});
 		});
-
-
 
     $("#guestList #addGuestWeddingID").on("change",function(){	
 	    var weddingID = $("#guestList #addGuestWeddingID option:selected").val();	
@@ -105,20 +99,41 @@ $(function(){
 		processData:false,
 		success:function(result){
 			alert("GuestList update Successfully...");
-			window.location.reload();
+			//window.location.reload();
 		}
 	});
 });
 
+
+
 	/*===Edit Wedding=======*/
 
-	$(".btn-edit").on("click",function(){
+	$(".guest-detail .btn-edit").on("click",function(){
 		$("#EditGuestList").modal('open');
 		$("#EditGuestList .modal-content").html("");
 		var guestID=$(this).data("guest-id");
 		$.post(baseURL+"Admin/editGuestList/"+guestID,function(data){
 			$("#EditGuestList .modal-content").html(data);
-			 Materialize.updateTextFields();			
+			 Materialize.updateTextFields();
+			  $('select').material_select();
+
+			  $("#EditGuestList #addGuestWeddingID").on("change",function(){	
+	    var weddingID = $("#EditGuestList #addGuestWeddingID option:selected").val();	
+			$.ajax({
+				data:weddingID,
+				url:baseURL+"Admin/getProfile/"+weddingID,
+				type:"POST",
+				contentType:false,
+				processData:false,
+				success:function(result){
+					result = $.parseJSON(result);
+					$("#EditGuestList #addGuestProfileList").html(result.profileHTML);
+					$('#EditGuestList #addGuestProfileList').material_select();
+					$("#EditGuestList #addGuestEventList").html(result.eventHTML);
+					$('#EditGuestList #addGuestEventList').material_select();
+				}
+			});
+		});			
 		});
 	});
 

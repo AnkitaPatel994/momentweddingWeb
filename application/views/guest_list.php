@@ -5,7 +5,7 @@
 <div class="row top-header">
   <?php $this->load->view("includes/admin-desktop-nav"); ?>
 	<div class="profile-area col m10">
-		<div class="profileDetails">
+		<div class="guest-detail profileDetails">
 			<div class="row">
 				<div class="col s2 m3"><h4>Guest List</h4></div>
 				<div class="col s8 m4"><a href="#guestList" class="btn black modal-trigger">Upload Guest</a></div>
@@ -33,7 +33,7 @@
 			            <td><?php echo $allGuestListRow['invitedBy']; ?></td>
 			            <td><?php echo $allGuestListRow['name']; ?></td>
 			            <td><?php echo $allGuestListRow['mobile']; ?></td>
-			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light data-guest-id=<?php echo $allGuestListRow['id']; ?>  btn modal-trigger"><i class="material-icons">edit</i></a>
+			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger" data-guest-id=<?php echo $allGuestListRow['id']; ?>><i class="material-icons">edit</i></a>
 			            <a href="#editProfile" data-guest-id=<?php echo $allGuestListRow['id']; ?>  class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>
 			          <?php } ?>
@@ -130,7 +130,7 @@
     <div class="modal-content">
     	<div class="row">
       		<center><h5>Edit New Guest</h5></center>
-      	</div>	<hr>
+      	</div><hr>
       <!-- <p>A bunch of text</p> -->
       
     </div>

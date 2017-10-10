@@ -310,8 +310,11 @@ class Admin extends CI_Controller {
 	 }
 
 	public function editGuestList($guestID){
+		$this->load->model("wedding_model");
+		$allWedding=$this->wedding_model->allWeddingData();		
 		$this->load->model("guestlist_model");
 		$result=$this->guestlist_model->editGuestList($guestID);
+		$result["allWedding"]=$allWedding;
 		$this->load->view("updateGuestList",$result);
 	}
 	public function deleteGuestList($guestID){

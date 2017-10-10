@@ -52,8 +52,8 @@ class Guestlist_model extends CI_Model
 	public function editGuestList($guestID){
 		$query=$this->db->query("select * from guest_list where id='$guestID' ");
 		$result=$query->row_array();
-		var_dump($result);
-		//return $result;
+		//var_dump($result);
+		return $result;
 	}
 	public function updateGuestList($guestData,$guestID){
 		$this->db->where('id',$guestID);
