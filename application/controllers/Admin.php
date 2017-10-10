@@ -262,8 +262,9 @@ class Admin extends CI_Controller {
 			exit();
 		}
 		$this->load->model("guestlist_model");
+		$this->load->model("wedding_model");
 		$allGuestList=$this->guestlist_model->allGuestList();
-		$allWedding=$this->guestlist_model->allWedding();		
+		$allWedding=$this->wedding_model->allWeddingData();		
 		
 	 	$headerData = array(
 			"pageTitle" => "Guest List",
