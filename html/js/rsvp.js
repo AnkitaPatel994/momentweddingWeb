@@ -41,7 +41,15 @@ $('.timepicker').pickatime({
   $('#specialRemark').val('');
   $('#specialRemark').trigger('autoresize');
 
+  $("#Arrival-v a").click(function(){
+    $("#Arrival-v a").css("color","#fff");
+    $(this).css("color","#000");
+  });
 
+  $("#departure-v a").click(function(){
+    $("#departure-v a").css("color","#fff");
+    $(this).css("color","#000");
+  });
 
 
 });
