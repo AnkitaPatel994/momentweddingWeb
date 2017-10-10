@@ -336,9 +336,9 @@ class Admin extends CI_Controller {
 		echo json_encode($output);
 	}
 
-	public function guestUpload(){
+	/*public function guestUpload(){
 
-	}
+	}*/
 
 	public function excelCheck(){
 		$this->load->model("excel_model");

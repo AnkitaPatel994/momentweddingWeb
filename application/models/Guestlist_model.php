@@ -5,7 +5,7 @@
 class Guestlist_model extends CI_Model
 {
 	public function addGuestList($guestData){
-		var_dump($guestData);
+		//var_dump($guestData);
 		$this->db->insert('guest_list',$guestData);
 	}
 	public function allGuestList(){
@@ -52,7 +52,8 @@ class Guestlist_model extends CI_Model
 	public function editGuestList($guestID){
 		$query=$this->db->query("select * from guest_list where id='$guestID' ");
 		$result=$query->row_array();
-		return $result;
+		var_dump($result);
+		//return $result;
 	}
 	public function updateGuestList($guestData,$guestID){
 		$this->db->where('id',$guestID);
