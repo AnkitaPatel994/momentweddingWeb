@@ -78,13 +78,13 @@
       		<?php //var_dump($allWedding); ?>
       	</div><hr>	
       <!-- <p>A bunch of text</p> -->
-      <div class="guestList-area row">
+     <!--  <div class="guestList-area row">
       	<form method="post" id="addGuestListForm">
       		<div class="input-field col s12 m4">
-			    <select id="addGuestWeddingID" name="wedding_id">
+			  <select id="addGuestWeddingID" name="wedding_id">
 			      <option value="" disabled selected>Choose your Wedding</option>
 			      <?php foreach($allWedding as $key=>$weddingRow){ ?>
-			      <option value="<?php echo $weddingRow["id"]; ?>"><?php echo $weddingRow["id"]; ?></option>
+			      <option value="<?php echo $weddingRow["id"]; ?>"><?php echo $weddingRow["bride_profile"]["name"]." | ".$weddingRow["groom_profile"]["name"]; ?></option>
 			      <?php } ?>
 			      
 			    </select>
@@ -92,7 +92,7 @@
 			</div>
 
 			<div class="input-field col s12 m4">
-			    <select id="addGuestProfileList" name="profile_id">
+			      <select id="addGuestProfileList" name="profile_id">
 			      <option value="" disabled selected>Choose your Profile</option>		    
 			    </select>
 			    <label>Profile</label>
@@ -116,7 +116,8 @@
             </div>
 
       	</form>
-      </div>
+      </div> -->
+        <?php $this->load->view("addGuest"); ?>
     </div>
     <div class="modal-footer">
       <a href="#!" id="sendGuestListData" class="modal-action modal-close waves-effect waves-green btn-flat ">Add New Guest</a>

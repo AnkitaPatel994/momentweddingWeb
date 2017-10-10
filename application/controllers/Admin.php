@@ -361,8 +361,7 @@ class Admin extends CI_Controller {
 			$name = $guestRow["A"];
 			$number = $guestRow["B"];
 			$this->guestlist_model->addGuestList(array("name"=>$name,"mobile"=>$number,"wedding_id"=>$wedding_id,"profile_id"=>$profile_id));
-		}
-		
+		}		
 	}
 
 	/*===============RSVP===========================*/

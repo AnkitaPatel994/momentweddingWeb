@@ -35,8 +35,8 @@ $(function(){
 
     /*=============ON CHANGE================================*/
 
-    $("#addGuestWeddingID").on("change",function(){	
-	    var weddingID = $("#addGuestWeddingID option:selected").val();	
+    $("#addGuest #addGuestWeddingID").on("change",function(){	
+	    var weddingID = $("#addGuest #addGuestWeddingID option:selected").val();	
 			$.ajax({
 				data:weddingID,
 				url:baseURL+"Admin/getProfile/"+weddingID,
@@ -45,18 +45,35 @@ $(function(){
 				processData:false,
 				success:function(result){
 					result = $.parseJSON(result);
-					$("#addGuestProfileList").html(result.profileHTML);
-					$('#addGuestProfileList').material_select();
-					$("#addGuestEventList").html(result.eventHTML);
-					$('#addGuestEventList').material_select();
+					$("#addGuest #addGuestProfileList").html(result.profileHTML);
+					$('#addGuest #addGuestProfileList').material_select();
+					$("#addGuest #addGuestEventList").html(result.eventHTML);
+					$('#addGuest #addGuestEventList').material_select();
+				}
+			});
+		});
+
+
+
+    $("#guestList #addGuestWeddingID").on("change",function(){	
+	    var weddingID = $("#guestList #addGuestWeddingID option:selected").val();	
+			$.ajax({
+				data:weddingID,
+				url:baseURL+"Admin/getProfile/"+weddingID,
+				type:"POST",
+				contentType:false,
+				processData:false,
+				success:function(result){
+					result = $.parseJSON(result);
+					$("#guestList #addGuestProfileList").html(result.profileHTML);
+					$('#guestList #addGuestProfileList').material_select();
+					$("#guestList #addGuestEventList").html(result.eventHTML);
+					$('#guestList #addGuestEventList').material_select();
 				}
 			});
 		});
     /*==================Guest List==================================*/
     
-	$("#addGuestList").on("click",function(){
-		$("#guestListModal").modal('open');
-	});
 
 	/*===Add Wedding=======*/
 
