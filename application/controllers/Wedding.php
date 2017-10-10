@@ -54,7 +54,7 @@ class Wedding extends CI_Controller {
 		foreach ($transportation as $key => $mode) {
 			$output[ucfirst($mode)] = $this->guestlist_model->eventGuestsByTransportation($eventID,$mode);
 		}
-		echo json_encode($eventList);
+		echo json_encode($output);
 	}
 
 	public function guestByMode(){
