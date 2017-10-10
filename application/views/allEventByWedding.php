@@ -1,3 +1,5 @@
+
+
   <div class="row">
       <center><h5>Event Guests</h5></center>
   </div><hr>
@@ -13,7 +15,7 @@
       </div>
         <?php } ?>
     </div>
-      <div class="event-area">
+      <div class="event-area input-field center">
         <input type="button" name="back" id="back" class="btn" value="Back">
       </div>
   </div>

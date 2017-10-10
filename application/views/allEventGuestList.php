@@ -1,4 +1,5 @@
        <!-- <p>A bunch of text</p> -->
+       <input type="button" name="back" id="tblback" class="btn" value="Back">
     <div class="transport-container-table">
       <div class="wedding-area row">
         <div class="page-content">
@@ -22,9 +23,6 @@
               <td><?php echo $guestListRow['guest_count']; ?></td>
           </tr>
           <?php } ?>
-          <tr><td>
-            <input type="button" name="back" id="tblback" class="btn" value="Back">
-          </td></tr>
       </tbody>
     </table>
 </div>
