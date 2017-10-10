@@ -140,11 +140,13 @@ $(function(){
 		});
 	});
 
-
-	
-	
-	
-
+	$(".event-id").on("click",function(){
+		$("#EventModal").modal('open');
+		var eventID=$(this).data('event-id');
+		$.post(baseURL+"Wedding/guestCountByTransportation/"+eventID,function(data){
+			$("#EventModal .modal-content").html(data);
+		});
+	});
 });
 
 function initUpdateWedding(){
