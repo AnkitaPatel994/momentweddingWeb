@@ -6,7 +6,7 @@
       <div class="wedding-area row">
         <?php foreach($eventList as $key=>$eventRow){ ?>
         <div class="col m6 s12">
-          <div class="event-guest-container pointer" data-event-id="<?php echo $eventRow["id"]; ?>" >
+          <div class="event-guest-container card-panel hoverable" data-event-id="<?php echo $eventRow["id"]; ?>">
             <div class="event_name"><?php echo $eventRow["name"];?></div>
              <div class="guest_count"><?php echo $eventRow["totalGuest"]; ?>Guests</div>
           </div>
