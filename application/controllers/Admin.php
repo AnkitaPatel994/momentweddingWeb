@@ -382,7 +382,7 @@ class Admin extends CI_Controller {
 
 	 	$headerData = array(
 			"pageTitle" => "RSVP",
-			"stylesheet" => array("adminDashboard.css")
+			"stylesheet" => array("adminDashboard.css","rsvp.css")
 		);
 		$footerData = array(
 			"jsFiles" => array("admin.js")

@@ -187,3 +187,21 @@ textarea.materialize-textarea:focus:not([readonly]){
 	    top: 20px;
 	}
 }
+
+
+
+.event-guest-container {
+  background: #790c17;
+  margin: 10px;
+  padding: 20px;
+  color: #fff;
+}
+.event_name {
+  font-size: 16px;
+    text-align: center;
+}
+.guest_count {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 200;
+}
