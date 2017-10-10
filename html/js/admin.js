@@ -137,16 +137,21 @@ $(function(){
 		var wedID=$(this).data('wed-id');
 		$.post(baseURL+"Wedding/eventsWithGuestCount/"+wedID,function(data){
 			$("#RSVPModal .modal-content").html(data);
+
+
+			$("#RSVPModal .event-guest-container").on("click",function(){
+				var eventID=$(this).data('event-id');
+				$.post(baseURL+"Wedding/guestCountByTransportation/"+eventID,function(data){
+					$(".wedding-area").hide();
+					$(".event-area").html(data);
+				});
+			});
+
+
 		});
 	});
 
-	$(".event-id").on("click",function(){
-		$("#EventModal").modal('open');
-		var eventID=$(this).data('event-id');
-		$.post(baseURL+"Wedding/guestCountByTransportation/"+eventID,function(data){
-			$("#EventModal .modal-content").html(data);
-		});
-	});
+	
 });
 
 function initUpdateWedding(){

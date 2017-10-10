@@ -6,12 +6,13 @@
       <div class="wedding-area row">
         <?php foreach($eventList as $key=>$eventRow){ ?>
         <div class="col m6 s12">
-          <div class="event-guest-container">
+          <div class="event-guest-container" data-event-id="<?php echo $eventRow["id"]; ?>">
             <div class="event_name"><?php echo $eventRow["name"];?></div>
-             <div class="guest_count"><?php echo $eventRow["totalGuest"]; ?> Guests</div>
+             <div class="guest_count"><?php echo $eventRow["totalGuest"]; ?>Guests</div>
           </div>
         </div>
         <?php } ?>
       </div>
+      <div class="event-area"></div>
   </div>
 

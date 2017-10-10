@@ -76,8 +76,6 @@
   </div>
 </div>   
 </div>
-
-
 <!-- Modal Structure -->
   <div id="RSVPModal" class="modal">
     <div class="modal-content">     
