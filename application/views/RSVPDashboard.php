@@ -56,7 +56,7 @@
     </thead>
     <tbody>
       <?php foreach ($allWeddingData as $key => $allWeddingRow) { ?>
-      <tr class="wedding" id="wed-id<?php echo $allWeddingRow['id']; ?>">  
+      <tr class="wedding" data-wed-id="<?php echo $allWeddingRow['id']; ?>">  
         <td><?php echo $allWeddingRow['id']; ?></td>         
         <td><?php echo $allWeddingRow['bride_profile']["name"].$allWeddingRow['groom_profile']["name"]; ?></td>
        <!--  <td><?php //echo $allWeddingRow['groom_profile']["name"]; ?></td> -->
@@ -80,17 +80,15 @@
 
 <!-- Modal Structure -->
   <div id="RSVPModal" class="modal">
-    <div class="modal-content">
-      <?php $this->load->view("allEventByWedding"); ?>
-    </div>
- 
+    <div class="modal-content">     
+    </div> 
   </div>
 
   <!-- Modal Structure -->
-   <div id="editWeddingModal" class="modal">
+   <!-- <div id="editWeddingModal" class="modal">
     <div class="modal-content">
      </div>
-   </div>
+   </div> -->
 
 
 

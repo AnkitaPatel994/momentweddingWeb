@@ -5,7 +5,7 @@
       <div class="container">
       <div class="wedding-area row">
         <div class="col m6 s12">
-          <div class="event_name">Sangeet</div>
+          <div class="event_name"><?php echo $name;?></div>
            <div class="guest_count">Guest Count</div>
            <div class="number">500</div>
         </div>

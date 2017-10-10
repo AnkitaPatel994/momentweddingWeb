@@ -42,8 +42,9 @@ class Wedding extends CI_Controller {
 		$eventList = $this->wedding_model->getEvents($weddingID);
 		foreach ($eventList as $key => $eventRow) {
 			$eventList[$key]["totalGuest"] = $this->guestlist_model->eventGuestCount($eventRow["id"]);
-		}
-		echo json_encode($eventList);
+		}		
+		//echo json_encode($eventList);
+		$this->load->view("allEventByWedding",$eventList);
 	}
 
 	public function guestCountByTransportation($eventID){
