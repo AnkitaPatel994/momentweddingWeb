@@ -3,7 +3,7 @@
 </div><hr>
       <div class="profile-form row">
       	<form id="updateProfileForm">
-<<<<<<< HEAD
+
       		<div class="input-field col s12 m6" id="profilePhoto">
       			<img alt="No image" width="100%" style="min-height: 148px !important;" src="<?php echo base_url(); ?>html/images/profile/<?php echo $profile_pic?>"><br/>
 	          <input id="profile_pic" name="profile_pic" type="file" class="validate" style="display: none;">
