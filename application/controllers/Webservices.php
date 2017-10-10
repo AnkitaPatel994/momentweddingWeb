@@ -369,4 +369,13 @@ class Webservices  extends CI_Controller{
 		$this->load->model("guestlist_model");
 		$this->guestlist_model->updateRsvp($updateData,$guest_id);
 	}
+
+	public function weddingCountDown($weddingID){
+		$this->load->model("wedding_model");
+		$weddingRow = $this->wedding_model->getWeddingRow($weddingID);
+		$currentDate = strtotime(date('Y-m-d')." 00:00:00");
+		$weddingDate = strtotime($weddingRow["date"]);
+		echo $weddingDate - $currentDate; 
+
+	}
 }
