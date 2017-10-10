@@ -75,9 +75,19 @@ class Guestlist_model extends CI_Model
 	}
 
 	public function allEvent(){
-	$query=$this->db->query("select id,name from event");
-	$result=$query->result_array();
-	return $result;
+		$query=$this->db->query("select id,name from event");
+		$result=$query->result_array();
+		return $result;
+	}
+	public function updateRsvp($updateData,$guestID){
+		$this->db->where('id',$guestID);
+		$this->db->update('guest_list',$guestData);
+	}
+
+	public function weddingGuestCount($weddingID){
+		$query = $this->db->query("SELECT SUM(guest_count) as total_guests FROM guest_list WHERE wedding_id='$weddingID'");
+		$result = $query->row_array();
+		return $result["total_guests"];
 	}
 
 	

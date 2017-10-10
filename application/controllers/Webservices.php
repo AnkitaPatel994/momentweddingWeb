@@ -350,4 +350,23 @@ class Webservices  extends CI_Controller{
 		}
 		echo json_encode($details);
 	}
+
+
+
+	public function guestRsvp(){
+		$data_back = json_decode(file_get_contents('php://input'));
+		$guest_id = $data_back->{"guest_id"};
+		$updateData["guest_count"] = $data_back->{"guest_count"}; //ranges from 1-10
+		$updateData["attending"] = $data_back->{"attending"}; // yes or no
+		$updateData["arriving_on"] = $data_back->{"arriving_on"}; //date of arrival
+		$updateData["arriving_by"] = $data_back->{"arriving_by"}; //mode of transport for arrival - car,bus,train,flight
+		$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
+		$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
+		$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
+		$updateData["wishes"] = $data_back->{"wishes"}; // wishes by guest
+		$updateData["reason"] = $data_back->{"reason"}; //reason if not coming
+
+		$this->load->model("guestlist_model");
+		$this->guestlist_model->updateRsvp($updateData,$guest_id);
+	}
 }
