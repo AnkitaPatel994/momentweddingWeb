@@ -205,3 +205,36 @@ textarea.materialize-textarea:focus:not([readonly]){
     font-size: 20px;
     font-weight: 200;
 }
+
+
+/*=========== Mobile responsive ============*/
+
+@media(max-width: 768px){
+    .transport-container {
+        background: rgba(255,255,255,0.7);
+        padding: 25px 0px;
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+        top: 20px;
+    }
+}
+
+.transport-mode-container {
+  background: #790c17;
+  margin: 10px;
+  padding: 20px;
+  color: #fff;
+}
+.transport-mode {
+  font-size: 16px;
+    text-align: center;
+}
+.transport-guest {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 200;
+}
+.pointer{
+    cursor: pointer;
+}
