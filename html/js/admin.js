@@ -151,22 +151,17 @@ $(function(){
 						$.post(baseURL+"Wedding/guestByMode/",{eventID:eventID,mode:mode},function(data){
 							$(".wedding-area").hide();
 							$(".transport-area").html(data);
+								$("#RSVPModal #tbl_back").on("click",function(){					
+								$(".transport-container-table").hide();
+								$(".transport-container").Show();					
+							});
 						});
 					});
 					/*==============================Hide Show==================*/
 
-				$("#tbl_back").on("click",function(){
-					var eventID=$(this).data('event-id');
-					var mode = $(".transport-mode",this).html();
-					mode = mode.toLowerCase();
-					$.post(baseURL+"Wedding/guestByMode/",{eventID:eventID,mode:mode},function(data){
-						$(".transport-container-table").hide();
-						$(".transport-container").html(data);
-					});
-				});
-
-				});
+			
 			});
+		});
 
 			
 		});
