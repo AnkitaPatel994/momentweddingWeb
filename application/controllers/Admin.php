@@ -148,7 +148,7 @@ class Admin extends CI_Controller {
 				$result["profile_pic"] = $image;
 
 				//set configuration for the upload library
-				$config['upload_path'] = 'C:\wamp\www\moment-wedding\html\images\profile';
+				$config['upload_path'] = 'C:\wamp\www\moments-wedding\html\images\profile';
 
 			    $config['allowed_types'] = 'gif|jpg|png';
 			    $config['overwrite'] = TRUE;
@@ -209,7 +209,7 @@ class Admin extends CI_Controller {
 		$updateEvent=array('image'=>$eventImage);
 		$this->event_model->updateEvent($updateEvent,$eventId);
 
-		$config["upload_path"]='C:\wamp\www\moment-wedding\html\images\events';
+		$config["upload_path"]='C:\wamp\www\moments-wedding\html\images\events';
 		$config["allowed_types"]='gif|png|jpg';
 		$config["file_name"]=$eventId."_eventImage";
 		$config["remove_spaces"]=TRUE;
@@ -235,7 +235,7 @@ class Admin extends CI_Controller {
 		if($_FILES['image']['name']!=""){
 			$result['image']=$eventImage;
 
-			$config['upload_path']='C:\wamp\www\moment-wedding\html\images\events';
+			$config['upload_path']='C:\wamp\www\moments-wedding\html\images\events';
 			$config['file_name']=$eventId."_eventImage";
 			$config['allowed_types']="gif|jpg|png";
 			$config['remove_spaces']=TRUE;
