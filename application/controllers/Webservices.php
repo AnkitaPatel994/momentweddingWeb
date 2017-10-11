@@ -395,13 +395,14 @@ class Webservices  extends CI_Controller{
 		{
 			if( !empty($data_back->{"wedding_id"}))
 			{
+				$this->load->model("wedding_model");
 				$weddingID = $data_back->{"wedding_id"};
 				$weddingRow = $this->wedding_model->getWeddingRow($weddingID);
 				$currentDate = time() + 5*60*60 + 30*60;
 				$weddingDate = strtotime(str_replace(", ","-",$weddingRow["date"]));
 				$countdown = $weddingDate - $currentDate; 
 				$countdown = $countdown*1000;
-				$details = array('status' => "1",'message' => "Wedding Countdown", "countdown"=>$countdown);
+				$details = array('status' => "1",'message' => "Wedding Countdown", "countdown"=>$countdown, "wedding_date"=>$weddingRow["date"]);
 			}
 			else
 			{
