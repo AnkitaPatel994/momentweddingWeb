@@ -355,37 +355,43 @@ class Webservices  extends CI_Controller{
 
 	public function guestRsvp(){
 		$data_back = json_decode(file_get_contents('php://input'));
-
-		if(isset($data_back->{"guest_id"}) && isset($data_back->{"guest_count"}) && isset($data_back->{"attending"}) && isset($data_back->{"arriving_on"}) && isset($data_back->{"arriving_by"}) && isset($data_back->{"departing_on"}) && isset($data_back->{"departing_by"}) && isset($data_back->{"remarks"}) && isset($data_back->{"wishes"}) && isset($data_back->{"reason"}))
-		{
-			if(!empty($data_back->{"guest_id"}) && !empty($data_back->{"guest_count"}) && !empty($data_back->{"attending"}) && !empty($data_back->{"arriving_on"}) && !empty($data_back->{"arriving_by"}) && !empty($data_back->{"departing_on"}) && !empty($data_back->{"departing_by"}) && !empty($data_back->{"remarks"}) && !empty($data_back->{"wishes"}) && !empty($data_back->{"reason"}))
-			{
-				$guest_id = $data_back->{"guest_id"};
-				$updateData["guest_count"] = $data_back->{"guest_count"}; //ranges from 1-10
-				$updateData["attending"] = $data_back->{"attending"}; // yes or no
-				$updateData["arriving_on"] = $data_back->{"arriving_on"}; //date of arrival
-				$updateData["arriving_by"] = $data_back->{"arriving_by"}; //mode of transport for arrival - car,bus,train,flight
-				$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
-				$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
-				$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
-				$updateData["wishes"] = $data_back->{"wishes"}; // wishes by guest
-				$updateData["reason"] = $data_back->{"reason"}; //reason if not coming
-
-				$this->load->model("guestlist_model");
-				$this->guestlist_model->updateRsvp($updateData,$guest_id);
-				$details = array('status' => "1", 'message' => "RSVP updated");
-			}
-			else
-			{
-				$details = array('status' => "0", 'message' => "Parameter is Empty");
+		$this->load->model("guestlist_model");
+		if(isset($data_back->{"guest_id"}) && isset($data_back->{"attending"})){
+			$attending = $data_back->{"attending"};
+			$guest_id = $data_back->{"guest_id"};
+			$updateData["attending"] = $data_back->{"attending"};
+			if($attending == "yes"){
+				//get the rsvp details
+				if(isset($data_back->{"guest_count"}) && isset($data_back->{"arriving_on"}) && isset($data_back->{"arriving_by"}) && isset($data_back->{"departing_on"}) && isset($data_back->{"departing_by"}) && isset($data_back->{"remarks"})){
+					$updateData["guest_count"] = $data_back->{"guest_count"}; //ranges from 1-10
+					$updateData["arriving_on"] = $data_back->{"arriving_on"}; //date of arrival
+					$updateData["arriving_by"] = $data_back->{"arriving_by"}; //mode of transport for arrival - car,bus,train,flight
+					$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
+					$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
+					$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
+					$this->guestlist_model->updateRsvp($updateData,$guest_id);
+					$details = array('status' => "1", 'message' => "RSVP updated");
+				}else{
+					$details = array('status' => "0",'message' => "Parameter Missing");
+				}
+			}else{
+				//get the reason & wishes
+				if(isset($data_back->{"wishes"}) && isset($data_back->{"reason"})){
+					$updateData["wishes"] = $data_back->{"wishes"}; // wishes by guest
+					$updateData["reason"] = $data_back->{"reason"}; //reason if not coming
+					$this->guestlist_model->updateRsvp($updateData,$guest_id);
+					$details = array('status' => "1", 'message' => "RSVP updated");
+				}else{
+					$details = array('status' => "0",'message' => "Parameter Missing");
+				}
 			}
 		}
-		else
-		{
+		else{
 			$details = array('status' => "0",'message' => "Parameter Missing");
 		}
 
 	}
+
 
 
 
