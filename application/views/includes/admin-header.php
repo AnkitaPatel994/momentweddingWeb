@@ -204,7 +204,7 @@
       <div class="right log-out">
         <a class="tooltipped" data-position="left" data-delay="50" data-tooltip="Log Out" href="<?php echo base_url(); ?>Admin/logout/"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a>
       </div>
-        <ul id="slide-out" class="side-nav">
+      <ul id="slide-out" class="side-nav">
             <!-- <li><div class="user-view">
               <div class="background">
                 <img src="images/office.jpg">
@@ -220,6 +220,7 @@
             <!-- <li><div class="divider"></div></li> -->
             <li><a href="<?php echo base_url(); ?>admin/admin/eventsList">Event List</a></li>
             <li><a href="<?php echo base_url(); ?>admin/guest_list">Guest List</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/RSVP">RSVP List</a></li>           
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>
