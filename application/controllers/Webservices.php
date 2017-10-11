@@ -355,27 +355,63 @@ class Webservices  extends CI_Controller{
 
 	public function guestRsvp(){
 		$data_back = json_decode(file_get_contents('php://input'));
-		$guest_id = $data_back->{"guest_id"};
-		$updateData["guest_count"] = $data_back->{"guest_count"}; //ranges from 1-10
-		$updateData["attending"] = $data_back->{"attending"}; // yes or no
-		$updateData["arriving_on"] = $data_back->{"arriving_on"}; //date of arrival
-		$updateData["arriving_by"] = $data_back->{"arriving_by"}; //mode of transport for arrival - car,bus,train,flight
-		$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
-		$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
-		$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
-		$updateData["wishes"] = $data_back->{"wishes"}; // wishes by guest
-		$updateData["reason"] = $data_back->{"reason"}; //reason if not coming
 
-		$this->load->model("guestlist_model");
-		$this->guestlist_model->updateRsvp($updateData,$guest_id);
+		if(isset($data_back->{"guest_id"}) && isset($data_back->{"guest_count"}) && isset($data_back->{"attending"}) && isset($data_back->{"arriving_on"}) && isset($data_back->{"arriving_by"}) && isset($data_back->{"departing_on"}) && isset($data_back->{"departing_by"}) && isset($data_back->{"remarks"}) && isset($data_back->{"wishes"}) && isset($data_back->{"reason"}))
+		{
+			if(!empty($data_back->{"guest_id"}) && !empty($data_back->{"guest_count"}) && !empty($data_back->{"attending"}) && !empty($data_back->{"arriving_on"}) && !empty($data_back->{"arriving_by"}) && !empty($data_back->{"departing_on"}) && !empty($data_back->{"departing_by"}) && !empty($data_back->{"remarks"}) && !empty($data_back->{"wishes"}) && !empty($data_back->{"reason"}))
+			{
+				$guest_id = $data_back->{"guest_id"};
+				$updateData["guest_count"] = $data_back->{"guest_count"}; //ranges from 1-10
+				$updateData["attending"] = $data_back->{"attending"}; // yes or no
+				$updateData["arriving_on"] = $data_back->{"arriving_on"}; //date of arrival
+				$updateData["arriving_by"] = $data_back->{"arriving_by"}; //mode of transport for arrival - car,bus,train,flight
+				$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
+				$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
+				$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
+				$updateData["wishes"] = $data_back->{"wishes"}; // wishes by guest
+				$updateData["reason"] = $data_back->{"reason"}; //reason if not coming
+
+				$this->load->model("guestlist_model");
+				$this->guestlist_model->updateRsvp($updateData,$guest_id);
+				$details = array('status' => "1", 'message' => "RSVP updated");
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+
 	}
 
-	public function weddingCountDown($weddingID){
-		$this->load->model("wedding_model");
-		$weddingRow = $this->wedding_model->getWeddingRow($weddingID);
-		$currentDate = strtotime(date('Y-m-d')." 00:00:00");
-		$weddingDate = strtotime($weddingRow["date"]);
-		echo $weddingDate - $currentDate; 
 
+
+	public function weddingCountDown(){
+		$data_back = json_decode(file_get_contents('php://input'));
+		if( isset($data_back->{"wedding_id"}))
+		{
+			if( !empty($data_back->{"wedding_id"}))
+			{
+				$weddingID = $data_back->{"wedding_id"};
+				$weddingRow = $this->wedding_model->getWeddingRow($weddingID);
+				$currentDate = time() + 5*60*60 + 30*60;
+				$weddingDate = strtotime(str_replace(", ","-",$weddingRow["date"]));
+				$countdown = $weddingDate - $currentDate; 
+				$countdown = $countdown*1000;
+				$details = array('status' => "1",'message' => "Wedding Countdown", "countdown"=>$countdown);
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
 	}
 }

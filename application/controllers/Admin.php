@@ -5,9 +5,11 @@ class Admin extends CI_Controller {
 	public function index()
 	{		
 		if(!$this->session->userdata("email")){
-			header("Location:".base_url()."admin/login");
+			
+		}else{
+			header("Location:".base_url()."admin/wedding");
 			exit();
-		}
+		}/*
 		$headerData = array(
 			"pageTitle" => "Wedding Dashboard",
 			"stylesheet" => array("adminLogin.css")
@@ -21,7 +23,7 @@ class Admin extends CI_Controller {
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
-		$this->load->view('admin-templete',$viewData);
+		$this->load->view('admin-templete',$viewData);*/
 	}
 	public function login()
 	{
