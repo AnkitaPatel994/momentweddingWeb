@@ -369,6 +369,7 @@ class Webservices  extends CI_Controller{
 					$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
 					$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
 					$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
+					$updateData["event_access"] = $data_back->{"event_access"};
 					$this->guestlist_model->updateRsvp($updateData,$guest_id);
 					$details = array('status' => "1", 'message' => "RSVP updated");
 				}else{
@@ -409,6 +410,56 @@ class Webservices  extends CI_Controller{
 				$countdown = $weddingDate - $currentDate; 
 				$countdown = $countdown*1000;
 				$details = array('status' => "1",'message' => "Wedding Countdown", "countdown"=>$countdown, "wedding_date"=>$weddingRow["date"]);
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
+	}
+
+	public function updateGuestName(){
+		$data_back = json_decode(file_get_contents('php://input'));
+		$this->load->model("wedding_model");
+		if( isset($data_back->{"guest_id"}) && isset($data_back->{"guest_name"}))
+		{
+			if( !empty($data_back->{"guest_id"}) && !empty($data_back->{"guest_name"}))
+			{
+				$guest_id = $data_back->{"guest_id"};
+				$guest_name = $data_back->{"guest_name"};
+
+				$this->wedding_model->updateGuest($guest_id,array("name"=>$guest_name));
+				$details = array('status' => "1", 'message' => "Guest name updated");
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
+	}
+
+	public function updateGuestProfile(){
+		$data_back = json_decode(file_get_contents('php://input'));
+		$this->load->model("wedding_model");
+		if( isset($data_back->{"guest_id"}) && isset($data_back->{"profile_id"}))
+		{
+			if( !empty($data_back->{"guest_id"}) && !empty($data_back->{"profile_id"}))
+			{
+				$guest_id = $data_back->{"guest_id"};
+				$profile_id = $data_back->{"profile_id"};
+
+				$this->wedding_model->updateGuest($guest_id,array("profile_id"=>$profile_id));
+				$details = array('status' => "1", 'message' => "Guest profile updated");
 			}
 			else
 			{

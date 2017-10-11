@@ -112,9 +112,29 @@ class Wedding_model extends CI_Model
 			$details = array('status' => "1",'message' => "OTP sent");
 		}else{
 			//user does not exist
-			$details = array('status' => "0",'message' => "You are not in the guest list");
+			
+			//insert number in the guest list with name Guest and with all events
+			$eventString = $this->allEventString($weddingID);
+			$weddingProfile = $this->getWeddingProfiles($weddingID);
+			
+			$insertData = array(
+				"wedding_id" => $weddingID,
+				"profile_id" => $weddingProfile["profile"][0]["id"],
+				"name" => "Guest",
+				"mobile" => $mobile,
+				"event_access" => $eventString,
+				"guest_count" => 1,
+				"attending" => "yes"
+			);
+			$this->db->insert("guest_list",$insertData);
+			$details = array('status' => "0",'message' => "Inserted into guest List. Ask for name and side");
 		}
 		return $details;
+	}
+
+	public function updateGuest($guestID,$guestData){
+		$this->db->where("id",$guestID);
+		$this->db->update("guest_list",$guestData);
 	}
 
 	public function verifyOTP($otpData){
@@ -230,6 +250,16 @@ class Wedding_model extends CI_Model
 			$result[$key]["eventMonth"] = date("F", $timestamp);
 		}
 		return $result;
+	}
+
+	public function allEventString($weddingID){
+		$eventList = $this->getEvents($weddingID);
+		$eventArray = [];
+		foreach ($eventList as $key => $eventRow) {
+			$eventArray[] = $eventRow["id"];
+		}
+		$eventString = "[".implode("],[",$eventArray)."]";
+		return $eventString;
 	}
 
 	public function getGuestDetails($guest_id){
