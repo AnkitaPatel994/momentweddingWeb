@@ -5,8 +5,7 @@
 			      <option value="" disabled selected>Choose your Wedding</option>
 			      <?php foreach($allWedding as $key=>$weddingRow){ ?>
 			      <option value="<?php echo $weddingRow["id"]; ?>"><?php echo $weddingRow["bride_profile"]["name"]." | ".$weddingRow["groom_profile"]["name"]; ?></option>
-			      <?php } ?>
-			      
+			      <?php } ?>			      
 			    </select>
 			    <label>Wedding</label>
 			</div>
@@ -20,18 +19,16 @@
 	          <input id="name" name="name" type="text" class="validate" required="required" value="<?php echo $name; ?>">
 	          <label for="guest_name">Guest Name</label>
 	        </div>
-
 	        <div class="input-field col s12 m6">
 	          <input id="mobile" name="mobile" type="text" class="validate" required="required" value="<?php echo $mobile; ?>">
 	          <label for="guest_mobile">Guest Mobile</label>
 	        </div>
-
-	          <div class="input-field col s12 m6">
+	        <div class="input-field col s12 m6">
 			    <select id="addGuestEventList" name="event_access[]" multiple>
 			      <option value="" disabled selected>Select Events</option>			    
 			    </select>
 			    <label>Side</label>
-            </div>
+	        </div>
             <input type="hidden" name="guest-id" value="<?php echo $id; ?>">
       	</form>
       </div>
