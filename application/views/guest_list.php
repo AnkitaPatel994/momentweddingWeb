@@ -17,10 +17,9 @@
 			        <thead>
 			          <tr>
 			              <th>Id</th>
+			              <th>Guest Name</th>
 			              <th>Wedding</th>
 			              <th>Invited By</th>
-			              <th>Guest Name</th>
-			              <th>Mobile</th>
 			              <th>Action</th>
 			          </tr>
 			        </thead>
@@ -29,10 +28,9 @@
 			        <?php foreach($allGuestList as $key => $allGuestListRow){?>
 			          <tr id="guest-id<?php echo $allGuestListRow['id']; ?>">
 			            <td><?php echo $allGuestListRow['id']; ?></td>
+			            <td><div class="guest-name"><?php echo $allGuestListRow['name']; ?></div><div class="guest-contact"><?php echo $allGuestListRow['mobile']; ?></div></td>
 			            <td><?php echo $allGuestListRow['weddingName']; ?></td>
 			            <td><?php echo $allGuestListRow['invitedBy']; ?></td>
-			            <td><?php echo $allGuestListRow['name']; ?></td>
-			            <td><?php echo $allGuestListRow['mobile']; ?></td>
 			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger" data-guest-id=<?php echo $allGuestListRow['id']; ?>><i class="material-icons">edit</i></a>
 			            <a href="#editProfile" data-guest-id=<?php echo $allGuestListRow['id']; ?>  class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>
