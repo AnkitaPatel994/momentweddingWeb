@@ -299,6 +299,18 @@ class Wedding_model extends CI_Model
 		return $output;
 	}
 
+	public function getWeddingSide($weddingID){
+		$query=$this->db->query("select * from wedding where id='$weddingID' ");
+		$weddingRow = $query->row_array();
+		$bride_id = $weddingRow["bride_id"];
+		$groom_id = $weddingRow["groom_id"];
+		$output["brideData"] = $this->getProfile($bride_id);
+		$output["groomData"] = $this->getProfile($groom_id);
+		$output["brideData"]["profile_pic"] = base_url()."html/images/profile/".$output["brideData"]["profile_pic"];
+		$output["groomData"]["profile_pic"] = base_url()."html/images/profile/".$output["groomData"]["profile_pic"];
+		return $output;
+	}
+
 
 
 
