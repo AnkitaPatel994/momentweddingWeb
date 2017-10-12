@@ -116,7 +116,8 @@ class Wedding_model extends CI_Model
 			//insert number in the guest list with name Guest and with all events
 			$eventString = $this->allEventString($weddingID);
 			$weddingProfile = $this->getWeddingProfiles($weddingID);
-			
+			$otpData = $this->generateOTP($mobile);
+			$code = $otpData["otp"];
 			$insertData = array(
 				"wedding_id" => $weddingID,
 				"profile_id" => $weddingProfile["profile"][0]["id"],
@@ -124,10 +125,11 @@ class Wedding_model extends CI_Model
 				"mobile" => $mobile,
 				"event_access" => $eventString,
 				"guest_count" => 1,
-				"attending" => "yes"
+				"attending" => "yes",
+				"code" => $code
 			);
 			$this->db->insert("guest_list",$insertData);
-			$details = array('status' => "0",'message' => "Inserted into guest List. Ask for name and side");
+			$details = array('status' => "2",'message' => "OTP sent");
 		}
 		return $details;
 	}
