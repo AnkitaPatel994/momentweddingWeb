@@ -391,6 +391,8 @@ class Webservices  extends CI_Controller{
 			$details = array('status' => "0",'message' => "Parameter Missing");
 		}
 
+		echo json_encode($details);
+
 	}
 
 

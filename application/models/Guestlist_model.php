@@ -81,7 +81,7 @@ class Guestlist_model extends CI_Model
 	}
 	public function updateRsvp($updateData,$guestID){
 		$this->db->where('id',$guestID);
-		$this->db->update('guest_list',$guestData);
+		$this->db->update('guest_list',$updateData);
 	}
 
 	public function weddingGuestCount($weddingID){
