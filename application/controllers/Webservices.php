@@ -267,9 +267,11 @@ class Webservices  extends CI_Controller{
 
 				$output = array(
 					"wedding_invitation" => $weddingRow["invitation"],
+					"bride_id" => $brideProfile["id"],
 					"bride_name" => $brideProfile["name"],
 					"bride_occupation" => $brideProfile["occupation"],
 					"bride_pic" => base_url()."html/images/profile/".$brideProfile["profile_pic"],
+					"groom_id" => $groomProfile["id"],
 					"groom_name" => $groomProfile["name"],
 					"groom_occupation" => $groomProfile["occupation"],
 					"groom_pic" => base_url()."html/images/profile/".$groomProfile["profile_pic"],
@@ -366,10 +368,18 @@ class Webservices  extends CI_Controller{
 					$updateData["guest_count"] = $data_back->{"guest_count"}; //ranges from 1-10
 					$updateData["arriving_on"] = $data_back->{"arriving_on"}; //date of arrival
 					$updateData["arriving_by"] = $data_back->{"arriving_by"}; //mode of transport for arrival - car,bus,train,flight
+					
 					$updateData["departing_on"] = $data_back->{"departing_on"}; //date for departure
 					$updateData["departing_by"] = $data_back->{"departing_by"}; //mode of transport for departure - car,bus,train,flight
+					$updateData["departing_pnr"] = $data_back->{"departing_pnr"};
+					$updateData["arriving_pnr"] = $data_back->{"arriving_pnr"};
 					$updateData["remarks"] = $data_back->{"remarks"}; // remarks by guest
-					$updateData["event_access"] = $data_back->{"event_access"};
+					$eventList = explode(",",$data_back->{"event_access"});
+					foreach ($eventList as $key => $eventID) {
+						$eventList[$key] = "[".$eventID."]";
+					}
+					$updateData["event_access"] = implode(",", $eventList);
+
 					$this->guestlist_model->updateRsvp($updateData,$guest_id);
 					$details = array('status' => "1", 'message' => "RSVP updated");
 				}else{

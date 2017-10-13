@@ -5,7 +5,8 @@ class Admin extends CI_Controller {
 	public function index()
 	{		
 		if(!$this->session->userdata("email")){
-			
+			header("Location:".base_url()."admin/login");
+			exit();
 		}else{
 			header("Location:".base_url()."admin/wedding");
 			exit();
@@ -133,6 +134,8 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
+
+
 
 	 public function updateProfile(){
 
