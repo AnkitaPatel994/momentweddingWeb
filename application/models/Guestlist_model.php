@@ -132,10 +132,12 @@ class Guestlist_model extends CI_Model
 			}
 			
 			$guestData = array(
+				"guest_id" => $guestList["id"],
+				"name" => $guestList["name"],
 				"time" => $timeArray[1],
 				"date" => $timeArray[0],
 				"by" => ucfirst($guestList["arriving_by"]),
-				"name" => $guestList["guest_count"],
+				"guest" => $guestList["guest_count"],
 				"image" => "http://via.placeholder.com/150x150?text=Guest"
 			);
 			$output[] = $guestData;
