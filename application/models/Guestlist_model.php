@@ -120,8 +120,8 @@ class Guestlist_model extends CI_Model
 		return $result;
 	}
 
-	public function getGuestFeed($weddingID){
-		$query = $this->db->query("SELECT * FROM guest_list WHERE wedding_id='$weddingID' order by id desc");
+	public function getGuestFeed($weddingID,$guestID){
+		$query = $this->db->query("SELECT * FROM guest_list WHERE wedding_id='$weddingID' and id!='$guestID' order by id desc");
 		$result = $query->result_array();
 		$output = array();
 		foreach ($result as $key => $guestList) {
@@ -135,7 +135,8 @@ class Guestlist_model extends CI_Model
 				"time" => $timeArray[1],
 				"date" => $timeArray[0],
 				"by" => ucfirst($guestList["arriving_by"]),
-				"guests" => $guestList["guest_count"]
+				"name" => $guestList["guest_count"],
+				"image" => "http://via.placeholder.com/150x150?text=Guest"
 			);
 			$output[] = $guestData;
 		}
