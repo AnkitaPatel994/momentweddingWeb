@@ -145,6 +145,12 @@ class Guestlist_model extends CI_Model
 		return $output;
 	}
 
+	public function fetchRow($guestID){
+		$query=$this->db->query("select * from guest_list where id='$guestID' ");
+		$result=$query->row_array();
+		return $result;
+	}
+
 	
 }
 

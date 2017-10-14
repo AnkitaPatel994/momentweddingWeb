@@ -533,4 +533,28 @@ class Webservices  extends CI_Controller{
 		}
 		echo json_encode($details);
 	}
+
+	public function guestDetails(){
+		$data_back = json_decode(file_get_contents('php://input'));
+		$this->load->model("guestlist_model");
+		if( isset($data_back->{"guest_id"}))
+		{
+			if( !empty($data_back->{"guest_id"}))
+			{
+				$guest_id = $data_back->{"guest_id"};
+				
+				$guest = $this->guestlist_model->fetchRow($guest_id);
+				$details = array('status' => "1", 'message' => "Guest profile fetched", "guest" => $guest);
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
+	}
 }
