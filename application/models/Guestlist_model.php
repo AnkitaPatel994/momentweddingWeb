@@ -120,7 +120,7 @@ class Guestlist_model extends CI_Model
 		return $result;
 	}
 
-	public function getGuestFeed(){
+	public function getGuestFeed($weddingID){
 		$query = $this->db->query("SELECT * FROM guest_list WHERE wedding_id='$weddingID' order by id desc");
 		$result = $query->result_array();
 		$output = array();
