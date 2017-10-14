@@ -316,6 +316,18 @@ class Wedding_model extends CI_Model
 		return $output;
 	}
 
+	public function vendorDetail($weddingID){
+		$output = array(
+			"logo" => base_url()."html/images/logo_vendor_1.png",
+			"name" => "Moments Event and Entertainment",
+			"mobile" => "+91-9374295095",
+			"email" => "smile@momentsunlimited.in",
+			"website" => "http://momentsunlimited.in/",
+			"description" => "We are an event management company established in the year 2008 and specializes into Wedding Planning, Theme Decoration, Corporate Events, Exhibitions, Entertainment Events, Celebrity and Artist Management, Builders Site Launching and Religious Functions."
+		);
+		return $output;
+	}
+
 
 
 
