@@ -250,6 +250,10 @@ class Wedding_model extends CI_Model
 			$result[$key]["image"] = base_url()."html/images/events/".$eventRow["image"];
 			$result[$key]["eventDay"] = date("d", $timestamp);
 			$result[$key]["eventMonth"] = date("F", $timestamp);
+			$result[$key]["mapURL"] = base_url()."map/1";
+			$result[$key]["venuePhone"] = "+917940002900";
+			$result[$key]["venueEmail"] = "marketing@kensville.co.in";
+			$result[$key]["venueWeb"] = "http://kensville.co.in";
 		}
 		return $result;
 	}
