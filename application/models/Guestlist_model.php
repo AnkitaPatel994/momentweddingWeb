@@ -148,6 +148,7 @@ class Guestlist_model extends CI_Model
 	public function fetchRow($guestID){
 		$query=$this->db->query("select * from guest_list where id='$guestID' ");
 		$result=$query->row_array();
+		$result["image"] = "http://via.placeholder.com/150x150?text=Guest";
 		return $result;
 	}
 
