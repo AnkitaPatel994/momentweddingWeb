@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Wedding extends CI_Controller {	
 	public function index()
 	{	
-		
-		header("Location:".base_url()."admin");
-		exit();
-
+		if(!$this->session->userdata("user")){
+			header("Location:".base_url()."wedding/login");
+			exit();
+		}
 	}
 	public function login(){
 		$headerData = array(

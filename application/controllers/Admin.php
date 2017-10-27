@@ -3,14 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {	
 	public function index()
-	{		
+	{	
 		if(!$this->session->userdata("email")){
 			header("Location:".base_url()."admin/login");
 			exit();
-		}else{
-			header("Location:".base_url()."admin/wedding");
-			exit();
-		}/*
+		}
 		$headerData = array(
 			"pageTitle" => "Wedding Dashboard",
 			"stylesheet" => array("adminLogin.css")
@@ -24,7 +21,8 @@ class Admin extends CI_Controller {
 			"headerData" => $headerData,
 			"footerData" => $footerData	
 		);
-		$this->load->view('admin-templete',$viewData);*/
+		$this->load->view('admin-templete',$viewData);
+		
 	}
 	public function login()
 	{
@@ -134,8 +132,6 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	}
-
-
 
 	 public function updateProfile(){
 
