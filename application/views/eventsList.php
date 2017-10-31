@@ -33,7 +33,7 @@
 			            <td><?php echo $allEventsRow['time']; ?></td>
 			            <td><textarea><?php echo $allEventsRow['location']; ?></textarea></td>
 			            <td><a href="#EditeventList" data-event-id=<?php echo $allEventsRow['id']; ?> class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i></a>
-			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>	
+			            <a href="#EditeventGallery" class="btn-flat btn-gallery waves-effect waves-light btn modal-trigger"><i class="material-icons">burst_mode</i></a>
 			            <a href="#editProfile" data-event-id=<?php echo $allEventsRow['id']; ?> class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
 			          </tr>
 

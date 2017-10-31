@@ -1,0 +1,48 @@
+/* admin profile css */
+.profile-area{
+	/*background: #fff;
+	padding: 25px;
+	top: 50px; 
+	width: 90%;
+	margin: 0 auto;
+	position: relative;*/
+}
+.sidebar-area {
+    background: #630b14;
+    padding: 10px;
+    position: fixed;
+    margin-top: -40px;
+    height: 100%;
+    left: 0;
+    color: #fff;
+    width: 200px;
+    z-index: 0;
+    top: 0;
+}
+.profileDetails{
+	background: #fff;
+	padding: 25px;
+	margin: 0 auto;
+	position: relative;	
+}
+
+
+.profile-img{
+	width: auto;
+	height: 50px;
+}
+textarea{
+	border: none;
+}
+.btn-edit {
+    background: #EEE;
+    border: 1px solid #ddd;
+    border-radius: 69px;
+    padding: 0px 7px;
+    margin: 0 auto;
+    text-align: center;
+}
+.btn-edit:hover{
+	background: rgba(0,0,0,0.2) !important;
+}
+.prfl{margin-top: 35px !important}

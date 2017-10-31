@@ -224,7 +224,6 @@ class Admin extends CI_Controller {
 		$this->load->library('upload',$config);
 		$this->upload->do_upload('image');
 	}
-
 	public function updateEvent(){
 		$this->load->model("event_model");
 		$eventId=$_POST['event-id'];
@@ -401,5 +400,125 @@ class Admin extends CI_Controller {
 		);
 		$this->load->view('admin-templete',$viewData);
 	 }
+
+	public function weddingGallery(){
+	 	if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+	 	$this->load->model("wedding_gallery_model");
+	 	$allWedGallery=$this->wedding_gallery_model->allWedGallery();
+
+	 	$headerData = array(
+			"pageTitle" => "Wedding Gallery",
+			"stylesheet" => array("wedding_gallery.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("wedding_gallery.js","admin.js")
+		);
+		$viewData = array(
+			"viewName" => "weddingGalleryDashboard",
+            "viewData" => array("allWedGallery"=>$allWedGallery,"allWeddings"=>$allWeddings),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	}
+
+	 public function addWeddGallery(){
+	 	$this->load->model("wedding_gallery_model");	 	
+	 	$result=array(
+	 		"wedding_id"=>$_POST['wedding_id'],
+	 		"name"=>$_POST['name']
+	 	);
+
+	 	$wedId=$this->wedding_gallery_model->addWeddGallery($result);
+
+	 	$wedImage=$wedId.'_wedImage.'.pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+	 	$updateData=array("image"=>$wedImage);
+
+	 	$this->wedding_gallery_model->updateWedGallery($updateData,$wedId);	 
+	 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\weddingImage";
+	 	$config['file_name']=$wedId."_wedImage";	 	
+	 	$config['allowed_types']="gif|jpg|png";
+	 	$config['remove_spaces']=TRUE;
+	 	$config['encrypt_name']=FALSE;
+	 	$config['overwrite']=TRUE;
+	 	$this->load->library("upload",$config);
+	 	$this->upload->do_upload('image');
+	}
+
+	public function updateWeddGallery(){
+		$this->load->model("wedding_gallery_model");
+		$wedId=$_POST['wed_id'];	 	
+	 	$result=array(
+	 		"wedding_id"=>$_POST['wedding_id'],
+	 		"name"=>$_POST['name']
+	 	);
+
+	 	$wedImage=$wedId.'_wedImage.'.pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+
+	 	if($_FILES['image']['name']!=""){
+
+			$result['image']=$wedImage;		 	
+		 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\weddingImage";
+		 	$config['file_name']=$wedId."_wedImage";	 	
+		 	$config['allowed_types']="gif|jpg|png";
+		 	$config['remove_spaces']=TRUE;
+		 	$config['encrypt_name']=FALSE;
+		 	$config['overwrite']=TRUE;
+		 	$this->load->library("upload",$config);
+		 	$this->upload->do_upload('image');
+	 }
+	 $this->wedding_gallery_model->updateWedGallery($result,$wedId);
+	}
+
+	public function deleteWedGallery($wedID){
+		$this->load->model("wedding_gallery_model");
+		$this->wedding_gallery_model->deleteWedGallery($wedID);
+	}
+	public function editWedGallery($wedID){
+
+		$this->load->model("wedding_gallery_model");
+		$result=$this->wedding_gallery_model->editWedGallery($wedID);
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+		$result['allWeddings']=$allWeddings;
+		$this->load->view("updateWeddingGallery",$result);
+	}
+
+	public function addGallery(){
+	 	$this->load->model("Gallery_model");	 	
+	 	$result=array(
+	 		"gallery_id"=>$_POST['gallery_id']
+	 	);
+
+	 	$galleryId=$this->Gallery_model->addGallery($result);
+
+	 	$galleryImage=$galleryId.'_galleryImage.'.pathinfo($_FILES['name']['name'],PATHINFO_EXTENSION);
+	 	$updateData=array("name"=>$galleryImage);
+
+	 	$this->Gallery_model->updateGallery($updateData,$galleryId);	 
+	 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\gallery";
+	 	$config['file_name']=$galleryId."_galleryImage";	 	
+	 	$config['allowed_types']="gif|jpg|png";
+	 	$config['remove_spaces']=TRUE;
+	 	$config['encrypt_name']=FALSE;
+	 	$config['overwrite']=TRUE;
+	 	$this->load->library("upload",$config);
+	 	$this->upload->do_upload('name');
+	}
+
+	public function singleGallery($wedID){
+	$this->load->model("wedding_gallery_model");
+	$result=$this->wedding_gallery_model->editWedGallery($wedID);	
+	$this->load->model("gallery_model");
+	$allGallery=$this->gallery_model->allGallery();
+	//var_dump($allGallery);
+	$result['allGallery']=$allGallery;	
+	$this->load->view("addGallery",$result);
+	}
 
 }
