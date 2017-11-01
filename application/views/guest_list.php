@@ -43,11 +43,6 @@
 	</div>
 </div>
 
-
- 
-
-
-
 <!-- Modal To Edit Groom / Bride -->
 
   <!-- Modal Trigger -->

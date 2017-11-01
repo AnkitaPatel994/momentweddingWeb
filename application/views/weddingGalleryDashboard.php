@@ -97,7 +97,7 @@
   <!-- Modal Structure -->
 <!--    <div id="addGalleryModal" class="modal">
     <div class="modal-content">
-      <?php $this->load->view("addGallery"); ?>
+      <?php //$this->load->view("addGallery"); ?>
      </div>
 
     <div class="modal-footer">

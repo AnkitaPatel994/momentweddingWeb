@@ -220,7 +220,10 @@
             <!-- <li><div class="divider"></div></li> -->
             <li><a href="<?php echo base_url(); ?>admin/admin/eventsList">Event List</a></li>
             <li><a href="<?php echo base_url(); ?>admin/guest_list">Guest List</a></li>
-            <li><a href="<?php echo base_url(); ?>admin/RSVP">RSVP List</a></li>           
+            <li><a href="<?php echo base_url(); ?>admin/RSVP">RSVP List</a></li> 
+            <li><a href="<?php echo base_url(); ?>admin/weddingGallery">Wedding Gallery</a></li>   
+            <li><a href="<?php echo base_url(); ?>admin/memberDashboard">Member List</a></li>
+                         
         </ul>
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">Menu</i></a>
     </nav>

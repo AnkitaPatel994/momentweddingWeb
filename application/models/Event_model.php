@@ -52,11 +52,5 @@ class Event_model extends CI_Model
 		$this->db->where('id',$eventID);
 		$this->db->delete('event');
 	}
-
-
-
-	
-
 }
-
 ?>

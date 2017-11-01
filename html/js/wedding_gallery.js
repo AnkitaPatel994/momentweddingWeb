@@ -58,11 +58,9 @@ $(".wed-edit-btn").on("click",function(){
 	});
 });
 
-$(".btn-gallery").on("click",function(){
-	$("#addGalleryModal").modal('open');
-	var galleryID =  $(this).data("gallery-id");	
-	$("#addGalleryModal #galleryID").val(galleryID);
-});
+/*$(".btn-gallery").on("click",function(){
+	$("#addGalleryModal").modal('open');	
+});*/
 
 $(".btn-gallery").on("click",function(){
 	$("#addGalleryModal").modal('open');
@@ -73,6 +71,8 @@ $(".btn-gallery").on("click",function(){
 	});
 });
 
+
+
 $(".btn-delete-gallery").on("click",function(){
 	var galleryId=$(this).data('gallery-id');
 	if(confirm('Do you want to delete this Records ??')){
@@ -81,6 +81,7 @@ $(".btn-delete-gallery").on("click",function(){
 	});
 }
 });
+
 
 
 

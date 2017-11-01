@@ -11,6 +11,8 @@
               <a href="<?php echo base_url(); ?>admin/eventsList"><li>Event List</li></a>
               <a href="<?php echo base_url(); ?>admin/guest_list"><li>Guest List</li></a>
               <a href="<?php echo base_url(); ?>admin/RSVP"><li>RSVP List</li></a>
+              <a href="<?php echo base_url(); ?>admin/weddingGallery">Wedding Gallery</a>  
+              <a href="<?php echo base_url(); ?>admin/memberDashboard">Member List</a>
             </ul>
           </div>
         </div>

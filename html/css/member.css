@@ -92,8 +92,7 @@ textarea{
 }
 
 
-
 .page-button.col.s6.m2 {
-    position: relative;
     top: 25px;
+    position: relative;
 }

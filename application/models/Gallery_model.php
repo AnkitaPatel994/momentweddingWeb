@@ -16,15 +16,15 @@ class Gallery_model extends  CI_Model
 		$this->db->where("id",$id);
 		$this->db->update("gallery_images",$galleryData);
 	}
-	public function allGallery(){
-		$query=$this->db->query("select * from gallery_images");
+	public function allGallery($id){
+		$query=$this->db->query("select * from gallery_images where gallery_id='$id'");
 		$result=$query->result_array();
 		return $result;
 
 	}
 	public function deleteGallery($id){
 		$this->db->where("id",$id);
-		$this->db->update("gallery_images");
+		$this->db->delete("gallery_images");
 	}
  }
 

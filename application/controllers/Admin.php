@@ -515,10 +515,121 @@ class Admin extends CI_Controller {
 	$this->load->model("wedding_gallery_model");
 	$result=$this->wedding_gallery_model->editWedGallery($wedID);	
 	$this->load->model("gallery_model");
-	$allGallery=$this->gallery_model->allGallery();
+	$allGallery=$this->gallery_model->allGallery($wedID);
 	//var_dump($allGallery);
 	$result['allGallery']=$allGallery;	
 	$this->load->view("addGallery",$result);
+	}
+	public function deleteGallery($galleryID){
+		$this->load->model("gallery_model");
+		$this->gallery_model->deleteGallery($galleryID);
+	}
+
+
+	public function memberDashboard(){
+	 	if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+	 	$this->load->model("member_model");
+	 	$allMember=$this->member_model->allMember();
+
+	 	$headerData = array(
+			"pageTitle" => "Member",
+			"stylesheet" => array("member.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("member.js","admin.js")
+		);
+		$viewData = array(
+			"viewName" => "member-dashboard",
+            "viewData" => array("allMember"=>$allMember,"allWeddings"=>$allWeddings),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	}
+
+
+	 public function addMember(){
+	 	$this->load->model("member_model");	 	
+	 	$result=array(
+	 		"profile_id"=>$_POST['profile_id'],
+	 		"member_name"=>$_POST['member_name'],
+	 		"member_relation"=>$_POST['member_relation'],
+	 		"member_details"=>$_POST['member_details']
+	 	);
+
+	 	$memberId=$this->member_model->addMember($result);
+
+	 	$memberImage=$memberId.'_memberpic.'.pathinfo($_FILES['member_pic']['name'],PATHINFO_EXTENSION);
+	 	$updateData=array("member_pic"=>$memberImage);
+
+	 	$this->member_model->updateMember($updateData,$memberId);	 
+	 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\member";
+	 	$config['file_name']=$memberId."_memberpic";	 	
+	 	$config['allowed_types']="gif|jpg|png";
+	 	$config['remove_spaces']=TRUE;
+	 	$config['encrypt_name']=FALSE;
+	 	$config['overwrite']=TRUE;
+	 	$this->load->library("upload",$config);
+	 	$this->upload->do_upload('member_pic');
+	}
+
+	public function updateMember(){
+		$this->load->model("member_model");
+		$memberId=$_POST['member_id'];	 	
+	 	 	$result=array(
+	 		"profile_id"=>$_POST['profile_id'],
+	 		"member_name"=>$_POST['member_name'],
+	 		"member_relation"=>$_POST['member_relation'],
+	 		"member_details"=>$_POST['member_details']
+	 	);
+
+	 	$memberImage=$memberId.'_memberpic.'.pathinfo($_FILES['member_pic']['name'],PATHINFO_EXTENSION);
+
+	 	if($_FILES['member_pic']['name']!=""){
+
+			$result['member_pic']=$memberImage;		 	
+		 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\member";
+		 	$config['file_name']=$memberId."_memberpic";	 	
+		 	$config['allowed_types']="gif|jpg|png";
+		 	$config['remove_spaces']=TRUE;
+		 	$config['encrypt_name']=FALSE;
+		 	$config['overwrite']=TRUE;
+		 	$this->load->library("upload",$config);
+		 	$this->upload->do_upload('member_pic');
+	 }
+	 $this->member_model->updateMember($result,$memberId);
+	}
+
+	public function deleteMember($memberId){
+		$this->load->model("member_model");
+		$this->member_model->deleteMember($memberId);
+	}
+
+	public function editMember($memberId){
+		$this->load->model("member_model");
+		$result=$this->member_model->editMember($memberId);
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+		$result['allWeddings']=$allWeddings;
+		$this->load->view("updateMember",$result);
+	}
+
+	public function getWedProfile($weddingID){
+		$this->load->model("wedding_model");
+		$weddingData = $this->wedding_model->getWeddingProfiles($weddingID);
+		$htmlProfile = "";
+		foreach ($weddingData["profile"] as $key => $value) {
+			$htmlProfile.="<option value='".$value["id"]."'>".$value["name"]."</option>";
+		}		
+		$output = array(
+			"profileHTML" => $htmlProfile			
+		);
+		echo json_encode($output);
 	}
 
 }
