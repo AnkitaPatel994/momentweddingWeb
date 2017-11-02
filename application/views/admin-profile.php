@@ -1,7 +1,6 @@
 <!--  admin profile view -->
 <div class="row top-header">
   <?php $this->load->view("includes/admin-desktop-nav"); ?>
-
 	<div class="col m10">
 		<div class="profileDetails">
 			<div class="row"><h4>Update Profile</h4></div>
@@ -16,18 +15,17 @@
 			              <th>Action</th>
 			          </tr>
 			        </thead>
-
 			        <tbody>
-			        	<?php foreach($allProfile as $key => $allProfileRow){?>
+			          <?php foreach($allProfile as $key => $allProfileRow){?>
 			          <tr id="profile-<?php echo $allProfileRow['id']; ?>">
 			            <td><?php echo $allProfileRow['id']; ?></td>
 			            <td><?php echo $allProfileRow['name']; ?></td>			            
 			            <td><?php echo $allProfileRow['occupation']; ?></td>
 			           <!--  <td><textarea><?php echo $allProfileRow['profile_details']; ?></textarea></td> -->
-			            <td><a data-profile-id="<?php echo $allProfileRow['id']; ?>" href="#editProfile" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i><a data-profile-id="<?php echo $allProfileRow['id']; ?>" class="btn-flat general-delete-btn btn-remove-profile waves-effect waves-light btn"><i class="material-icons">delete</i></td>
+			            <td><a data-profile-id="<?php echo $allProfileRow['id']; ?>" href="#editProfile" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger"><i class="material-icons">edit</i>
+			            <a data-profile-id="<?php echo $allProfileRow['id']; ?>" class="btn-flat  btn-remove-profile waves-effect waves-light btn"><i class="material-icons">delete</i></td>
 			          </tr>
-			          <?php } ?>
-			         
+			          <?php } ?>			         
 			        </tbody>
 			    </table>
 			</div>

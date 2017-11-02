@@ -21,7 +21,6 @@
 			              <th>Action</th>
 			          </tr>
 			        </thead>
-
 			        <tbody>
 			        <?php foreach($allEvents as $key =>$allEventsRow){?>
 			          <tr id="event-id<?php echo $allEventsRow['id']; ?>">

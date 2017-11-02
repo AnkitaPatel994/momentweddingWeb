@@ -34,7 +34,7 @@
 	       
 	         <div class="input-field col s12 m6" id="eventImage">	        	
 	           <input type="file" name="member_pic" id="member_pic" style="display:none;">
-          	   <button type="button" name="member_pic" id="member_pic" onclick="$('#eventImage input').click()" class="btn black upload-btn">Gallery Image</button>
+          	   <button type="button" name="member_pic" id="member_pic" onclick="$('#eventImage input').click()" class="btn black upload-btn">Member Image</button>
 	        </div>
 
 	       <div class="input-field col s12 m12">

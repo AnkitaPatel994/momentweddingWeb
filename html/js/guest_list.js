@@ -99,7 +99,7 @@ $(function(){
 		processData:false,
 		success:function(result){
 			alert("GuestList update Successfully...");
-			//window.location.reload();
+			window.location.reload();
 		}
 	});
 });
@@ -140,7 +140,7 @@ $(function(){
 
 	/*===Delete Guest List=======*/
 
-	$(".btn-delete").on("click",function(){
+	$(".btn-delete-guestList").on("click",function(){
 		var guestID=$(this).data("guest-id");
 		if(confirm("Do you want to delete this Record.. ???? ")){
 		$.post(baseURL+"Admin/deleteGuestList/"+guestID,function(data){

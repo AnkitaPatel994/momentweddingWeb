@@ -28,6 +28,13 @@ class Member_model extends  CI_Model
 		$result=$query->result_array();
 		return $result;
 	}
+	public function getWedFromProfile($proId){
+		$query=$this->db->query("select id as weddingid from wedding  where bride_id=$proId OR groom_id=$proId ");
+		$result=$query->row_array();		
+		return $result;
+	}	
+
+
  }
 
 ?>

@@ -61,10 +61,10 @@
         <td><?php echo $allMemberRow['profile_id']; ?></td>            
         <td><?php echo $allMemberRow["member_name"]; ?></td>
         <td><?php echo $allMemberRow["member_relation"]; ?></td>
-        <td><img src="<?php echo base_url(); ?>html/images/member/<?php echo $allMemberRow["member_pic"]; ?>"></td>
+        <td><img width="200" height="200" src="<?php echo base_url(); ?>html/images/member/<?php echo $allMemberRow["member_pic"]; ?>"></td>
         <td><?php echo $allMemberRow["member_details"]; ?></td>     
         <td class="right-align blog-btn">
-        <a data-member-id="<?php echo $allMemberRow['id']; ?>" class="btn member-edit-btn edit-wedding"><i class="material-icons">mode_edit</i></a>       
+        <a data-member-id="<?php echo $allMemberRow['id']; ?>" class="btn member-edit-btn"><i class="material-icons">mode_edit</i></a>       
         <a data-member-id="<?php echo $allMemberRow['id']; ?>" class="btn member-delete-btn"><i class="material-icons">delete</i></a></td>
       </tr>
       <?php } ?>

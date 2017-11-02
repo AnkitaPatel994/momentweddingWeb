@@ -27,9 +27,7 @@ class Gallery_model extends  CI_Model
 		$this->db->delete("gallery_images");
 	}
 
-	public function allWedGallery(){
-		
-	}
+	
  }
 
 ?>

@@ -90,7 +90,7 @@ var formData=new FormData($("#addGalleryForm")[0]);
 		processData:false,
 		success:function(result){
 			alert("Data Inserted successfully...");
-			//window.location.reload();
+			window.location.reload();
 		}
 	});
 });

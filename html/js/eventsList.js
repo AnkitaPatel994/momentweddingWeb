@@ -59,7 +59,7 @@ $(function(){
 			processData:false,
 			success:function(result){
 				alert("Event Update Successfully...");
-				//window.location.reload();
+				window.location.reload();
 			}
 
 		});

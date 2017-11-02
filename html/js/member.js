@@ -32,7 +32,7 @@ var formData=new FormData($("#updateMemberForm")[0]);
 		processData:false,
 		success:function(result){
 			alert("Data Updated successfully...");
-			//window.location.reload();
+			window.location.reload();
 		}
 	});
 });
@@ -47,7 +47,7 @@ $(".member-delete-btn").on("click",function(){
 	  }
     });
 
-
+$(".member-edit-btn").off("click");
 $(".member-edit-btn").on("click",function(){
 	$("#editMemberModal").modal('open');
 	$("#editMemberModal .modal-content").html("");
@@ -75,20 +75,14 @@ $(".member-edit-btn").on("click",function(){
 	});
 });
 
-$("#memberModal #addGuestWeddingID").on("change",function(){	
-	    var weddingID = $("#memberModal #addGuestWeddingID option:selected").val();	
-			$.ajax({
-				data:weddingID,
-				url:baseURL+"Admin/getWedProfile/"+weddingID,
-				type:"POST",
-				contentType:false,
-				processData:false,
-				success:function(result){
+$("#editMemberModal #addGuestWeddingID").on("change",function(){	
+	    var weddingID = $("#editMemberModal #addGuestWeddingID option:selected").val(
+
+	    	);			
+			$.post(baseURL+"Admin/getWedProfile/"+weddingID,{profile_id:profile_id},function(data){
 					result = $.parseJSON(result);
 					$("#memberModal #addGuestProfileList").html(result.profileHTML);
 					$('#memberModal #addGuestProfileList').material_select();
-					
-				}
 			});
 		});
 

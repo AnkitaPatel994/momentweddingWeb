@@ -11,7 +11,7 @@
 	         <select name="addGuestWeddingID" id="addGuestWeddingID">
 			      <option value="" disabled selected>Choose your Wedding</option>
 			      <?php foreach($allWeddings as $key => $allWeddingsRow){ ?>
-			      <option <?php if($profile_id == $allWeddingsRow['id']){ echo "selected='selected'"; } ?> value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['weddingName']; ?></option>
+			      <option <?php if($selectedWedding == $allWeddingsRow['id']){ echo "selected='selected'"; } ?> value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['weddingName']; ?></option>
 			      <?php } ?>			      
 		     </select>
 	          <label for="name">Wedding</label>
@@ -35,7 +35,7 @@
 	        
 	        <div class="input-field col s12 m6" id="eventImage">	        	
 	           <input type="file" name="member_pic" id="member_pic" style="display:none;">
-          	   <button type="button" name="member_pic" id="member_pic" onclick="$('#eventImage input').click()" class="btn black upload-btn">Gallery Image</button>
+          	   <button type="button" name="member_pic" id="member_pic" onclick="$('#eventImage input').click()" class="btn black upload-btn">Member Image</button>
 	        </div>
 	       <div class="input-field col s12 m12">
 	        	 <textarea  class="materialize-textarea" name="member_details" id="	member_details"><?php echo $member_details; ?></textarea>

@@ -86,7 +86,7 @@ $(function(){
 		processData:false,
 		success:function(result){
 			alert("Profile Update Successfully...");
-			//window.location.reload();
+			window.location.reload();
 		}
 	});
   });
