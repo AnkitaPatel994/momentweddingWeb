@@ -39,10 +39,10 @@ var formData=new FormData($("#updateWedGalleryForm")[0]);
 });
 
 $(".wed-delete-btn").on("click",function(){
-	var wedId=$(this).data('wed-id');
+	var wedId=$(this).data('wed-gallery-id');
 	if(confirm('Do you want to delete this Records ??')){
 	$.post(baseURL+"admin/deleteWedGallery/"+wedId,function(data){
-		$("#wed_id"+wedId).remove();
+		$("#wed-gallery-id"+wedId).remove();
 	});
 }
 });
@@ -50,7 +50,7 @@ $(".wed-delete-btn").on("click",function(){
 $(".wed-edit-btn").on("click",function(){
 	$("#editWedModal").modal('open');
 	$("#editWedModal .modal-content").html("");
-	var wedId=$(this).data('wed-id');
+	var wedId=$(this).data('wed-gallery-id');
 	$.post(baseURL+"admin/editWedGallery/"+wedId,function(data){
 		$("#editWedModal .modal-content").html(data);
 		Materialize.updateTextFields();
@@ -65,15 +65,13 @@ $(".wed-edit-btn").on("click",function(){
 $(".btn-gallery").on("click",function(){
 	$("#addGalleryModal").modal('open');
 	$("#addGalleryModal .modal-content").html("");
-	var wedId=$(this).data('wed-id');
+	var wedId=$(this).data('wed-gallery-id');
 	$.post(baseURL+"admin/singleGallery/"+wedId,function(data){
 		$("#addGalleryModal .modal-content").html(data);		
 	});
 });
 
-
-
-$(".btn-delete-gallery").on("click",function(){
+$("#addGalleryForm .delete-btn-gallery").on("click",function(){
 	var galleryId=$(this).data('gallery-id');
 	if(confirm('Do you want to delete this Records ??')){
 	$.post(baseURL+"admin/deleteGallery/"+galleryId,function(data){
@@ -81,9 +79,6 @@ $(".btn-delete-gallery").on("click",function(){
 	});
 }
 });
-
-
-
 
 $("#addGalleryModal #sendGallery").on("click",function(){
 var formData=new FormData($("#addGalleryForm")[0]);

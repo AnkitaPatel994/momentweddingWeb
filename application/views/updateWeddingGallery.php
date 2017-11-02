@@ -9,11 +9,10 @@
       	
       		<div class="input-field col s12 m4">
 	         <select name="wedding_id" id="wedding_id">
-			      <option value="" disabled selected>Choose your Wedding</option>
+			      <option   value="" disabled selected>Choose your Wedding</option>
 			      <?php foreach($allWeddings as $key => $allWeddingsRow){ ?>
-			      <option value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['weddingName']; ?></option>
-			      <?php } ?>
-			      
+			      <option <?php if($wedding_id == $allWeddingsRow['id']){ echo "selected='selected'"; } ?>  value="<?php echo $allWeddingsRow['id']; ?>"><?php echo $allWeddingsRow['weddingName']; ?></option>
+			      <?php } ?>			      
 		     </select>
 	          <label for="name">Name</label>
 	        </div>

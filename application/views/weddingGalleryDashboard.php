@@ -53,17 +53,14 @@
     </thead>
     <tbody>
       <?php foreach ($allWedGallery as $key => $allWedGalleryRow) { ?>
-      <tr id="wed-id<?php echo $allWedGalleryRow['id']; ?>">  
+      <tr id="wed-gallery-id<?php echo $allWedGalleryRow['id']; ?>">  
         <td><?php echo $allWedGalleryRow['id']; ?></td> 
-         <td><?php echo $allWedGalleryRow['wedding_id']; ?></td>       
-            
-        <td><?php echo $allWedGalleryRow["name"]; ?></td>
-   
-      
-        <td class="right-align blog-btn">
-        <a data-wed-id="<?php echo $allWedGalleryRow['id']; ?>" class="btn wed-edit-btn edit-wedding"><i class="material-icons">mode_edit</i></a>
-        <a  data-wed-id="<?php echo $allWedGalleryRow['id']; ?>" class="btn-flat btn-gallery waves-effect waves-light btn "><i class="material-icons">burst_mode</i></a>
-        <a data-wed-id="<?php echo $allWedGalleryRow['id']; ?>" class="btn wed-delete-btn delete-wedding"><i class="material-icons">delete</i></a></td>
+         <td><?php echo $allWedGalleryRow['wedding_id']; ?></td>            
+        <td><?php echo $allWedGalleryRow["name"]; ?></td>      
+        <td class="right-align">
+        <a data-wed-gallery-id="<?php echo $allWedGalleryRow['id']; ?>" class="btn wed-edit-btn edit-wedding"><i class="material-icons">mode_edit</i></a>
+        <a  data-wed-gallery-id="<?php echo $allWedGalleryRow['id']; ?>" class="btn-flat btn-gallery waves-effect waves-light btn "><i class="material-icons">burst_mode</i></a>
+        <a data-wed-gallery-id="<?php echo $allWedGalleryRow['id']; ?>" class="btn wed-delete-btn"><i class="material-icons">delete</i></a></td>
       </tr>
       <?php } ?>
       </tbody>

@@ -26,7 +26,7 @@
       	<td><img src="<?php echo base_url(); ?>html/images/gallery/<?php echo $allGalleryRow['name']; ?>"></td>             
       
         <td class="right-align blog-btn">     
-        <a data-gallery-id="<?php echo $allGalleryRow['id']; ?>" class="btn btn-delete-gallery"><i class="material-icons">delete</i></a></td>
+        <a data-gallery-id="<?php echo $allGalleryRow['id']; ?>" class="btn delete-btn-gallery"><i class="material-icons">delete</i></a></td>
       </tr>
       <?php } ?>
       </tbody>
