@@ -5,8 +5,7 @@
 <div class="profile-form row">
       	<form id="updateEventForm" method="post" enctype="multipart/form-data">
       		<div class="input-field col s12 m6" id="eventImage">   
-      		 <img alt="No Image"  width="100%" style="min-height: 220px !important;" src="<?php echo base_url(); ?>html/images/events/<?php echo $image; ?>"><br/> 		
-      		   			
+      		 <img  width="100%"  src="<?php echo base_url();?>html/images/events/<?php echo $image; ?>"><br/>      	
 	         <input type="file" name="image" id="image" style="display:none;">
           	 <button type="button" onclick="$('#eventImage input').click()" style="width: 100%" class="btn black"> Event Image</button>
 	        </div><br/> 	
@@ -35,7 +34,7 @@
 	        <textarea  class="materialize-textarea" name="location" id="location"><?php echo $location; ?></textarea>
           	   <label for="textarea1">Location</label>
 	        </div>
-	        <input type="hidden" name="event-id" id="event-id" value="<?php echo $id;?>."> 
+	        <input type="hidden" name="event-id" id="event-id" value="<?php echo $id;?>"> 
 	        <!-- <div class="input-field col s12 m12">
 	        	<center>
 	        		<button class="btn black"> Add Event</button>

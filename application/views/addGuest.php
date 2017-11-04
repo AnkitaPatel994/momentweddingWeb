@@ -32,7 +32,7 @@
 			    <select id="addGuestEventList" name="event_access[]" multiple>
 			      <option value="" disabled selected>Select Events</option>			    
 			    </select>
-			    <label>Side</label>
+			    <label>Events</label>
             </div>
 
       	</form>

@@ -47,8 +47,26 @@ $(".member-delete-btn").on("click",function(){
 	  }
     });
 
-$(".member-edit-btn").off("click");
+  $("#memberModal #addGuestWeddingID").on("change",function(){	
+	    var weddingID = $("#memberModal #addGuestWeddingID option:selected").val();	
+			$.ajax({
+				data:weddingID,
+				url:baseURL+"Admin/getProfile/"+weddingID,
+				type:"POST",
+				contentType:false,
+				processData:false,
+				success:function(result){
+					result = $.parseJSON(result);
+					$("#memberModal #addGuestProfileList").html(result.profileHTML);
+					$('#memberModal #addGuestProfileList').material_select();
+				}
+			});
+		});
+
+/*$(".member-edit-btn").off("click");*/
 $(".member-edit-btn").on("click",function(){
+
+	$('#eventImage input').off();
 	$("#editMemberModal").modal('open');
 	$("#editMemberModal .modal-content").html("");
 	var memberId=$(this).data('member-id');
@@ -75,15 +93,14 @@ $(".member-edit-btn").on("click",function(){
 	});
 });
 
-$("#editMemberModal #addGuestWeddingID").on("change",function(){	
+/*$("#editMemberModal #addGuestWeddingID").on("change",function(){	
 	    var weddingID = $("#editMemberModal #addGuestWeddingID option:selected").val(
-
 	    	);			
 			$.post(baseURL+"Admin/getWedProfile/"+weddingID,{profile_id:profile_id},function(data){
 					result = $.parseJSON(result);
 					$("#memberModal #addGuestProfileList").html(result.profileHTML);
 					$('#memberModal #addGuestProfileList').material_select();
 			});
-		});
+		});*/
 
 });

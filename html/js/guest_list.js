@@ -44,8 +44,7 @@ $(function(){
 					$("#addGuest #addGuestProfileList").html(result.profileHTML);
 					$('#addGuest #addGuestProfileList').material_select();
 					$("#addGuest #addGuestEventList").html(result.eventHTML);
-					$('#addGuest #addGuestEventList').material_select();
-				}
+					$('#addGuest #addGuestEventList').material_select();				}
 			});
 		});
 
