@@ -65,12 +65,12 @@ $(".member-delete-btn").on("click",function(){
 
 /*$(".member-edit-btn").off("click");*/
 $(".member-edit-btn").on("click",function(){
-
-	$('#eventImage input').off();
+/*	$('#eventImage input').off();*/
 	$("#editMemberModal").modal('open');
 	$("#editMemberModal .modal-content").html("");
 	var memberId=$(this).data('member-id');
 	$.post(baseURL+"admin/editMember/"+memberId,function(data){
+		
 		$("#editMemberModal .modal-content").html(data);
 		Materialize.updateTextFields();
 		$('select').material_select();

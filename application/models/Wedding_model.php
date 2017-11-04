@@ -320,5 +320,10 @@ class Wedding_model extends CI_Model
 		);
 		return $output;
 	}
+
+	public function forceDeleteTour($wedID){
+		$this->db->query("delete from profile where id='$wedID'");
+
+	}
 }
 ?>

@@ -29,6 +29,7 @@ $(function(){
 	    aftershow: function(){} //Function for after opening timepicker
 	  }); 
 
+
     /*=============ON CHANGE================================*/
 
     $("#addGuest #addGuestWeddingID").on("change",function(){	
@@ -66,11 +67,20 @@ $(function(){
 			});
 		});
     /*==================Guest List==================================*/
-    
-
 	/*===Add Wedding=======*/
+	$("#sendGuestListData").on("click",function(){	
+		
+		var errorFlag=0;
+		/*if($("#name").val() == ""){ errorFlag = 1; }
+		if($("#mobile").val() == ""){ errorFlag = 1; }*/
 
-	$("#sendGuestListData").on("click",function(){
+		
+		if ($('#addGuestEventList').lenght==0) { errorFlag = 1  }
+		//if ($("#addGuestEventList").prop("checked")){ errorFlag = 1  }
+
+		//if ($("#addGuestEventList").attr("checked")=="checked"){errorFlag = 1}
+
+		if(errorFlag==0){
 		var formData = new FormData($("#addGuestListForm")[0]);
 		$.ajax({
 			data:formData,
@@ -83,6 +93,10 @@ $(function(){
 				window.location.reload();
 			}
 		});
+		}
+		else{
+			alert("All Fields are required Please Checked any Event");
+		}
 	});
 
 
