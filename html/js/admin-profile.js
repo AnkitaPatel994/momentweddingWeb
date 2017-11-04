@@ -11,7 +11,7 @@ $(function(){
 
 	$(".btn-remove-profile").on("click",function(){
 		var profileID = $(this).data("profile-id");
-		console.log("delete profile: "+profileID);
+		//console.log("delete profile: "+profileID);
 		if(confirm("Do you want delete this profile?")){
 			$.post(baseURL+"Admin/deleteProfile/"+profileID,function(data){
 				$("#profile-"+profileID).remove();					 

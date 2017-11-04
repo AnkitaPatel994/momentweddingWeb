@@ -272,17 +272,13 @@ class Wedding_model extends CI_Model
 	public function getGuestDetails($guest_id){
 		$query = $this->db->query("select * from guest_list where id='$guest_id'");
 		$result = $query->row_array();
-		return $result;
-		
+		return $result;		
 	}
-
-
 	public function getWeddingRow($weddingID){
 		$query = $this->db->query("select * from wedding where id='$weddingID'");
 		$result = $query->row_array();
 		return $result;
 	}
-
 	public function getEventPhotos($eventID){
 	    $result = $this->getGalleryPhotos($eventID);
 	    /*
@@ -291,6 +287,7 @@ class Wedding_model extends CI_Model
 		*/
 		return $result;
 	}
+
 	
 	public function getGalleryPhotos($galleryID){
 	    $query = $this->db->query("select * from gallery_images where gallery_id='$galleryID'");
@@ -341,7 +338,6 @@ class Wedding_model extends CI_Model
 	    $result = $query->result_array();
 	    return $result;
 	}
-
 	public function getWeddingSide($weddingID){
 		$query=$this->db->query("select * from wedding where id='$weddingID' ");
 		$weddingRow = $query->row_array();
@@ -353,7 +349,6 @@ class Wedding_model extends CI_Model
 		$output["groomData"]["profile_pic"] = base_url()."html/images/profile/".$output["groomData"]["profile_pic"];
 		return $output;
 	}
-
 	public function vendorDetail($weddingID){
 		$output = array(
 			"logo" => base_url()."html/images/logo_vendor_1.png",
@@ -366,9 +361,9 @@ class Wedding_model extends CI_Model
 		return $output;
 	}
 
+	public function forceDeleteTour($wedID){
+		$this->db->query("delete from profile where id='$wedID'");
 
-
-
+	}
 }
-
 ?>

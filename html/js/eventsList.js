@@ -59,14 +59,10 @@ $(function(){
 			processData:false,
 			success:function(result){
 				alert("Event Update Successfully...");
-				//window.location.reload();
+				window.location.reload();
 			}
-
 		});
-
 	});
-
-
 
 	/*===Edit EVENT=======*/
 
@@ -99,21 +95,20 @@ $(function(){
 			    ampmclickable: true, // make AM PM clickable
 			    aftershow: function(){} //Function for after opening timepicker
 			  });
-
 		});
 	});	
 
 
 	/*=======================Delete EVENT===================*/
 
-	$(".btn-delete").on("click",function(){		
+	$(".event-btn-delete").on("click",function(){
 		var eventID=$(this).data("event-id");
-		if(confirm("Do you want delete this record..???")){
-		$.post(baseURL+"Admin/deleteEvent/"+eventID,function(data){
-			$("#event-id"+eventID).remove();					 
+		if(confirm("Do you want to delete this Record.. ???? ")){
+		$.post(baseURL+"Admin/deleteEvent/"+eventID,function(data){			
+			$("#event-id"+eventID).remove();
 		});
-	 }
-	});
+	  }
+    });
 
 	$('#DataTable').DataTable();
       

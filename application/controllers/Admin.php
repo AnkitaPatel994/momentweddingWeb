@@ -149,7 +149,7 @@ class Admin extends CI_Controller {
 				$result["profile_pic"] = $image;
 
 				//set configuration for the upload library
-				$config['upload_path'] = 'C:\wamp\www\moments-wedding\html\images\profile';
+				$config['upload_path'] = 'C:\wamp\www\moment_wedding\html\images\profile';
 
 			    $config['allowed_types'] = 'gif|jpg|png';
 			    $config['overwrite'] = TRUE;
@@ -210,7 +210,7 @@ class Admin extends CI_Controller {
 		$updateEvent=array('image'=>$eventImage);
 		$this->event_model->updateEvent($updateEvent,$eventId);
 
-		$config["upload_path"]='C:\wamp\www\moments-wedding\html\images\events';
+		$config["upload_path"]='C:\wamp\www\moment_wedding\html\images\events';
 		$config["allowed_types"]='gif|png|jpg';
 		$config["file_name"]=$eventId."_eventImage";
 		$config["remove_spaces"]=TRUE;
@@ -220,7 +220,6 @@ class Admin extends CI_Controller {
 		$this->load->library('upload',$config);
 		$this->upload->do_upload('image');
 	}
-
 	public function updateEvent(){
 		$this->load->model("event_model");
 		$eventId=$_POST['event-id'];
@@ -231,13 +230,13 @@ class Admin extends CI_Controller {
 			"location"=>$_POST['location']			
 		);
 
-		$eventImage="_eventImage.".pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+		$eventImage=$eventId."_eventImage.".pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
 
 		if($_FILES['image']['name']!=""){
 			$result['image']=$eventImage;
 
-			$config['upload_path']='C:\wamp\www\moments-wedding\html\images\events';
-			$config['file_name']=$eventId."_eventImage";
+			$config['upload_path']='C:\wamp\www\moment_wedding\html\images\events';
+			$config['file_name']=$eventId."_eventImage";	
 			$config['allowed_types']="gif|jpg|png";
 			$config['remove_spaces']=TRUE;
 			$config['encrypt_name']=FALSE;
@@ -311,11 +310,14 @@ class Admin extends CI_Controller {
 	 }
 
 	public function editGuestList($guestID){
+		$this->load->model("profile_model");
+		$allProfile=$this->profile_model->allProfile();
 		$this->load->model("wedding_model");
 		$allWedding=$this->wedding_model->allWeddingData();		
 		$this->load->model("guestlist_model");
 		$result=$this->guestlist_model->editGuestList($guestID);
 		$result["allWedding"]=$allWedding;
+		$result["allProfile"]=$allProfile;		
 		$this->load->view("updateGuestList",$result);
 	}
 	public function deleteGuestList($guestID){
@@ -398,4 +400,258 @@ class Admin extends CI_Controller {
 		$this->load->view('admin-templete',$viewData);
 	 }
 
+	public function weddingGallery(){
+	 	if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+	 	$this->load->model("wedding_gallery_model");
+	 	$allWedGallery=$this->wedding_gallery_model->allWedGallery();
+
+	 	$headerData = array(
+			"pageTitle" => "Wedding Gallery",
+			"stylesheet" => array("wedding_gallery.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("wedding_gallery.js","admin.js")
+		);
+		$viewData = array(
+			"viewName" => "weddingGalleryDashboard",
+            "viewData" => array("allWedGallery"=>$allWedGallery,"allWeddings"=>$allWeddings),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	}
+
+	 public function addWeddGallery(){
+	 	$this->load->model("wedding_gallery_model");	 	
+	 	$result=array(
+	 		"wedding_id"=>$_POST['wedding_id'],
+	 		"name"=>$_POST['name']
+	 	);
+
+	 	$wedId=$this->wedding_gallery_model->addWeddGallery($result);
+
+	 	$wedImage=$wedId.'_wedImage.'.pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+	 	$updateData=array("image"=>$wedImage);
+
+	 	$this->wedding_gallery_model->updateWedGallery($updateData,$wedId);	 
+	 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\weddingImage";
+	 	$config['file_name']=$wedId."_wedImage";	 	
+	 	$config['allowed_types']="gif|jpg|png";
+	 	$config['remove_spaces']=TRUE;
+	 	$config['encrypt_name']=FALSE;
+	 	$config['overwrite']=TRUE;
+	 	$this->load->library("upload",$config);
+	 	$this->upload->do_upload('image');
+	}
+
+	public function updateWeddGallery(){
+		$this->load->model("wedding_gallery_model");
+		$wedId=$_POST['wed_id'];	 	
+	 	$result=array(
+	 		"wedding_id"=>$_POST['wedding_id'],
+	 		"name"=>$_POST['name']
+	 	);
+
+	 	$wedImage=$wedId.'_wedImage.'.pathinfo($_FILES['image']['name'],PATHINFO_EXTENSION);
+
+	 	if($_FILES['image']['name']!=""){
+
+			$result['image']=$wedImage;		 	
+		 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\weddingImage";
+		 	$config['file_name']=$wedId."_wedImage";	 	
+		 	$config['allowed_types']="gif|jpg|png";
+		 	$config['remove_spaces']=TRUE;
+		 	$config['encrypt_name']=FALSE;
+		 	$config['overwrite']=TRUE;
+		 	$this->load->library("upload",$config);
+		 	$this->upload->do_upload('image');
+	 }
+	 $this->wedding_gallery_model->updateWedGallery($result,$wedId);
+	}
+
+	public function deleteWedGallery($wedID){
+		$this->load->model("wedding_gallery_model");
+		$this->wedding_gallery_model->deleteWedGallery($wedID);
+	}
+	public function editWedGallery($wedID){
+
+		$this->load->model("wedding_gallery_model");
+		$result=$this->wedding_gallery_model->editWedGallery($wedID);
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+		$result['allWeddings']=$allWeddings;
+		$this->load->view("updateWeddingGallery",$result);
+	}
+
+	public function addGallery(){
+	 	$this->load->model("Gallery_model");	 	
+	 	$result=array(
+	 		"gallery_id"=>$_POST['gallery_id']
+	 	);
+
+	 	$galleryId=$this->Gallery_model->addGallery($result);
+
+	 	$galleryImage=$galleryId.'_galleryImage.'.pathinfo($_FILES['name']['name'],PATHINFO_EXTENSION);
+	 	$updateData=array("name"=>$galleryImage);
+
+	 	$this->Gallery_model->updateGallery($updateData,$galleryId);	 
+	 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\gallery";
+	 	$config['file_name']=$galleryId."_galleryImage";	 	
+	 	$config['allowed_types']="gif|jpg|png";
+	 	$config['remove_spaces']=TRUE;
+	 	$config['encrypt_name']=FALSE;
+	 	$config['overwrite']=TRUE;
+	 	$this->load->library("upload",$config);
+	 	$this->upload->do_upload('name');
+	}
+
+	public function singleGallery($wedID){
+	$this->load->model("wedding_gallery_model");
+	$result=$this->wedding_gallery_model->editWedGallery($wedID);	
+	$this->load->model("gallery_model");
+	$allGallery=$this->gallery_model->allGallery($wedID);
+	//var_dump($allGallery);
+	$result['allGallery']=$allGallery;	
+	$this->load->view("addGallery",$result);
+	}
+	public function deleteGallery($galleryID){
+		$this->load->model("gallery_model");
+		$this->gallery_model->deleteGallery($galleryID);
+	}
+	public function deleteProfile($profileID){
+		$this->load->model("profile_model");
+		$this->profile_model->deleteProfile($profileID);
+	}
+
+	public function memberDashboard(){
+	 	if(!$this->session->userdata("email")){
+			header("Location:".base_url()."admin/login");
+			exit();
+		}
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+	 	$this->load->model("member_model");
+	 	$allMember=$this->member_model->allMember();
+
+	 	$headerData = array(
+			"pageTitle" => "Member",
+			"stylesheet" => array("member.css")
+		);
+		$footerData = array(
+			"jsFiles" => array("member.js","admin.js")
+		);
+		$viewData = array(
+			"viewName" => "member-dashboard",
+            "viewData" => array("allMember"=>$allMember,"allWeddings"=>$allWeddings),
+			"headerData" => $headerData,
+			"footerData" => $footerData	
+		);
+		$this->load->view('admin-templete',$viewData);
+	}
+
+
+	 public function addMember(){
+	 	$this->load->model("member_model");	 	
+	 	$result=array(
+	 		"profile_id"=>$_POST['profile_id'],
+	 		"member_name"=>$_POST['member_name'],
+	 		"member_relation"=>$_POST['member_relation'],
+	 		"member_details"=>$_POST['member_details']
+	 	);
+
+	 	$memberId=$this->member_model->addMember($result);
+
+	 	$memberImage=$memberId.'_memberpic.'.pathinfo($_FILES['member_pic']['name'],PATHINFO_EXTENSION);
+	 	$updateData=array("member_pic"=>$memberImage);
+
+	 	$this->member_model->updateMember($updateData,$memberId);	 
+	 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\member";
+	 	$config['file_name']=$memberId."_memberpic";	 	
+	 	$config['allowed_types']="gif|jpg|png";
+	 	$config['remove_spaces']=TRUE;
+	 	$config['encrypt_name']=FALSE;
+	 	$config['overwrite']=TRUE;
+	 	$this->load->library("upload",$config);
+	 	$this->upload->do_upload('member_pic');
+	}
+
+	public function updateMember(){
+		$this->load->model("member_model");
+		$memberId=$_POST['member_id'];	 	
+	 	 	$result=array(
+	 		"profile_id"=>$_POST['profile_id'],
+	 		"member_name"=>$_POST['member_name'],
+	 		"member_relation"=>$_POST['member_relation'],
+	 		"member_details"=>$_POST['member_details']
+	 	);
+
+	 	$memberImage=$memberId.'_memberpic.'.pathinfo($_FILES['member_pic']['name'],PATHINFO_EXTENSION);
+
+	 	if($_FILES['member_pic']['name']!=""){
+
+			$result['member_pic']=$memberImage;		 	
+		 	$config['upload_path']="C:\wamp\www\moment_wedding\html\images\member";
+		 	$config['file_name']=$memberId."_memberpic";	 	
+		 	$config['allowed_types']="gif|jpg|png";
+		 	$config['remove_spaces']=TRUE;
+		 	$config['encrypt_name']=FALSE;
+		 	$config['overwrite']=TRUE;
+		 	$this->load->library("upload",$config);
+		 	$this->upload->do_upload('member_pic');
+	 }
+	 $this->member_model->updateMember($result,$memberId);
+	}
+
+	public function deleteMember($memberId){
+		$this->load->model("member_model");
+		$this->member_model->deleteMember($memberId);
+	}
+
+	public function editMember($memberId){
+		$this->load->model("profile_model");
+		$allProfile=$this->profile_model->allProfile();
+		$this->load->model("member_model");
+		$result=$this->member_model->editMember($memberId);
+		$this->load->model("event_model");
+		$allWeddings=$this->event_model->allWeddings();
+
+		$weddingRow = $this->member_model->getWedFromProfile($result["profile_id"]);
+
+		$result['allWeddings']=$allWeddings;
+		$result["selectedWedding"] = $weddingRow["weddingid"];
+		$result["selectedProfile"]=$result["profile_id"];
+		$result["allProfile"]=$allProfile;
+		$this->load->view("updateMember",$result);
+	} 
+
+	public function getWedProfile($weddingID){
+		//$profileId=$_POST['profile_id'];	
+
+		$this->load->model("wedding_model");
+		$weddingData = $this->wedding_model->getWeddingProfiles($weddingID);
+		$htmlProfile = "";
+		foreach ($weddingData["profile"] as $key => $value){
+			$htmlProfile.="<option value='".$value["id"]."'>".$value["name"]."</option>";
+		}
+
+		/*foreach ($weddingData["profile"] as $key => $value) {
+			 if($profileId == $value['id']){ $selectedOption = "selected='selected'"; }else{ $selectedOption = ""; } 
+			$htmlProfile.="<option $selectedOption value='".$value["id"]."'>".$value["name"]."</option>";
+		}*/		
+
+		$output = array(
+			"profileHTML" => $htmlProfile			
+		);
+		echo json_encode($output);
+	}
+	public function getWedFromProfile($proId){
+		$this->load->model("member_model");
+		$result=$this->member_model->getWedFromProfile($proId);
+		return $result;
+	}
 }

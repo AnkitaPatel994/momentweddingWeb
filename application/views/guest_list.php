@@ -32,7 +32,7 @@
 			            <td><?php echo $allGuestListRow['weddingName']; ?></td>
 			            <td><?php echo $allGuestListRow['invitedBy']; ?></td>
 			            <td><a href="#EditGuestList" class="btn-flat btn-edit waves-effect waves-light btn modal-trigger" data-guest-id=<?php echo $allGuestListRow['id']; ?>><i class="material-icons">edit</i></a>
-			            <a href="#editProfile" data-guest-id=<?php echo $allGuestListRow['id']; ?>  class="btn-flat btn-delete waves-effect waves-light btn modal-trigger"><i class="material-icons">delete</i></a></td>
+			            <a  data-guest-id=<?php echo $allGuestListRow['id']; ?>  class="btn-flat btn-delete-guestList waves-effect waves-light"><i class="material-icons">delete</i></a></td>
 			          </tr>
 			          <?php } ?>
 
@@ -42,11 +42,6 @@
 		</div>
 	</div>
 </div>
-
-
- 
-
-
 
 <!-- Modal To Edit Groom / Bride -->
 

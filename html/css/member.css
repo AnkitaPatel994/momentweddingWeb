@@ -1,0 +1,98 @@
+/*Events List*/
+
+/* admin profile css */
+
+.upload-btn {
+    width: 100%;
+}
+
+.sidebar-area{
+    top: 0;
+}
+
+.profile-area{
+    /*width: 90%;*/
+    
+    position: relative;
+}
+.profileDetails {
+    background: #ffF;
+    padding: 25px;
+    overflow: hidden;
+}
+
+.profile-img{
+    width: auto;
+    height: 50px;
+}
+textarea{
+    border: none;
+}
+.dataTables_length select{
+    display: block;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 50px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    border-radius: 2px;
+    height: 2rem;
+}
+.btn-edit {
+    background: #EEE;
+    border: 1px solid #ddd;
+    border-radius: 69px;
+    padding: 0px 7px;
+    margin: 0 auto;
+    text-align: center;
+}
+.btn-edit:hover{
+    background: rgba(0,0,0,0.2) !important;
+}
+
+.btn-delete{
+    background: rgba(222, 21, 21, 0.20);
+    border: 1px solid #e69b9b;
+    border-radius: 69px;
+    padding: 0px 7px;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.btn-delete:hover{
+    background: rgba(222, 21, 21, 0.50) !important;
+}
+
+.btn-gallery{
+    background: rgba(222, 21, 21, 0.20);
+    border: 1px solid #e69b9b;
+    border-radius: 69px;
+    padding: 0px 7px;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.btn-gallery{
+    background: rgba(8, 56, 25, 0.20);
+    border: 1px solid rgba(41, 107, 73, 0.5);
+    border-radius: 69px;
+    padding: 0px 7px;
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.btn-gallery:hover{
+    background: rgba(8, 56, 25, 0.5);
+    border: 1px solid rgba(41, 107, 73, 0.5);
+}
+.eventImage-box img {
+    border: 2px solid #ddd;
+    padding: 25px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.page-button.col.s6.m2 {
+    top: 25px;
+    position: relative;
+}
