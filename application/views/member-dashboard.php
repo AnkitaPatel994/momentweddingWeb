@@ -46,7 +46,7 @@
     <thead>
    		<tr>
         <th>Id</th>
-        <th>Wedding</th>    
+        <th>Profile</th>    
         <th>Member Name</th>
         <th>Member Relation</th> 
         <th>Member Image</th> 

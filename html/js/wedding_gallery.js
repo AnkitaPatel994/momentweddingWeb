@@ -47,17 +47,6 @@ $(".wed-delete-btn").on("click",function(){
 }
 });
 
-$(".btn-gallery .delete-btn-gallery").on("click",function(){
-	var galleryId=$(this).data('gallery-id');
-	if(confirm('Do you want to delete this Records ??')){
-	$.post(baseURL+"admin/deleteGallery/"+galleryId,function(data){
-		$("#gallery-id"+galleryId).remove();
-	});
-}
-});
-
-
-
 $(".wed-edit-btn").on("click",function(){
 	$("#editWedModal").modal('open');
 	$("#editWedModal .modal-content").html("");
@@ -66,6 +55,15 @@ $(".wed-edit-btn").on("click",function(){
 		$("#editWedModal .modal-content").html(data);
 		Materialize.updateTextFields();
 		$('select').material_select();
+
+	$(".btn-gallery .delete-btn-gallery").on("click",function(){
+		var galleryId=$(this).data('gallery-id');
+		if(confirm('Do you want to delete this Records ??')){
+		$.post(baseURL+"admin/deleteGallery/"+galleryId,function(data){
+			$("#gallery-id"+galleryId).remove();
+		});
+	}
+	});
 	});
 });
 

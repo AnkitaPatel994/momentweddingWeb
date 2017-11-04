@@ -102,7 +102,9 @@ class Admin extends CI_Controller {
 	 	$this->wedding_model->updateWedding($result,$wedId);
 	 }
 	public function deleteWedding($wedId){
+
 	 	$this->load->model("wedding_model");
+	 	$this->wedding_model->forceDeleteWedding($wedId);
 	 	$this->wedding_model->deleteWedding($wedId);
 	 }
 	public function editWedding($wedId){

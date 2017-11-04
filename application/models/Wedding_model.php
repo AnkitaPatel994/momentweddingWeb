@@ -321,9 +321,22 @@ class Wedding_model extends CI_Model
 		return $output;
 	}
 
-	public function forceDeleteTour($wedID){
-		$this->db->query("delete from profile where id='$wedID'");
-
+	public function forceDeleteWedding($wedID){
+		$this->db->query("delete from event where wedding_id='$wedID'");
+		$this->db->query("delete from guest_list where 	wedding_id='$wedID'");
+		$this->db->query("delete from wedding_gallery where wedding_id='$wedID'");
+		$this->db->query("delete from wedding where id='$wedID'");
 	}
+
+	public function forceDeleteProfile($profileID){	
+	/*	$this->db->query("delete from member where profile_id='$profileID'");
+		$this->db->query("delete from profile where id='$profileID'");*/
+
+	$this->db->query("delete wedding,profile FROM profile JOIN wedding where wedding.bride_id=profile.id and wedding.groom_id=profile.id and profile.id='$profileID' ");
+	}
+	public function forceDeleteGallery($galleryID){
+		$this->db->query("delete from gallery  where id='$galleryID'");
+		$this->db->query("delete from gallery_images where gallery_id='$galleryID'");
+	}	
 }
 ?>
