@@ -463,6 +463,7 @@ class Webservices  extends CI_Controller{
 	public function updateGuestProfile(){
 		$data_back = json_decode(file_get_contents('php://input'));
 		$this->load->model("wedding_model");
+		$this->load->model("guestlist_model");
 		if( isset($data_back->{"guest_id"}) && isset($data_back->{"profile_id"}))
 		{
 			if( !empty($data_back->{"guest_id"}) && !empty($data_back->{"profile_id"}))
@@ -471,7 +472,8 @@ class Webservices  extends CI_Controller{
 				$profile_id = $data_back->{"profile_id"};
 
 				$this->wedding_model->updateGuest($guest_id,array("profile_id"=>$profile_id));
-				$details = array('status' => "1", 'message' => "Guest profile updated");
+				$guestProfile = $this->guestlist_model->fetchRow($guest_id);
+				$details = array('status' => "1", 'message' => "Guest profile updated", 'guestProfile' => $guestProfile );
 			}
 			else
 			{
@@ -581,4 +583,84 @@ class Webservices  extends CI_Controller{
 		}
 		echo json_encode($details);
 	}
+
+	public function memberList(){
+		/*$query = $this->db->query("select * from member where profile_id='21'");
+		$result = $query->result_array();
+		foreach ($result as $key => $row) {
+			echo $row["id"]." - ".$row["member_name"]." - ".$row["member_pic"]."<br/>";
+		}*/
+	}
+
+	public function updateMember(){
+		//$this->db->query("update member set profile_id='21' where profile_id=''");
+		/*$insertData = array(
+			"member_name" => "Ahana",
+			"member_relation" => "Niece",
+			"member_pic" => "http://momentsunlimited.in/weddingWebservices/html/images/members/21_nieceaahana.jpg"
+		);
+		$this->db->insert("member",$insertData);
+		$insertData = array(
+			"member_name" => "Anaya",
+			"member_relation" => "Niece",
+			"member_pic" => "http://momentsunlimited.in/weddingWebservices/html/images/members/21_nieceanaya.jpg"
+		);
+		$this->db->insert("member",$insertData);*/
+	}
+
+
+	//@TODO  add image upload to rsvp
+	public function guestImageUpdate(){
+		//parameters: guest_id, guest_image(base64 string) 
+
+	}
+
+	public function vendorRatingUpdate(){
+		//parameters: guest_id, rating
+	}
+
+	public function getTheme(){
+		//parameters: wedding_id, guest_id
+
+		if( isset($data_back->{"wedding_id"}) && isset($data_back->{"guest_id"}))
+		{
+			if( !empty($data_back->{"wedding_id"}) &&  !empty($data_back->{"guest_id"}))
+			{
+				$wedding_id = $data_back->{"wedding_id"};
+				$guest_id = $data_back->{"guest_id"};
+				
+				$theme = array(
+					"primaryColor" => "#790c17",
+			        "primaryDarkColor" => "#6e0a14",
+			        "transparentColor" => "#80000000",
+			        "textLight" => "#ffffff",
+			        "textDark" => "#7a6f6c",
+			        "lableTextColor" => "#94837f",
+			        "textTitleColor" => "#ffffff",
+			        "clockTopBgColor" => "#ffffff",
+			        "backgroundColor" => "#c0a6a5",
+			        "backgroundImg" => base_url()."html/images/themes/bg_1.png",
+			        "galleryImgBG" => "#ffffff",
+					"editTextLoginBorderColor" => "#e2a237",
+			        "textLoginColor" => "#e2a237",
+			        "buttonTextLoginColor" => "#e2a237"
+				);
+
+				$details = array('status' => "1", 'message' => "Theme fetched", "theme" => $theme);
+			}
+			else
+			{
+				$details = array('status' => "0", 'message' => "Parameter is Empty");
+			}
+		}
+		else
+		{
+			$details = array('status' => "0",'message' => "Parameter Missing");
+		}
+		echo json_encode($details);
+
+	}
+
+
+
 }

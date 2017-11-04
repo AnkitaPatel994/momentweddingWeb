@@ -280,11 +280,29 @@ class Wedding_model extends CI_Model
 		return $result;
 	}
 	public function getEventPhotos($eventID){
+	    $result = $this->getGalleryPhotos($eventID);
+	    /*
 		$query = $this->db->query("select * from gallery where event_id='$eventID'");
 		$result = $query->result_array();
+		*/
 		return $result;
 	}
+
+	
+	public function getGalleryPhotos($galleryID){
+	    $query = $this->db->query("select * from gallery_images where gallery_id='$galleryID'");
+	    $result = $query->result_array();
+	    foreach($result as $key=>$imageRow){
+	        $result[$key]["gallery_pic"] = base_url()."html/images/gallery/".$imageRow["name"];
+	    }
+	    return $result;
+	}
+
 	public function getGallery($weddingID){
+	    
+	    $output = $this->getGalleryNew($weddingID);
+	    return $output;
+	    /*
 		$events = $this->getEvents($weddingID);
 		$output = array();
 		foreach ($events as $key => $eventRow) {
@@ -297,6 +315,28 @@ class Wedding_model extends CI_Model
 			);
 		}
 		return $output;
+		*/
+	}
+	
+	public function getGalleryNew($weddingID){
+	    $galleryList = $this->getGalleryList($weddingID);
+	    $output = array();
+		foreach ($galleryList as $key => $galleryRow) {
+			$galleryPhotos = $this->getGalleryPhotos($galleryRow["id"]);
+			$output[] = array(
+				"eventID" => $galleryRow["id"],
+				"name" => $galleryRow["name"], 
+				"background" => base_url()."html/images/events/".$galleryRow["image"],
+				"photoCount" => sizeof($galleryPhotos)
+			);
+		}
+		return $output;
+	}
+	
+	public function getGalleryList($weddingID){
+	    $query = $this->db->query("select * from wedding_gallery where wedding_id='$weddingID'");
+	    $result = $query->result_array();
+	    return $result;
 	}
 	public function getWeddingSide($weddingID){
 		$query=$this->db->query("select * from wedding where id='$weddingID' ");
@@ -316,7 +356,7 @@ class Wedding_model extends CI_Model
 			"mobile" => "+91-9374295095",
 			"email" => "smile@momentsunlimited.in",
 			"website" => "http://momentsunlimited.in/",
-			"description" => "We are an event management company established in the year 2008 and specializes into Wedding Planning, Theme Decoration, Corporate Events, Exhibitions, Entertainment Events, Celebrity and Artist Management, Builders Site Launching and Religious Functions."
+			"description" => "Moments Event and Entertainment is an event management company established in the year 2008 and specializes into Wedding Planning, At Moments, we work hard and invest all of our energy to make your dreams into realities. Our team interacts with you, understand your exact needs and do the flawless execution of the commitment. We have the necessary experience and expertise to get you the best and most suitable customized services for your Wedding requirements. Our passion is to make the entire functions stress free, enjoyable and just perfect for your life's celebrations. And take this word from us, We always go beyond the Your expectations."
 		);
 		return $output;
 	}
